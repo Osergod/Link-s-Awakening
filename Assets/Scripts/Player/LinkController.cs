@@ -52,6 +52,8 @@ public class LinkController : MonoBehaviour
 
         rig.velocity = new Vector2(velocidad * mx, rig.velocity.y);
         rig.velocity = new Vector2(rig.velocity.x, velocidad * my);
+
+        RotateCharacter(mx);
     }
 
     void StateTransition()
@@ -143,14 +145,14 @@ public class LinkController : MonoBehaviour
         TransformP(mx);
     }*/
 
-    private void TransformP(float mx)
+    private void RotateCharacter(float mx)
     {
-        if (mx >= 0)
+        if (mx < 0)
         {
             gameObject.transform.rotation = Quaternion.AngleAxis(0, Vector3.up);
         }
 
-        if (mx <= 0)
+        if (mx > 0)
         {
             gameObject.transform.rotation = Quaternion.AngleAxis(180, Vector3.up);
         }
