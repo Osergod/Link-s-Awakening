@@ -155,3 +155,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destination: {fileID: 0}
+  anim: {fileID: 6709366865956514008, guid: 040e2c34629efa344abe3f27724fb8c4, type: 3}
