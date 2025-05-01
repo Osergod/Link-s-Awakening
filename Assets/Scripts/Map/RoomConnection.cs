@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DoorColliderController : MonoBehaviour
+public class RoomConnectionController : MonoBehaviour
 {
     [SerializeField]
     GameObject destination;
@@ -14,6 +14,6 @@ public class DoorColliderController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        collision.transform.position = destination.transform.position + new Vector3 (0, destination.transform.localScale.y + 1, 0);
+        collision.transform.position = destination.transform.position;
     }
 }
