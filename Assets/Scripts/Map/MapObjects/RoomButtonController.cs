@@ -12,7 +12,7 @@ public class RoomButtonController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "Player")
+        if(collision.tag == "Player" && !isPressed)
         {
             isPressed = true;
             gameObject.GetComponent<SpriteRenderer>().sprite = pressedSprite;

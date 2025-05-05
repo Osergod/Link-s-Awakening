@@ -6,18 +6,13 @@ public class LootChestController : ActionableMapObject
 {
     [SerializeField] bool isHidden = true;
     [SerializeField] Sprite openedSprite;
+    [SerializeField] GameObject effect;
 
     private void Update()
     {
         if (isHidden)
         {
-            gameObject.GetComponent<SpriteRenderer>().enabled = false;
-            gameObject.GetComponent<BoxCollider2D>().enabled = false;
-        }
-        else
-        {
-            gameObject.GetComponent<SpriteRenderer>().enabled = true;
-            gameObject.GetComponent<BoxCollider2D>().enabled = true;
+            ShowChest(false);
         }
     }
 
@@ -28,6 +23,20 @@ public class LootChestController : ActionableMapObject
 
     public override void Activate()
     {
+        Instantiate(effect, transform.position, Quaternion.identity);
+        StartCoroutine(SpawnChest());
         isHidden = false;
+    }
+
+    public IEnumerator SpawnChest()
+    {
+        yield return new WaitForSeconds(0.20f);
+        ShowChest(true);
+    }
+
+    public void ShowChest(bool s)
+    {
+        gameObject.GetComponent<SpriteRenderer>().enabled = s;
+        gameObject.GetComponent<BoxCollider2D>().enabled = s;
     }
 }
