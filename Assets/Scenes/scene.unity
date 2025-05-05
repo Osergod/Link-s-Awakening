@@ -122,11 +122,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!50 &69656262 stripped
-Rigidbody2D:
-  m_CorrespondingSourceObject: {fileID: 2701549219623962518, guid: 9c207efa0aa76a94a821dd21ac09904f, type: 3}
-  m_PrefabInstance: {fileID: 1284638657}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1153154342
 GameObject:
   m_ObjectHideFlags: 0
@@ -272,14 +267,6 @@ PrefabInstance:
       value: link
       objectReference: {fileID: 0}
     - target: {fileID: 1803092184713674056, guid: 9c207efa0aa76a94a821dd21ac09904f, type: 3}
-      propertyPath: rig
-      value: 
-      objectReference: {fileID: 69656262}
-    - target: {fileID: 1803092184713674056, guid: 9c207efa0aa76a94a821dd21ac09904f, type: 3}
-      propertyPath: spriteRenderer
-      value: 
-      objectReference: {fileID: 1390010713}
-    - target: {fileID: 1803092184713674056, guid: 9c207efa0aa76a94a821dd21ac09904f, type: 3}
       propertyPath: vertical_ia.m_Name
       value: Vertical_ia
       objectReference: {fileID: 0}
@@ -292,11 +279,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c207efa0aa76a94a821dd21ac09904f, type: 3}
---- !u!212 &1390010713 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 3131486699520587967, guid: 9c207efa0aa76a94a821dd21ac09904f, type: 3}
-  m_PrefabInstance: {fileID: 1284638657}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

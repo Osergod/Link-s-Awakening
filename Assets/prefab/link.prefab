@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2825601933217517684}
   m_Layer: 0
   m_Name: link
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -68,8 +68,10 @@ MonoBehaviour:
     m_Interactions: 
     m_SingletonActionBindings: []
     m_Flags: 0
-  rig: {fileID: 0}
+  rig: {fileID: 2701549219623962518}
   anim: {fileID: 8480014185033501938}
+  spriteRenderer: {fileID: 3131486699520587967}
+  lastDirection: 1
 --- !u!212 &3131486699520587967
 SpriteRenderer:
   m_ObjectHideFlags: 0
