@@ -19,6 +19,7 @@ public class WalkState : IPlayerState
         if (mx == 0 && my == 0)
         {
             link.ChangeState(new IdleState());
+            link.TransformP(mx);
             return;
         }
 
@@ -47,7 +48,7 @@ public class WalkState : IPlayerState
                 link.anim.SetFloat("walk_left", 1);
         }
 
-        link.TransformP(mx);
+        
     }
 
     public void HandleInput() { }

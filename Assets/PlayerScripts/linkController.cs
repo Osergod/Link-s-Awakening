@@ -9,12 +9,9 @@ public class LinkController : MonoBehaviour
     public InputAction horizontal_ia, vertical_ia;
     public Rigidbody2D rig;
     public Animator anim;
-
-    private SpriteRenderer spriteRenderer;
-
+    public SpriteRenderer spriteRenderer;
     private IPlayerState currentState;
-
-    private float lastDirection = 1f; 
+    public float lastDirection = 1f; 
 
     private void Awake()
     {
@@ -67,7 +64,5 @@ public class LinkController : MonoBehaviour
             transform.rotation = Quaternion.Euler(0, 0, 0);
         }
     }
-
-
 
 }
