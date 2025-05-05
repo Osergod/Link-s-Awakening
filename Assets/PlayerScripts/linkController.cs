@@ -11,7 +11,6 @@ public class LinkController : MonoBehaviour
     public Animator anim;
     public SpriteRenderer spriteRenderer;
     private IPlayerState currentState;
-    public float lastDirection = 1f; 
 
     private void Awake()
     {
@@ -48,21 +47,6 @@ public class LinkController : MonoBehaviour
         currentState.Enter(this);
     }
 
-    public void TransformP(float mx)
-    {
-        if (mx != 0)
-        {
-            lastDirection = Mathf.Sign(mx);
-        }
 
-        if (lastDirection > 0)
-        {
-            transform.rotation = Quaternion.Euler(0, 0, 0);
-        }
-        else if (lastDirection < 0)
-        {
-            transform.rotation = Quaternion.Euler(0, 0, 0);
-        }
-    }
 
 }

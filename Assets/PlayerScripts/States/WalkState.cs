@@ -19,7 +19,6 @@ public class WalkState : IPlayerState
         if (mx == 0 && my == 0)
         {
             link.ChangeState(new IdleState());
-            link.TransformP(mx);
             return;
         }
 
