@@ -50,6 +50,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   velocidad: 4
   map: {fileID: -944628639613478452, guid: 0fdb0b3158e9a3a48bae9796b52a3c89, type: 3}
+  horizontal_ia:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: ed968e77-a8c7-43a0-ba74-ddc69d2b61c8
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  vertical_ia:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 34d6ffb5-75ac-4f8c-b2f8-39ff6cfb05f7
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  rig: {fileID: 0}
   anim: {fileID: 8480014185033501938}
 --- !u!212 &3131486699520587967
 SpriteRenderer:
@@ -92,7 +111,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -497677554, guid: 818c7281c299dec4c9e50686b3228fd2, type: 3}
+  m_Sprite: {fileID: 692373513, guid: 818c7281c299dec4c9e50686b3228fd2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

@@ -6,7 +6,7 @@
             "id": "0acfc6fb-6bbe-4c09-8b18-9cc2e3e27514",
             "actions": [
                 {
-                    "name": "horizonatl",
+                    "name": "Horizontal",
                     "type": "Button",
                     "id": "949457f0-3f96-4497-b8d2-a40bae2c13a7",
                     "expectedControlType": "Button",
@@ -32,7 +32,7 @@
                     "interactions": "",
                     "processors": "Invert",
                     "groups": "",
-                    "action": "horizonatl",
+                    "action": "Horizontal",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -43,7 +43,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "horizonatl",
+                    "action": "Horizontal",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
