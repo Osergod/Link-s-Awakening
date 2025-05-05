@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BlockedDoorController : MonoBehaviour
+public class BlockedDoorController : ActionableMapObject
 {
     [SerializeField] Sprite openedSprite;
 
@@ -57,7 +57,7 @@ public class BlockedDoorController : MonoBehaviour
         }
     }
 
-    public void Activate()
+    public override void Activate()
     {
         isActive = true;
     }
