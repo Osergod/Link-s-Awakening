@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class BlockedDoorController : ActionableMapObject
 {
-    [SerializeField] Sprite openedSprite;
+    [SerializeField] bool isActive = false;
 
     private Animator ator;
 
-    private bool isActive = false;
+    
 
     enum DoorState { CLOSED, OPEN };
     DoorState doorState = DoorState.CLOSED;
@@ -36,6 +36,7 @@ public class BlockedDoorController : ActionableMapObject
         if (!isActive)
         {
             gameObject.GetComponent<BoxCollider2D>().enabled = true;
+            ator.SetBool("isActive", false);
         }
         else
         {
@@ -48,7 +49,6 @@ public class BlockedDoorController : ActionableMapObject
         if (isActive)
         {
             gameObject.GetComponent<BoxCollider2D>().enabled = false;
-            gameObject.GetComponent<SpriteRenderer>().sprite = openedSprite;
             ator.SetBool("isActive", true);
         }
         else

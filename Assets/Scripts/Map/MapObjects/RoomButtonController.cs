@@ -6,7 +6,7 @@ using UnityEngine;
 public class RoomButtonController : MonoBehaviour
 {
     [SerializeField] Sprite pressedSprite;
-    [SerializeField] BlockedDoorController targetObject;
+    [SerializeField] ActionableMapObject targetObject;
 
     private bool isPressed = false;
 
