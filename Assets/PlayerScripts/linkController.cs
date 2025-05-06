@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -11,6 +12,7 @@ public class LinkController : MonoBehaviour
     public Animator anim;
     public SpriteRenderer spriteRenderer;
     private IPlayerState currentState;
+    private float lastHorizontalMovementValue;
 
     private void Awake()
     {
@@ -34,11 +36,9 @@ public class LinkController : MonoBehaviour
     {
         if (currentState == null) return;
 
-        currentState.HandleInput(); 
-        currentState.Update();      
+        currentState.HandleInput();
+        currentState.Update();
     }
-
-    
 
     public void ChangeState(IPlayerState newState)
     {
@@ -46,4 +46,32 @@ public class LinkController : MonoBehaviour
         currentState = newState;
         currentState.Enter(this);
     }
+
+    public void NotAtack()
+    {
+        float atk = atack_ia.ReadValue<float>();
+
+        atk = 0;
+        transform.rotation = Quaternion.Euler(0, 0, 0);
+    }
+
+    public void SetLastHorizontalInputValue(float v)
+    {
+        lastHorizontalMovementValue = v;
+
+        if (lastHorizontalMovementValue > 0)
+        {
+            transform.rotation = Quaternion.Euler(0, 180, 0);
+        }
+        else if (lastHorizontalMovementValue != 0)
+        {
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
+    }
+
+    public float GetLastHorizontalMovementValue()
+    {
+        return lastHorizontalMovementValue;
+    }
+
 }

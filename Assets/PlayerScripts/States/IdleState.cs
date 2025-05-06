@@ -11,8 +11,6 @@ public class IdleState : IPlayerState
 
         
         link.rig.velocity = Vector2.zero;
-
-        
         link.anim.SetFloat("walk_up", 0);
         link.anim.SetFloat("walk_down", 0);
         link.anim.SetFloat("walk_left", 0);

@@ -267,6 +267,10 @@ PrefabInstance:
       value: link
       objectReference: {fileID: 0}
     - target: {fileID: 1803092184713674056, guid: 9c207efa0aa76a94a821dd21ac09904f, type: 3}
+      propertyPath: atack_ia.m_Name
+      value: Atack_ia
+      objectReference: {fileID: 0}
+    - target: {fileID: 1803092184713674056, guid: 9c207efa0aa76a94a821dd21ac09904f, type: 3}
       propertyPath: vertical_ia.m_Name
       value: Vertical_ia
       objectReference: {fileID: 0}
@@ -274,6 +278,10 @@ PrefabInstance:
       propertyPath: horizontal_ia.m_Name
       value: Horizontal_ia
       objectReference: {fileID: 0}
+    - target: {fileID: 8480014185033501938, guid: 9c207efa0aa76a94a821dd21ac09904f, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: bf9569e9e4c5d454c992ac7d883047c0, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

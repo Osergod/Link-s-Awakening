@@ -9,7 +9,20 @@ public class WalkState : IPlayerState
         this.link = link;
     }
 
-    public void Exit() { }
+    public void Exit()
+    {
+
+        ResetAnimation();
+    }
+
+    void ResetAnimation()
+    {
+        link.anim.SetFloat("walk_up", 0);
+        link.anim.SetFloat("walk_down", 0);
+        link.anim.SetFloat("walk_left", 0);
+        link.anim.SetFloat("walk_right", 0);
+
+    }
 
     public void Update()
     {
@@ -22,22 +35,17 @@ public class WalkState : IPlayerState
             link.ChangeState(new IdleState());
             return;
         }
-
-        if (mx != 0 || my != 0)
-            link.ChangeState(new WalkState());
         if (atk != 0)
+        {
             link.ChangeState(new AtackState());
-
+            return;
+        }
         Vector2 move = new Vector2(mx, my).normalized;
         link.rig.velocity = move * link.velocidad;
 
-        
-        link.anim.SetFloat("walk_up", 0);
-        link.anim.SetFloat("walk_down", 0);
-        link.anim.SetFloat("walk_left", 0);
-        link.anim.SetFloat("walk_right", 0);
+        ResetAnimation();
 
-        
+
         if (Mathf.Abs(mx) > Mathf.Abs(my))
         {
             if (mx > 0)
@@ -51,10 +59,12 @@ public class WalkState : IPlayerState
                 link.anim.SetFloat("walk_up", 1);
             else
                 link.anim.SetFloat("walk_down", 1);
-            
+
         }
 
-        
+        link.SetLastHorizontalInputValue(mx);
+
+
     }
 
     public void HandleInput() { }
