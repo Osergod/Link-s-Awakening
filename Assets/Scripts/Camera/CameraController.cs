@@ -5,10 +5,35 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     [SerializeField]
-    GameObject player;
+    GameObject room;
 
-    void Update()
+    public static CameraController cameraController;
+
+    public static CameraController instance
     {
-        transform.position = new Vector3 (player.transform.position.x, player.transform.position.y, transform.position.z);
+        get
+        {
+            return RequestCameraController1();
+        }
+        
+    }
+
+    public static CameraController RequestCameraController1()
+    {
+        if (!cameraController)
+        {
+            cameraController = FindObjectOfType<CameraController>();
+        }
+        return cameraController;
+    }
+
+void Update()
+    {
+        transform.position = new Vector3 (room.transform.position.x, room.transform.position.y, transform.position.z);
+    }
+
+    public void SetRoom(GameObject room)
+    {
+        this.room = room;
     }
 }
