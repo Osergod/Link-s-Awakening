@@ -11,6 +11,7 @@ public class LinkController : MonoBehaviour
     private Rigidbody2D rig;
     public Animator anim;
     private SpriteRenderer SpritePlayer;
+    private float speedYModifier = 1;
 
     private void Awake()
     {
@@ -48,12 +49,22 @@ public class LinkController : MonoBehaviour
     void OnFloor()
     {
         float mx = horizontal_ia.ReadValue<float>();
-        float my = vertical_ia.ReadValue<float>();
+        float my = vertical_ia.ReadValue<float>() * speedYModifier;
 
         rig.velocity = new Vector2(velocidad * mx, rig.velocity.y);
         rig.velocity = new Vector2(rig.velocity.x, velocidad * my);
 
         RotateCharacter(mx);
+    }
+
+    public void SetSpeedYModifier(float speedYModifier)
+    {
+        this.speedYModifier = speedYModifier;
+    }
+
+    public void ResetSpeedYModifier()
+    {
+        speedYModifier = 1;
     }
 
     void StateTransition()
