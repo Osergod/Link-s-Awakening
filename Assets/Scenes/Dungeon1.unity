@@ -42398,6 +42398,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   room: {fileID: 2034630453}
+  speed: 0.05
 --- !u!1 &1811493547
 GameObject:
   m_ObjectHideFlags: 0
@@ -45286,7 +45287,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 860660042454564613, guid: 9c207efa0aa76a94a821dd21ac09904f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.96631
+      value: -1.98
       objectReference: {fileID: 0}
     - target: {fileID: 860660042454564613, guid: 9c207efa0aa76a94a821dd21ac09904f, type: 3}
       propertyPath: m_LocalPosition.y
