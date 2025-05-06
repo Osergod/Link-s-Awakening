@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class IdleState : IPlayerState
@@ -24,11 +25,12 @@ public class IdleState : IPlayerState
     {
         float mx = link.horizontal_ia.ReadValue<float>();
         float my = link.vertical_ia.ReadValue<float>();
+        float atk = link.atack_ia.ReadValue<float>();
 
         if (mx != 0 || my != 0)
-        {
             link.ChangeState(new WalkState());
-        }
+        if (atk != 0)
+            link.ChangeState(new AtackState());
     }
 
     public void HandleInput() { }

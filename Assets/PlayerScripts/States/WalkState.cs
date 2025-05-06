@@ -15,12 +15,18 @@ public class WalkState : IPlayerState
     {
         float mx = link.horizontal_ia.ReadValue<float>();
         float my = link.vertical_ia.ReadValue<float>();
+        float atk = link.atack_ia.ReadValue<float>();
 
         if (mx == 0 && my == 0)
         {
             link.ChangeState(new IdleState());
             return;
         }
+
+        if (mx != 0 || my != 0)
+            link.ChangeState(new WalkState());
+        if (atk != 0)
+            link.ChangeState(new AtackState());
 
         Vector2 move = new Vector2(mx, my).normalized;
         link.rig.velocity = move * link.velocidad;
@@ -32,19 +38,20 @@ public class WalkState : IPlayerState
         link.anim.SetFloat("walk_right", 0);
 
         
-        if (Mathf.Abs(my) > Mathf.Abs(mx))
-        {
-            if (my > 0)
-                link.anim.SetFloat("walk_up", 1);
-            else
-                link.anim.SetFloat("walk_down", 1);
-        }
-        else
+        if (Mathf.Abs(mx) > Mathf.Abs(my))
         {
             if (mx > 0)
                 link.anim.SetFloat("walk_right", 1);
             else
                 link.anim.SetFloat("walk_left", 1);
+        }
+        else
+        {
+            if (my > 0)
+                link.anim.SetFloat("walk_up", 1);
+            else
+                link.anim.SetFloat("walk_down", 1);
+            
         }
 
         
