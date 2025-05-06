@@ -16,6 +16,9 @@ public class StairsController : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        collision.GetComponent<LinkController>().ResetSpeedYModifier();
+        if (collision.tag == "Player")
+        {
+            collision.GetComponent<LinkController>().ResetSpeedYModifier();
+        }
     }
 }
