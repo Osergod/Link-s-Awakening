@@ -1,17 +1,19 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class WalkState : IPlayerState
+public class StairsState : IPlayerState
 {
     private LinkController link;
 
     public void Enter(LinkController link)
     {
         this.link = link;
+        Debug.Log(link.currentState);
     }
 
     public void Exit()
     {
-
         ResetAnimation();
     }
 
@@ -21,50 +23,43 @@ public class WalkState : IPlayerState
         link.anim.SetFloat("walk_down", 0);
         link.anim.SetFloat("walk_left", 0);
         link.anim.SetFloat("walk_right", 0);
-
     }
 
     public void Update()
     {
         float mx = link.horizontal_ia.ReadValue<float>();
         float my = link.vertical_ia.ReadValue<float>();
-        float atk = link.atack_ia.ReadValue<float>();
 
-        if (mx == 0 && my == 0)
+        if (link.stairs_code.OnStairs == false)
         {
-            link.ChangeState(new IdleState());
+            link.ChangeState(new WalkState());
             return;
         }
-        if (atk != 0)
-        {
-            link.ChangeState(new AtackState());
-            return;
-        }
-        Vector2 move = new Vector2(mx, my).normalized;
+
+        Vector2 move = new Vector2(mx, my/2).normalized;
         link.rig.velocity = move * link.velocidad;
 
         ResetAnimation();
 
 
-        if (Mathf.Abs(mx) > Mathf.Abs(my))
+        if (Mathf.Abs(mx) >= Mathf.Abs(my))
         {
             if (mx > 0)
                 link.anim.SetFloat("walk_right", 1);
-            else
+            if (mx < 0)
                 link.anim.SetFloat("walk_left", 1);
         }
         else
         {
+            link.velocidad = 2;
+
             if (my > 0)
                 link.anim.SetFloat("walk_up", 1);
-            else
+            if (my < 0)
                 link.anim.SetFloat("walk_down", 1);
-
         }
 
         link.SetLastHorizontalInputValue(mx);
-
-
     }
 
     public void HandleInput() { }

@@ -5,13 +5,15 @@ using UnityEngine.InputSystem;
 public class LinkController : MonoBehaviour
 {
     [SerializeField] public float velocidad = 5f;
-    public InputActionAsset map;
+    [SerializeField] public BoxCollider2D stairs;
+    [SerializeField] public stairs stairs_code;
 
+    public InputActionAsset map;
     public InputAction horizontal_ia, vertical_ia, atack_ia;
     public Rigidbody2D rig;
     public Animator anim;
     public SpriteRenderer spriteRenderer;
-    private IPlayerState currentState;
+    public IPlayerState currentState;
     private float lastHorizontalMovementValue;
 
     private void Awake()

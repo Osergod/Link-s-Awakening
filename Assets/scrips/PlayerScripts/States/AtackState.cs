@@ -12,8 +12,6 @@ public class AtackState : IPlayerState
         this.link = link;
         float mx = link.horizontal_ia.ReadValue<float>();
         attackTimer = attackDuration;
-        //if (mx > 0)
-        //    link.transform.rotation = Quaternion.Euler(0, 180, 0);
 
         link.anim.SetTrigger("atack");
 
