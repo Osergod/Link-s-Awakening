@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3131486699520587967}
   - component: {fileID: 8480014185033501938}
   - component: {fileID: 2701549219623962518}
-  - component: {fileID: 2825601933217517684}
+  - component: {fileID: 8352222255914417070}
   m_Layer: 0
   m_Name: link
   m_TagString: Player
@@ -68,10 +68,18 @@ MonoBehaviour:
     m_Interactions: 
     m_SingletonActionBindings: []
     m_Flags: 0
+  atack_ia:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 08d2ae3c-7e2c-4213-a69c-f4c279350f7e
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
   rig: {fileID: 2701549219623962518}
   anim: {fileID: 8480014185033501938}
   spriteRenderer: {fileID: 3131486699520587967}
-  lastDirection: 1
 --- !u!212 &3131486699520587967
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -134,7 +142,7 @@ Animator:
   m_GameObject: {fileID: 1473571407825001124}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 622b0a206fba1d8459cef0cbfc708bf4, type: 2}
+  m_Controller: {fileID: 9100000, guid: bf9569e9e4c5d454c992ac7d883047c0, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -171,9 +179,9 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!61 &2825601933217517684
-BoxCollider2D:
+  m_Constraints: 4
+--- !u!70 &8352222255914417070
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -205,15 +213,5 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.25}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.8125, y: 1}
-    newSize: {x: 0.8125, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 0.5}
-  m_EdgeRadius: 0
+  m_Size: {x: 0.85, y: 0.5}
+  m_Direction: 1
