@@ -9,7 +9,6 @@ public class CameraController : MonoBehaviour
 
     GameObject oldRoom;
     
-
     enum CAMERA_STATES { IDLE, MOVE_TO_ROOM };
     CAMERA_STATES cameraState = CAMERA_STATES.IDLE;
 
