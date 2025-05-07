@@ -8,14 +8,21 @@ public class BlockedDoorController : ActionableMapObject
 
     private Animator ator;
 
-    
-
     enum DoorState { CLOSED, OPEN };
-    DoorState doorState = DoorState.CLOSED;
+    DoorState doorState;
 
     private void Awake()
     {
         ator = GetComponent<Animator>();
+
+        if (!isActive)
+        {
+            doorState = DoorState.CLOSED;
+        }
+        else
+        {
+            doorState = DoorState.OPEN;
+        }
     }
 
     private void Update()
@@ -33,32 +40,35 @@ public class BlockedDoorController : ActionableMapObject
 
     public void IsClosed()
     {
-        if (!isActive)
-        {
-            gameObject.GetComponent<BoxCollider2D>().enabled = true;
-            ator.SetBool("isActive", false);
-        }
-        else
+        if (isActive)
         {
             doorState = DoorState.OPEN;
         }
+
+        gameObject.GetComponent<BoxCollider2D>().isTrigger = false;
+        ator.SetBool("isActive", false);
     }
 
     public void IsOpen()
     {
-        if (isActive)
-        {
-            gameObject.GetComponent<BoxCollider2D>().enabled = false;
-            ator.SetBool("isActive", true);
-        }
-        else
+        if (!isActive)
         {
             doorState = DoorState.CLOSED;
         }
+
+        gameObject.GetComponent<BoxCollider2D>().isTrigger = true;
+        ator.SetBool("isActive", true);
     }
 
     public override void Activate()
     {
-        isActive = true;
+        if (!isActive)
+        {
+            isActive = true;
+        }
+        else
+        {
+            isActive = false;
+        }
     }
 }
