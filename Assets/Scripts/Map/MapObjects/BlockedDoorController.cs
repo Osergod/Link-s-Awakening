@@ -8,6 +8,8 @@ public class BlockedDoorController : ActionableMapObject
 
     private Animator ator;
 
+    private static bool playerEntered = false;
+
     enum DoorState { CLOSED, OPEN };
     DoorState doorState;
 
@@ -62,13 +64,37 @@ public class BlockedDoorController : ActionableMapObject
 
     public override void Activate()
     {
-        if (!isActive)
+        isActive = true;
+    }
+
+    public void Deactivate()
+    {
+        isActive = false;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Player")
         {
-            isActive = true;
+            playerEntered = true;
         }
-        else
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.tag == "Player")
         {
-            isActive = false;
+            playerEntered = false;
         }
+    }
+
+    public void SetPlayerEntered(bool state)
+    {
+        playerEntered = state;
+    }
+
+    public bool GetPlayerEntered()
+    {
+        return playerEntered;
     }
 }
