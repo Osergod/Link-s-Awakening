@@ -34,9 +34,9 @@ public class LootChestController : ActionableMapObject
         ShowChest(true);
     }
 
-    public void ShowChest(bool s)
+    public void ShowChest(bool state)
     {
-        gameObject.GetComponent<SpriteRenderer>().enabled = s;
-        gameObject.GetComponent<BoxCollider2D>().enabled = s;
+        gameObject.GetComponent<SpriteRenderer>().enabled = state;
+        gameObject.GetComponent<BoxCollider2D>().enabled = state;
     }
 }

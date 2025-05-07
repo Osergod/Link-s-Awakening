@@ -22,6 +22,9 @@ public class RoomCameraMovement : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        gameObject.GetComponent<TilemapRenderer>().enabled = false;
+        if (collision.tag == "Player")
+        {
+            gameObject.GetComponent<TilemapRenderer>().enabled = false;
+        }
     }
 }

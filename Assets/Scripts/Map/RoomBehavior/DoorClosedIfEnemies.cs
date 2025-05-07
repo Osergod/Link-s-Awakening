@@ -2,28 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DoorClosesOnEnter : MonoBehaviour
+public class DoorClosedIfEnemies : PuzzleRoom
 {
     [SerializeField] List<BlockedDoorController> roomDoors = new List<BlockedDoorController>();
-    [SerializeField] List<BlockedDoorController> roomEnemies = new List<BlockedDoorController>();
-
-    bool isSolved;
-
-    private void Update()
-    {
-        if (roomEnemies.Count == 0 && !isSolved)
-        {
-            SolveRoom();
-        }
-        else
-        {
-            UnSolveRoom();
-        }
-    }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.tag == "Player" && !isSolved)
+        if (collision.tag == "Player" && !GetIsSolved())
         {
             for (int i = 0; i < roomDoors.Count; i++)
             {
@@ -37,7 +22,7 @@ public class DoorClosesOnEnter : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.tag == "Player" && !isSolved)
+        if (collision.tag == "Player" && !GetIsSolved())
         {
             ActivateDoors();
         }
@@ -51,14 +36,14 @@ public class DoorClosesOnEnter : MonoBehaviour
         }
     }
 
-    public void SolveRoom()
+    public override void SolveRoom()
     {
-        isSolved = true;
+        SetIsSolved(true);
         ActivateDoors();
     }
 
-    public void UnSolveRoom()
+    public override void UnSolveRoom()
     {
-        isSolved = false;
+        SetIsSolved(false);
     }
 }
