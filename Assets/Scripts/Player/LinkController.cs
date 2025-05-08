@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 
 public class LinkController : MonoBehaviour
 {
+    [SerializeField] int keys;
     [SerializeField] private float velocidad;
     public InputActionAsset map;
     private InputAction horizontal_ia, vertical_ia;
@@ -44,6 +45,8 @@ public class LinkController : MonoBehaviour
                 OnFloor();
                 break;
         }
+
+        Debug.Log(keys);
     }
 
     void OnFloor()
@@ -88,6 +91,15 @@ public class LinkController : MonoBehaviour
         {
             current_state = STATES.ON_WALK_HORIZONTAL;
         }
+    }
+    public int GetKeys()
+    {
+        return keys;
+    }
+
+    public void DecrementKeys()
+    {
+        keys--;
     }
 
     // Update is called once per frame

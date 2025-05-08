@@ -17,7 +17,6 @@ public class DestroyableWallController : ActionableMapObject
     public override void Activate()
     {
         Instantiate(effect, transform.position, Quaternion.identity);
-        this.
         GetComponent<SpriteRenderer>().enabled = false;
         GetComponent<BoxCollider2D>().enabled = false;
         GetComponent<PolygonCollider2D>().enabled = false;
