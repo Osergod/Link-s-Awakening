@@ -7,7 +7,7 @@ public class RoomCameraMovement : MonoBehaviour
 {
     private void Start()
     {
-        gameObject.GetComponent<TilemapRenderer>().enabled = false;
+        //gameObject.GetComponent<TilemapRenderer>().enabled = false;
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -16,7 +16,7 @@ public class RoomCameraMovement : MonoBehaviour
         {
             CameraController.instance.SetRoom(gameObject);
             CameraController.instance.MoveToRoom();
-            gameObject.GetComponent<TilemapRenderer>().enabled = true;
+            //gameObject.GetComponent<TilemapRenderer>().enabled = true;
         }
     }
 
@@ -24,7 +24,7 @@ public class RoomCameraMovement : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            gameObject.GetComponent<TilemapRenderer>().enabled = false;
+            //gameObject.GetComponent<TilemapRenderer>().enabled = false;
         }
     }
 }

@@ -17,6 +17,16 @@ public class OneWayDoorController : MonoBehaviour
         if (collision.tag == "Player")
         {
             ator.SetTrigger("PlayerCrossed");
+            StartCoroutine(MovePlayer(collision));
         }   
+    }
+
+    public IEnumerator MovePlayer(Collider2D collision)
+    {
+        //collision.GetComponent<CapsuleCollider2D>().enabled = false;
+        collision.GetComponent<SpriteRenderer>().enabled = false;
+        yield return new WaitForSeconds(1f);
+        collision.GetComponent<Rigidbody2D>().transform.Translate(new Vector3(0, 2, 0));
+        collision.GetComponent<SpriteRenderer>().enabled = true;
     }
 }
