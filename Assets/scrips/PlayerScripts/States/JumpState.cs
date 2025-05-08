@@ -21,7 +21,7 @@ public class JumpState : IPlayerState
         Vector2 move = new Vector2(mx, my).normalized;
         link.rig.velocity = move * 0;
 
-        link.transform.position += Vector3.up * 1 / 4;
+        link.transform.position += Vector3.up * 1;
         link.transform.localScale += Vector3.up * 1 / 4;
 
         link.GetComponentInChildren<BoxCollider2D>().enabled = false;
@@ -33,7 +33,7 @@ public class JumpState : IPlayerState
         ResetAnimation();
         link.GetComponentInChildren<BoxCollider2D>().enabled = true;
 
-        link.transform.position += Vector3.down * 1 / 4;
+        link.transform.position += Vector3.down * 1;
         link.transform.localScale += Vector3.down * 1 / 4;
 
     }
@@ -52,16 +52,14 @@ public class JumpState : IPlayerState
         float my = link.vertical_ia.ReadValue<float>();
         float mj = link.jump_ia.ReadValue<float>();
 
-        if (mj == 0)
+        if (jumpTimer <= 0)
         {
-            if (jumpTimer <= 0)
-            {
-                link.ChangeState(new IdleState());
-                return;
-            }
-            else
-                jumpTimer -= Time.deltaTime;
+            link.ChangeState(new IdleState());
+            return;
         }
+        else
+            jumpTimer -= Time.deltaTime;
+        
 
         Vector2 move = new Vector2(mx, my).normalized;
         link.rig.velocity = move * link.velocidad;
