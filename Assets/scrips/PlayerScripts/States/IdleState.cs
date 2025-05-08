@@ -8,7 +8,6 @@ public class IdleState : IPlayerState
     public void Enter(LinkController link)
     {
         this.link = link;
-
         
         link.rig.velocity = Vector2.zero;
         link.anim.SetFloat("walk_up", 0);
@@ -24,11 +23,14 @@ public class IdleState : IPlayerState
         float mx = link.horizontal_ia.ReadValue<float>();
         float my = link.vertical_ia.ReadValue<float>();
         float atk = link.atack_ia.ReadValue<float>();
+        float mj = link.jump_ia.ReadValue<float>();
 
         if (mx != 0 || my != 0)
             link.ChangeState(new WalkState());
         if (atk != 0)
             link.ChangeState(new AtackState());
+        if (mj != 0 && link.HasFeather == true)
+            link.ChangeState(new JumpState());
     }
 
     public void HandleInput() { }

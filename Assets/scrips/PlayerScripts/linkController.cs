@@ -8,8 +8,9 @@ public class LinkController : MonoBehaviour
     [SerializeField] public BoxCollider2D stairs;
     [SerializeField] public stairs stairs_code;
 
+    public bool HasFeather = false;
     public InputActionAsset map;
-    public InputAction horizontal_ia, vertical_ia, atack_ia;
+    public InputAction horizontal_ia, vertical_ia, atack_ia, jump_ia;
     public Rigidbody2D rig;
     public Animator anim;
     public SpriteRenderer spriteRenderer;
@@ -22,6 +23,7 @@ public class LinkController : MonoBehaviour
         horizontal_ia = map.FindActionMap("Movement").FindAction("Horizontal");
         vertical_ia = map.FindActionMap("Movement").FindAction("Vertical");
         atack_ia = map.FindActionMap("Atack").FindAction("Atack");
+        jump_ia = map.FindActionMap("Movement").FindAction("Jump");
 
         rig = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
@@ -75,5 +77,6 @@ public class LinkController : MonoBehaviour
     {
         return lastHorizontalMovementValue;
     }
+
 
 }

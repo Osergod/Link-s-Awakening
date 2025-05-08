@@ -23,7 +23,6 @@ public class AtackState : IPlayerState
 
     public void Update()
     {
-
         float atk = link.atack_ia.ReadValue<float>();
 
         if (atk == 0)
