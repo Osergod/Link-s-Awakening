@@ -8,6 +8,7 @@ public class DoorClosedIfEnemies : PuzzleRoom
 
     private void OnTriggerStay2D(Collider2D collision)
     {
+        Debug.Log(GetIsSolved());
         if (collision.tag == "Player" && !GetIsSolved())
         {
             for (int i = 0; i < roomDoors.Count; i++)

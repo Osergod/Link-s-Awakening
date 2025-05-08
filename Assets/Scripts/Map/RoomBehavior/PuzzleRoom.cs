@@ -10,11 +10,11 @@ public abstract class PuzzleRoom : MonoBehaviour
 
     private void Update()
     {
-        if (roomEnemies.Count == 0 && !isSolved)
+        if (roomEnemies.Count <= 0 && !isSolved)
         {
             SolveRoom();
         }
-        else
+        else if (roomEnemies.Count > 0)
         {
             UnSolveRoom();
         }
