@@ -23,7 +23,6 @@ public class OneWayDoorController : MonoBehaviour
 
     public IEnumerator MovePlayer(Collider2D collision)
     {
-        //collision.GetComponent<CapsuleCollider2D>().enabled = false;
         collision.GetComponent<SpriteRenderer>().enabled = false;
         yield return new WaitForSeconds(1f);
         collision.GetComponent<Rigidbody2D>().transform.Translate(new Vector3(0, 2, 0));

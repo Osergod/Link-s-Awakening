@@ -5,10 +5,10 @@ using UnityEngine.Tilemaps;
 
 public class RoomCameraMovement : MonoBehaviour
 {
-    private void Start()
+    /*private void Start()
     {
-        //gameObject.GetComponent<TilemapRenderer>().enabled = false;
-    }
+        gameObject.GetComponent<TilemapRenderer>().enabled = false;
+    }*/
 
     private void OnTriggerStay2D(Collider2D collision)
     {
@@ -20,11 +20,11 @@ public class RoomCameraMovement : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    /*private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.tag == "Player")
         {
-            //gameObject.GetComponent<TilemapRenderer>().enabled = false;
+            gameObject.GetComponent<TilemapRenderer>().enabled = false;
         }
-    }
+    }*/
 }
