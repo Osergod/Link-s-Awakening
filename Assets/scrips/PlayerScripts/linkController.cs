@@ -12,6 +12,7 @@ public class LinkController : MonoBehaviour
     public InputActionAsset map;
     public InputAction horizontal_ia, vertical_ia, atack_ia, jump_ia;
     public Rigidbody2D rig;
+    public Transform trans;
     public Animator anim;
     public SpriteRenderer spriteRenderer;
     public IPlayerState currentState;
