@@ -7,17 +7,8 @@ public class stairs : MonoBehaviour
 {
     public bool OnStairs;
 
-    private void Start()
-    {
-        OnStairs = false;
-    }
+    private void Start() => OnStairs = false;
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        OnStairs = true;
-    }
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        OnStairs = false;
-    }
+    private void OnTriggerEnter2D(Collider2D collision) => OnStairs = true;
+    private void OnTriggerExit2D(Collider2D collision) => OnStairs = false;
 }

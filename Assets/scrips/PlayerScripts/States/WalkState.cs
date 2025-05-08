@@ -8,7 +8,7 @@ public class WalkState : IPlayerState
     public void Enter(LinkController link)
     {
         this.link = link;
-        link.velocidad = 2;
+        link.velocidad = 4;
     }
 
     public void Exit()

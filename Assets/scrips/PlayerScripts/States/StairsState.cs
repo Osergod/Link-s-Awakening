@@ -9,7 +9,6 @@ public class StairsState : IPlayerState
     public void Enter(LinkController link)
     {
         this.link = link;
-        Debug.Log(link.currentState);
     }
 
     public void Exit()
@@ -44,6 +43,8 @@ public class StairsState : IPlayerState
 
         if (Mathf.Abs(mx) >= Mathf.Abs(my))
         {
+            link.velocidad = 4;
+
             if (mx > 0)
                 link.anim.SetFloat("walk_right", 1);
             if (mx < 0)
