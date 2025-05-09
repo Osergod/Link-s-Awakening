@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Feather : MonoBehaviour
 {
-    private LinkController link;
+    [SerializeField] private LinkController link;
 
     private void Start()
     {

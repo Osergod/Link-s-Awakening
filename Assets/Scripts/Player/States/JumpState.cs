@@ -12,7 +12,6 @@ public class JumpState : IPlayerState
 
     public void Enter(LinkController link)
     {
-        Debug.Log(link.currentState);
         this.link = link;
         jumpTimer = jumpDuration;
         float mx = link.horizontal_ia.ReadValue<float>();
@@ -21,15 +20,14 @@ public class JumpState : IPlayerState
         Vector2 move = new Vector2(mx, my).normalized;
         link.rig.velocity = move * 0;
 
-        link.transform.position += Vector3.up * 1;
-        link.transform.localScale += Vector3.up * 1 / 4;
+        link.spriteRenderer.transform.position += Vector3.up * 1;
+        link.spriteRenderer.transform.localScale += Vector3.up * 1 / 4;
 
         link.GetComponentInChildren<BoxCollider2D>().enabled = false;
     }
 
     public void Exit()
     {
-        Debug.Log("no " + link.currentState);
         ResetAnimation();
         link.GetComponentInChildren<BoxCollider2D>().enabled = true;
 
@@ -64,18 +62,18 @@ public class JumpState : IPlayerState
         Vector2 move = new Vector2(mx, my).normalized;
         link.rig.velocity = move * link.velocidad;
 
-        if (Mathf.Abs(mx) > Mathf.Abs(my))
+        if (Mathf.Abs(mx) >= Mathf.Abs(my))
         {
             if (mx >= 0)
                 link.anim.SetFloat("jump_right", 1);
-            else
+            if (mx <= 0)
                 link.anim.SetFloat("jump_left", 1);
         }
-        else
+        if (Mathf.Abs(mx) <= Mathf.Abs(my))
         {
             if (my >= 0)
                 link.anim.SetFloat("jump_up", 1);
-            else
+            if (my <= 0)
                 link.anim.SetFloat("jump_down", 1);
         }
 
