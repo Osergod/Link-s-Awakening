@@ -4,11 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 26
-<<<<<<< HEAD
   productGUID: 4a66870df086aa947b94a8fb84d5dca2
-=======
-  productGUID: 77151873e81ba9846a01c84bcb14c8a9
->>>>>>> test
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
@@ -17,11 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: DefaultCompany
-<<<<<<< HEAD
   productName: link awakaninjjjj
-=======
-  productName: LinksAwakening
->>>>>>> test
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -827,22 +819,14 @@ PlayerSettings:
   apiCompatibilityLevelPerPlatform: {}
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
-<<<<<<< HEAD
   metroPackageName: link awakaninjjjj
-=======
-  metroPackageName: LinksAwakening
->>>>>>> test
   metroPackageVersion: 
   metroCertificatePath: 
   metroCertificatePassword: 
   metroCertificateSubject: 
   metroCertificateIssuer: 
   metroCertificateNotAfter: 0000000000000000
-<<<<<<< HEAD
   metroApplicationDescription: link awakaninjjjj
-=======
-  metroApplicationDescription: LinksAwakening
->>>>>>> test
   wsaImages: {}
   metroTileShortName: 
   metroTileShowName: 0
@@ -911,19 +895,11 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 2
   windowsGamepadBackendHint: 0
-<<<<<<< HEAD
   cloudProjectId: 
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
   projectName: 
   organizationId: 
-=======
-  cloudProjectId: 94f22234-bdf7-429a-988a-27aa358ecf16
-  framebufferDepthMemorylessMode: 0
-  qualitySettingsNames: []
-  projectName: LinksAwakening
-  organizationId: a24gerblaper
->>>>>>> test
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}
