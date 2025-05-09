@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BlockedDoorController : ActionableMapObject
 {
+<<<<<<< HEAD
     [SerializeField] bool isActive = false;
 
     private Animator ator;
@@ -12,10 +13,21 @@ public class BlockedDoorController : ActionableMapObject
 
     enum DoorState { CLOSED, OPEN };
     DoorState doorState;
+=======
+    [SerializeField] Sprite openedSprite;
+
+    private Animator ator;
+
+    private bool isActive = false;
+
+    enum DoorState { CLOSED, OPEN };
+    DoorState doorState = DoorState.CLOSED;
+>>>>>>> test
 
     private void Awake()
     {
         ator = GetComponent<Animator>();
+<<<<<<< HEAD
 
         if (!isActive)
         {
@@ -25,6 +37,8 @@ public class BlockedDoorController : ActionableMapObject
         {
             doorState = DoorState.OPEN;
         }
+=======
+>>>>>>> test
     }
 
     private void Update()
@@ -42,6 +56,7 @@ public class BlockedDoorController : ActionableMapObject
 
     public void IsClosed()
     {
+<<<<<<< HEAD
         if (isActive)
         {
             doorState = DoorState.OPEN;
@@ -49,10 +64,21 @@ public class BlockedDoorController : ActionableMapObject
 
         gameObject.GetComponent<BoxCollider2D>().isTrigger = false;
         ator.SetBool("isActive", false);
+=======
+        if (!isActive)
+        {
+            gameObject.GetComponent<BoxCollider2D>().enabled = true;
+        }
+        else
+        {
+            doorState = DoorState.OPEN;
+        }
+>>>>>>> test
     }
 
     public void IsOpen()
     {
+<<<<<<< HEAD
         if (!isActive)
         {
             doorState = DoorState.CLOSED;
@@ -60,12 +86,25 @@ public class BlockedDoorController : ActionableMapObject
 
         gameObject.GetComponent<BoxCollider2D>().isTrigger = true;
         ator.SetBool("isActive", true);
+=======
+        if (isActive)
+        {
+            gameObject.GetComponent<BoxCollider2D>().enabled = false;
+            gameObject.GetComponent<SpriteRenderer>().sprite = openedSprite;
+            ator.SetBool("isActive", true);
+        }
+        else
+        {
+            doorState = DoorState.CLOSED;
+        }
+>>>>>>> test
     }
 
     public override void Activate()
     {
         isActive = true;
     }
+<<<<<<< HEAD
 
     public void Deactivate()
     {
@@ -97,4 +136,6 @@ public class BlockedDoorController : ActionableMapObject
     {
         return playerEntered;
     }
+=======
+>>>>>>> test
 }

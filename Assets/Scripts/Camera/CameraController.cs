@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
+<<<<<<< HEAD
     [SerializeField] GameObject room;
     [SerializeField] float speed = 0.05f;
 
@@ -61,5 +62,13 @@ public class CameraController : MonoBehaviour
     {
         oldRoom = this.room;
         this.room = room;
+=======
+    [SerializeField]
+    GameObject player;
+
+    void Update()
+    {
+        transform.position = new Vector3 (player.transform.position.x, player.transform.position.y, transform.position.z);
+>>>>>>> test
     }
 }
