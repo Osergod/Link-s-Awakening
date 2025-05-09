@@ -24,9 +24,15 @@ public class KeyDoorController : ActionableMapObject
         {
             if (collision.GetComponent<LinkController>().GetKeys() > 0)
             {
-                Activate();
+                StartCoroutine(OpenDoor());
                 collision.GetComponent<LinkController>().DecrementKeys();
             }
         }
+    }
+
+    public IEnumerator OpenDoor()
+    {
+        yield return new WaitForSeconds(0.2f);
+        Activate();
     }
 }
