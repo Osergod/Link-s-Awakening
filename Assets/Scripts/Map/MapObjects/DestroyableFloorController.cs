@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DestroyableFloor : MonoBehaviour
+public class DestroyableFloorController : ActionableMapObject
 {
     [SerializeField] float destructionDelay;
     [SerializeField] GameObject hole;
@@ -27,7 +27,7 @@ public class DestroyableFloor : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        StartCoroutine(BreakFloor());
+        Activate();
     }
 
     private IEnumerator BreakFloor()
@@ -38,5 +38,10 @@ public class DestroyableFloor : MonoBehaviour
             Destroy(gameObject);
             Instantiate(hole, transform.position, Quaternion.identity);
         }
+    }
+
+    public override void Activate()
+    {
+        StartCoroutine(BreakFloor());
     }
 }
