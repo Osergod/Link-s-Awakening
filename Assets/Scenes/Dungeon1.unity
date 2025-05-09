@@ -53682,6 +53682,7 @@ Transform:
   m_Children:
   - {fileID: 966780856}
   - {fileID: 625433364}
+  - {fileID: 2728320764701553586}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1231603149264860144
@@ -53865,19 +53866,19 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 2120220112}
     m_Modifications:
     - target: {fileID: 2051060242729413224, guid: d7dd23c71fa54144e90adba103d7a8f1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 14.5
+      value: 4.5
       objectReference: {fileID: 0}
     - target: {fileID: 2051060242729413224, guid: d7dd23c71fa54144e90adba103d7a8f1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 16
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2051060242729413224, guid: d7dd23c71fa54144e90adba103d7a8f1, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.16128178
+      value: -0.094014876
       objectReference: {fileID: 0}
     - target: {fileID: 2051060242729413224, guid: d7dd23c71fa54144e90adba103d7a8f1, type: 3}
       propertyPath: m_LocalRotation.w
@@ -53885,11 +53886,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2051060242729413224, guid: d7dd23c71fa54144e90adba103d7a8f1, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2051060242729413224, guid: d7dd23c71fa54144e90adba103d7a8f1, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2051060242729413224, guid: d7dd23c71fa54144e90adba103d7a8f1, type: 3}
       propertyPath: m_LocalRotation.z
@@ -53920,6 +53921,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d7dd23c71fa54144e90adba103d7a8f1, type: 3}
+--- !u!4 &2728320764701553586 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2051060242729413224, guid: d7dd23c71fa54144e90adba103d7a8f1, type: 3}
+  m_PrefabInstance: {fileID: 2728320764701553585}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3411454586023674133
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -54217,4 +54223,3 @@ SceneRoots:
   - {fileID: 1281886256}
   - {fileID: 1964874818}
   - {fileID: 1499900797}
-  - {fileID: 2728320764701553585}
