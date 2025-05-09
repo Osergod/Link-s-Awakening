@@ -28826,6 +28826,79 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!1001 &1105234969
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 680386405105371427, guid: e2b9b20463c66f446adbe1361ea1b8e5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 34.39561
+      objectReference: {fileID: 0}
+    - target: {fileID: 680386405105371427, guid: e2b9b20463c66f446adbe1361ea1b8e5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.92773056
+      objectReference: {fileID: 0}
+    - target: {fileID: 680386405105371427, guid: e2b9b20463c66f446adbe1361ea1b8e5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 680386405105371427, guid: e2b9b20463c66f446adbe1361ea1b8e5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 680386405105371427, guid: e2b9b20463c66f446adbe1361ea1b8e5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 680386405105371427, guid: e2b9b20463c66f446adbe1361ea1b8e5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 680386405105371427, guid: e2b9b20463c66f446adbe1361ea1b8e5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 680386405105371427, guid: e2b9b20463c66f446adbe1361ea1b8e5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 680386405105371427, guid: e2b9b20463c66f446adbe1361ea1b8e5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 680386405105371427, guid: e2b9b20463c66f446adbe1361ea1b8e5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1553884801634142444, guid: e2b9b20463c66f446adbe1361ea1b8e5, type: 3}
+      propertyPath: m_Name
+      value: escaleras
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e2b9b20463c66f446adbe1361ea1b8e5, type: 3}
+--- !u!61 &1105234970 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 8378477457059012065, guid: e2b9b20463c66f446adbe1361ea1b8e5, type: 3}
+  m_PrefabInstance: {fileID: 1105234969}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1105234971 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3693360600907846153, guid: e2b9b20463c66f446adbe1361ea1b8e5, type: 3}
+  m_PrefabInstance: {fileID: 1105234969}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60a8f05f25e12d64fb237b9f1a19c020, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1106065159
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -51901,6 +51974,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: link
       objectReference: {fileID: 0}
+    - target: {fileID: 2458532200677476623, guid: 3f947c4d3fad9b34ca1175caf163b4fb, type: 3}
+      propertyPath: stairs
+      value: 
+      objectReference: {fileID: 1105234970}
+    - target: {fileID: 2458532200677476623, guid: 3f947c4d3fad9b34ca1175caf163b4fb, type: 3}
+      propertyPath: stairs_code
+      value: 
+      objectReference: {fileID: 1105234971}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -54010,3 +54091,4 @@ SceneRoots:
   - {fileID: 1281886256}
   - {fileID: 1499900797}
   - {fileID: 2059299436}
+  - {fileID: 1105234969}
