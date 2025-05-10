@@ -5,13 +5,14 @@ using UnityEngine;
 public class MovableRockController : ActionableMapObject
 {
     [SerializeField] GameObject targetSpot;
+    [SerializeField] ActionableMapObject targetActivationObject;
     [SerializeField] float activationDelay;
     [SerializeField] float movingSpeed;
 
     private bool playerPushing;
     private bool playerPushed;
     enum RockStates { STILL, MOVABLE, MOVING };
-    RockStates states = RockStates.STILL;
+    RockStates states = RockStates.MOVABLE;
     private void Update()
     {
         switch (states)
@@ -63,6 +64,7 @@ public class MovableRockController : ActionableMapObject
         {
             states = RockStates.MOVABLE;
         }
+        targetActivationObject.Activate();
     }
 
     public void IsMovable()
