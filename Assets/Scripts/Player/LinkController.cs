@@ -102,6 +102,11 @@ public class LinkController : MonoBehaviour
         keys--;
     }
 
+    public float GetHorizontalMovement()
+    {
+        return horizontal_ia.ReadValue<float>();
+    }
+
     // Update is called once per frame
     /*void Update()
     {
