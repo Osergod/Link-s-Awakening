@@ -186,42 +186,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: HardHatBeetle
       objectReference: {fileID: 0}
+    - target: {fileID: 7133744761765353441, guid: d9afe87a59747b24d8e54cafd1ef29cf, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9afe87a59747b24d8e54cafd1ef29cf, type: 3}
---- !u!1 &1242183693
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1242183694}
-  m_Layer: 0
-  m_Name: BladeTrap
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1242183694
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1242183693}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.33942646, y: 0.56831795, z: -0.054939218}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1274900603
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -330,18 +303,6 @@ PrefabInstance:
     - target: {fileID: 5495314145120898263, guid: d9afe87a59747b24d8e54cafd1ef29cf, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6000061983900023340, guid: d9afe87a59747b24d8e54cafd1ef29cf, type: 3}
-      propertyPath: m_Mass
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6000061983900023340, guid: d9afe87a59747b24d8e54cafd1ef29cf, type: 3}
-      propertyPath: m_Simulated
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6000061983900023340, guid: d9afe87a59747b24d8e54cafd1ef29cf, type: 3}
-      propertyPath: m_CollisionDetection
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7133744761765353441, guid: d9afe87a59747b24d8e54cafd1ef29cf, type: 3}
       propertyPath: m_Name
@@ -466,7 +427,7 @@ GameObject:
   - component: {fileID: 1954724591}
   - component: {fileID: 1954724590}
   m_Layer: 0
-  m_Name: enemies_dungeon1_spritesheet_0
+  m_Name: BladeTrap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -533,7 +494,7 @@ Transform:
   m_GameObject: {fileID: 1954724589}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.48378283, y: 2.2229776, z: 0}
+  m_LocalPosition: {x: -6.42, y: -0.34, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -548,4 +509,3 @@ SceneRoots:
   - {fileID: 1359903069}
   - {fileID: 1274900603}
   - {fileID: 1954724591}
-  - {fileID: 1242183694}

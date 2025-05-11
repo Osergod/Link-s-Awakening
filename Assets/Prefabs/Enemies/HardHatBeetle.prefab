@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7709845954783110658}
   - component: {fileID: 6000061983900023340}
   - component: {fileID: 3552444231871386984}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HardHatBeetle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: -1705381445, guid: 490b8417a563208409d8a894384b3ab2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -193,8 +193,8 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0
+  m_LinearDrag: 10
+  m_AngularDrag: 10
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -205,7 +205,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!114 &3552444231871386984
 MonoBehaviour:

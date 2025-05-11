@@ -17,7 +17,6 @@ public class HardHatBeetleController : Enemy
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        rb.drag = 10f;
         ator = GetComponent<Animator>();
         ogAnimSpeed = ator.speed;
     }
@@ -71,9 +70,9 @@ public class HardHatBeetleController : Enemy
         }
 
         ator.speed = 0;
-        Vector3 awayFromMe = player.transform.position - transform.position;
+        Vector3 awayFromMe =  transform.position - player.transform.position;
         awayFromMe.Normalize();
-        rb.AddForce(new Vector2(-awayFromMe.x * knockBackDistance, -awayFromMe.y * knockBackDistance), ForceMode2D.Impulse);
+        rb.AddForce(new Vector2(awayFromMe.x * knockBackDistance, awayFromMe.y * knockBackDistance), ForceMode2D.Impulse);
 
         StartCoroutine(StopKnockBack());
     }
