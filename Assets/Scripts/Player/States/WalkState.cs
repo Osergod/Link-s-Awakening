@@ -54,7 +54,9 @@ public class WalkState : IPlayerState
 
         Vector2 move = new Vector2(mx, my).normalized;
         link.rig.velocity = move * link.velocidad;
-                
+
+        ResetAnimation(); 
+
         if (Mathf.Abs(mx) > Mathf.Abs(my))
         {
             if (mx > 0)
@@ -70,8 +72,11 @@ public class WalkState : IPlayerState
                 link.anim.SetFloat("walk_down", 1);
         }
 
-        link.SetLastHorizontalInputValue(mx);
-
+        if (move != Vector2.zero)
+        {
+            link.SetLastHorizontalInputValue(move.x);
+            link.SetLastVerticalInputValue(move.y);
+        }
     }
 
     public void HandleInput() { }

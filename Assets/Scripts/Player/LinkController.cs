@@ -1,4 +1,4 @@
-using JetBrains.Annotations;
+﻿using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -9,16 +9,19 @@ public class LinkController : MonoBehaviour
     [SerializeField] public stairs stairs_code;
 
     public float speedYModifier = 1;
-
     public bool HasFeather = false;
+
     public InputActionAsset map;
     public InputAction horizontal_ia, vertical_ia, atack_ia, jump_ia;
+
     public Rigidbody2D rig;
     public Transform trans;
     public Animator anim;
     public SpriteRenderer spriteRenderer;
     public IPlayerState currentState;
+
     private float lastHorizontalMovementValue;
+    private float lastVerticalMovementValue; 
 
     private void Awake()
     {
@@ -38,7 +41,6 @@ public class LinkController : MonoBehaviour
         ChangeState(new IdleState());
     }
 
-
     void Update()
     {
         if (currentState == null) return;
@@ -57,7 +59,6 @@ public class LinkController : MonoBehaviour
     public void NotAtack()
     {
         float atk = atack_ia.ReadValue<float>();
-
         atk = 0;
         transform.rotation = Quaternion.Euler(0, 0, 0);
     }
@@ -74,11 +75,24 @@ public class LinkController : MonoBehaviour
         {
             transform.rotation = Quaternion.Euler(0, 0, 0);
         }
+
+        anim.SetFloat("LastMoveX", v); 
     }
 
     public float GetLastHorizontalMovementValue()
     {
         return lastHorizontalMovementValue;
+    }
+
+    public void SetLastVerticalInputValue(float v)
+    {
+        lastVerticalMovementValue = v;
+        anim.SetFloat("LastMoveY", v); 
+    }
+
+    public float GetLastVerticalMovementValue()
+    {
+        return lastVerticalMovementValue;
     }
 
     public void SetSpeedYModifier(float speedYModifier)
@@ -90,6 +104,4 @@ public class LinkController : MonoBehaviour
     {
         speedYModifier = 1;
     }
-
-
 }

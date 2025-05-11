@@ -1,4 +1,4 @@
-using Unity.VisualScripting;
+﻿using Unity.VisualScripting;
 using UnityEngine;
 
 public class IdleState : IPlayerState
@@ -8,12 +8,19 @@ public class IdleState : IPlayerState
     public void Enter(LinkController link)
     {
         this.link = link;
-        
+
         link.rig.velocity = Vector2.zero;
+
         link.anim.SetFloat("walk_up", 0);
         link.anim.SetFloat("walk_down", 0);
         link.anim.SetFloat("walk_left", 0);
         link.anim.SetFloat("walk_right", 0);
+
+        float lastX = link.GetLastHorizontalMovementValue();
+        float lastY = link.GetLastVerticalMovementValue();
+
+        link.anim.SetFloat("LastMoveX", lastX);
+        link.anim.SetFloat("LastMoveY", lastY);
     }
 
     public void Exit() { }
