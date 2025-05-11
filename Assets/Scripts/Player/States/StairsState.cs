@@ -29,17 +29,16 @@ public class StairsState : IPlayerState
         float mx = link.horizontal_ia.ReadValue<float>();
         float my = link.vertical_ia.ReadValue<float>();
 
-        if (link.stairs_code.OnStairs == false)
+        if (!link.IsOnStairs)
         {
             link.ChangeState(new WalkState());
             return;
         }
 
-        Vector2 move = new Vector2(mx, my/2).normalized;
+        Vector2 move = new Vector2(mx, my / 2).normalized;
         link.rig.velocity = move * link.velocidad;
 
         ResetAnimation();
-
 
         if (Mathf.Abs(mx) >= Mathf.Abs(my))
         {
@@ -65,3 +64,4 @@ public class StairsState : IPlayerState
 
     public void HandleInput() { }
 }
+

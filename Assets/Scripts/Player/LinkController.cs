@@ -6,7 +6,7 @@ public class LinkController : MonoBehaviour
 {
     [SerializeField] public float velocidad = 5f;
     [SerializeField] public BoxCollider2D stairs;
-    [SerializeField] public stairs stairs_code;
+    public bool IsOnStairs = false;
 
     public float speedYModifier = 1;
     public bool HasFeather = false;
@@ -21,7 +21,7 @@ public class LinkController : MonoBehaviour
     public IPlayerState currentState;
 
     private float lastHorizontalMovementValue;
-    private float lastVerticalMovementValue; 
+    private float lastVerticalMovementValue;
 
     private void Awake()
     {
@@ -76,7 +76,7 @@ public class LinkController : MonoBehaviour
             transform.rotation = Quaternion.Euler(0, 0, 0);
         }
 
-        anim.SetFloat("LastMoveX", v); 
+        anim.SetFloat("LastMoveX", v);
     }
 
     public float GetLastHorizontalMovementValue()
@@ -87,7 +87,7 @@ public class LinkController : MonoBehaviour
     public void SetLastVerticalInputValue(float v)
     {
         lastVerticalMovementValue = v;
-        anim.SetFloat("LastMoveY", v); 
+        anim.SetFloat("LastMoveY", v);
     }
 
     public float GetLastVerticalMovementValue()
@@ -103,5 +103,22 @@ public class LinkController : MonoBehaviour
     public void ResetSpeedYModifier()
     {
         speedYModifier = 1;
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Stairs"))
+        {
+            IsOnStairs = true;
+            ChangeState(new StairsState());
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Stairs"))
+        {
+            IsOnStairs = false;
+        }
     }
 }

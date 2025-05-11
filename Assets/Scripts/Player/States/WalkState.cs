@@ -41,11 +41,6 @@ public class WalkState : IPlayerState
             link.ChangeState(new AtackState());
             return;
         }
-        if (link.stairs_code.OnStairs == true)
-        {
-            link.ChangeState(new StairsState());
-            return;
-        }
         if (mj != 0 && link.HasFeather == true)
         {
             link.ChangeState(new JumpState());
@@ -78,6 +73,7 @@ public class WalkState : IPlayerState
             link.SetLastVerticalInputValue(move.y);
         }
     }
+
 
     public void HandleInput() { }
 }
