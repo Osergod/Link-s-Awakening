@@ -1,6 +1,8 @@
 ﻿using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class LinkController : MonoBehaviour
 {
@@ -47,6 +49,19 @@ public class LinkController : MonoBehaviour
 
         currentState.HandleInput();
         currentState.Update();
+
+
+        // prova de "FallState"
+
+        float mj = jump_ia.ReadValue<float>();
+
+        if (mj != 0 && HasFeather == false)
+        {
+            ChangeState(new FallState());
+            return;
+        }
+
+        // fi de la prova
     }
 
     public void ChangeState(IPlayerState newState)
@@ -121,4 +136,13 @@ public class LinkController : MonoBehaviour
             IsOnStairs = false;
         }
     }
+
+    public IEnumerator ReloadSceneAfterFall()
+    {
+        yield return new WaitForSeconds(0.6f);
+        UnityEngine.SceneManagement.SceneManager.LoadScene(
+            UnityEngine.SceneManagement.SceneManager.GetActiveScene().name
+        );
+    }
+
 }
