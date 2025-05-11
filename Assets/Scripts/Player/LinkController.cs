@@ -7,7 +7,6 @@ using UnityEngine.SceneManagement;
 public class LinkController : MonoBehaviour
 {
     [SerializeField] public float velocidad = 5f;
-    [SerializeField] public BoxCollider2D stairs;
     public bool IsOnStairs = false;
 
     public float speedYModifier = 1;
