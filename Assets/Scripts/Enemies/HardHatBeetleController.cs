@@ -5,16 +5,21 @@ using UnityEngine;
 public class HardHatBeetleController : Enemy
 {
     [SerializeField] float speed;
-    [SerializeField] GameObject player;
+    [SerializeField] LinkController player;
     [Range(0f, 1f)][SerializeField] float knockBackDistance;
     private bool knockBackActive;
+    private float ogAnimSpeed;
 
     Rigidbody2D rb;
+    Animator ator;
     enum EnemyStates { WAITING, ATTACKING, GET_HURT }
     EnemyStates state;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        rb.drag = 10f;
+        ator = GetComponent<Animator>();
+        ogAnimSpeed = ator.speed;
     }
     void Update()
     {
@@ -52,7 +57,10 @@ public class HardHatBeetleController : Enemy
             state = EnemyStates.GET_HURT;
         }
 
-        transform.position = Vector3.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
+        float towardsPlayerX = player.transform.position.x - transform.position.x;
+        float towardsPlayerY = player.transform.position.y - transform.position.y;
+
+        rb.velocity = new Vector2(towardsPlayerX, towardsPlayerY).normalized * speed;
     }
 
     public void isGettingHurt()
@@ -62,6 +70,7 @@ public class HardHatBeetleController : Enemy
             state = EnemyStates.WAITING;
         }
 
+        ator.speed = 0;
         Vector3 awayFromMe = player.transform.position - transform.position;
         awayFromMe.Normalize();
         rb.AddForce(new Vector2(-awayFromMe.x * knockBackDistance, -awayFromMe.y * knockBackDistance), ForceMode2D.Impulse);
@@ -73,6 +82,7 @@ public class HardHatBeetleController : Enemy
     {
         yield return new WaitForSeconds(0.2f);
         knockBackActive = false;
+        ator.speed = ogAnimSpeed;
         state = EnemyStates.WAITING;
     }
     public override void Attack()
