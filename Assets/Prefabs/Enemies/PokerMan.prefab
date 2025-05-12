@@ -186,3 +186,5 @@ MonoBehaviour:
   life: 99
   damage: 1
   effect: {fileID: 3352404865613277864, guid: e62c7fe820b98684cbf8c066037438bd, type: 3}
+  changeDelay: 0
+  waitTime: 1
