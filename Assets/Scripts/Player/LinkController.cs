@@ -51,7 +51,7 @@ public class LinkController : MonoBehaviour
         currentState.Update();
 
 
-        // prova de "FallState"
+        /* prova de "FallState"
 
         float mj = jump_ia.ReadValue<float>();
 
@@ -61,7 +61,20 @@ public class LinkController : MonoBehaviour
             return;
         }
 
-        // fi de la prova
+        // fi de la prova */
+
+
+        // prova de DeadControl
+
+        float mj = jump_ia.ReadValue<float>();
+
+        if (mj != 0 && HasFeather == false)
+        {
+            ChangeState(new DeadControl());
+            return;
+        }
+
+        // fi prova DeadControl
     }
 
     public void ChangeState(IPlayerState newState)
