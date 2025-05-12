@@ -51,8 +51,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocidad: 5
-  stairs: {fileID: 0}
-  stairs_code: {fileID: 0}
+  IsOnStairs: 0
   speedYModifier: 1
   HasFeather: 0
   map: {fileID: -944628639613478452, guid: 27471e3c76bd1444d91821a1ee60a27e, type: 3}
@@ -88,6 +87,15 @@ MonoBehaviour:
     m_Type: 0
     m_ExpectedControlType: 
     m_Id: 28568bf2-e706-48de-8aec-1905bbf123ca
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  shield_ia:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 89e8fce2-933a-4d48-b3f4-4639dc25b122
     m_Processors: 
     m_Interactions: 
     m_SingletonActionBindings: []
@@ -369,7 +377,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
