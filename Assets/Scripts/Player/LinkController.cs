@@ -13,7 +13,7 @@ public class LinkController : MonoBehaviour
     public bool HasFeather = false;
 
     public InputActionAsset map;
-    public InputAction horizontal_ia, vertical_ia, atack_ia, jump_ia;
+    public InputAction horizontal_ia, vertical_ia, atack_ia, jump_ia, shield_ia;
 
     public Rigidbody2D rig;
     public Transform trans;
@@ -31,6 +31,7 @@ public class LinkController : MonoBehaviour
         vertical_ia = map.FindActionMap("Movement").FindAction("Vertical");
         atack_ia = map.FindActionMap("Atack").FindAction("Atack");
         jump_ia = map.FindActionMap("Movement").FindAction("Jump");
+        shield_ia = map.FindActionMap("Defense").FindAction("Shield");
 
         rig = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();

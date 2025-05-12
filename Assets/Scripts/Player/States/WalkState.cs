@@ -30,6 +30,7 @@ public class WalkState : IPlayerState
         float my = link.vertical_ia.ReadValue<float>() * link.speedYModifier;
         float atk = link.atack_ia.ReadValue<float>();
         float mj = link.jump_ia.ReadValue<float>();
+        float dfs = link.shield_ia.ReadValue<float>();
 
         if (mx == 0 && my == 0)
         {
@@ -44,6 +45,11 @@ public class WalkState : IPlayerState
         if (mj != 0 && link.HasFeather == true)
         {
             link.ChangeState(new JumpState());
+            return;
+        }
+        if (dfs != 0)
+        {
+            link.ChangeState(new ShieldState());
             return;
         }
 

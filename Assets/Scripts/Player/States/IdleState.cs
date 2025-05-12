@@ -31,6 +31,7 @@ public class IdleState : IPlayerState
         float my = link.vertical_ia.ReadValue<float>();
         float atk = link.atack_ia.ReadValue<float>();
         float mj = link.jump_ia.ReadValue<float>();
+        float dfs = link.shield_ia.ReadValue<float>();
 
         if (mx != 0 || my != 0)
             link.ChangeState(new WalkState());
@@ -38,6 +39,8 @@ public class IdleState : IPlayerState
             link.ChangeState(new AtackState());
         if (mj != 0 && link.HasFeather == true)
             link.ChangeState(new JumpState());
+        if (dfs != 0)
+            link.ChangeState(new ShieldState());
     }
 
     public void HandleInput() { }

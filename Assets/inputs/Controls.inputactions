@@ -118,6 +118,34 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Defense",
+            "id": "261cbf2d-1684-45ac-a6c4-01af8c990f34",
+            "actions": [
+                {
+                    "name": "Shield",
+                    "type": "Button",
+                    "id": "7530cc25-8123-47e0-ac3f-487f86889288",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "28f050a7-0acb-4bc0-820c-5d6217ed0bb3",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Shield",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []
