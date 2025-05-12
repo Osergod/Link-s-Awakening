@@ -13,7 +13,7 @@ public class DeadControl: IPlayerState
         link.rig.velocity = Vector2.zero;
         link.anim.SetTrigger("dead");
 
-        link.StartCoroutine(link.ReloadSceneAfterFall());
+        link.StartCoroutine(link.Dead_ReloadSceneAfterFall());
     }
     public void Exit() { }
     public void Update() { }

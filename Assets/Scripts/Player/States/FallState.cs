@@ -14,7 +14,7 @@ public class FallState : IPlayerState
         link.rig.velocity = Vector2.zero;
         link.anim.SetTrigger("fall");
 
-        link.StartCoroutine(link.ReloadSceneAfterFall());
+        link.StartCoroutine(link.Fall_ReloadSceneAfterFall());
     }
     public void Exit() { }
     public void Update() { }

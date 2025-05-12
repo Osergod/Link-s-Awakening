@@ -51,7 +51,10 @@ public class LinkController : MonoBehaviour
         currentState.Update();
 
 
-        /* prova de "FallState"
+        //proves:
+
+        /*
+        // prova de "FallState"
 
         float mj = jump_ia.ReadValue<float>();
 
@@ -61,12 +64,10 @@ public class LinkController : MonoBehaviour
             return;
         }
 
-        // fi de la prova */
+        // fi de la prova
 
 
         // prova de DeadControl
-
-        float mj = jump_ia.ReadValue<float>();
 
         if (mj != 0 && HasFeather == false)
         {
@@ -75,6 +76,9 @@ public class LinkController : MonoBehaviour
         }
 
         // fi prova DeadControl
+        */
+
+
     }
 
     public void ChangeState(IPlayerState newState)
@@ -150,7 +154,7 @@ public class LinkController : MonoBehaviour
         }
     }
 
-    public IEnumerator ReloadSceneAfterFall()
+    public IEnumerator Fall_ReloadSceneAfterFall()
     {
         yield return new WaitForSeconds(0.6f);
         UnityEngine.SceneManagement.SceneManager.LoadScene(
@@ -158,4 +162,11 @@ public class LinkController : MonoBehaviour
         );
     }
 
+    public IEnumerator Dead_ReloadSceneAfterFall()
+    {
+        yield return new WaitForSeconds(1.2f);
+        UnityEngine.SceneManagement.SceneManager.LoadScene(
+            UnityEngine.SceneManagement.SceneManager.GetActiveScene().name
+        );
+    }
 }
