@@ -289,6 +289,10 @@ PrefabInstance:
       propertyPath: shield_ia.m_Name
       value: Shield_ia
       objectReference: {fileID: 0}
+    - target: {fileID: 7899402698089995539, guid: 3f947c4d3fad9b34ca1175caf163b4fb, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
