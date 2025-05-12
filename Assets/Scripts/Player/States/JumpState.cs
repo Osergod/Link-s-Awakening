@@ -24,6 +24,8 @@ public class JumpState : IPlayerState
         link.spriteRenderer.transform.localScale += Vector3.up * 1 / 4;
 
         link.GetComponentInChildren<BoxCollider2D>().enabled = false;
+
+        link.OnJumping = true;
     }
 
     public void Exit()
@@ -34,6 +36,7 @@ public class JumpState : IPlayerState
         link.transform.position += Vector3.down * 1;
         link.transform.localScale += Vector3.down * 1 / 4;
 
+        link.OnJumping = false;
     }
 
     void ResetAnimation()

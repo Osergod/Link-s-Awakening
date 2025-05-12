@@ -24,6 +24,12 @@ public class LinkController : MonoBehaviour
     private float lastHorizontalMovementValue;
     private float lastVerticalMovementValue;
 
+    public bool OnJumping;
+
+    // private UIManager GM;
+
+    // double maxHealth = 3;
+
     private void Awake()
     {
         map.Enable();
@@ -50,13 +56,17 @@ public class LinkController : MonoBehaviour
         currentState.HandleInput();
         currentState.Update();
 
+        if (OnJumping == true)
+        {
+
+        }
 
         //proves:
 
+        float mj = jump_ia.ReadValue<float>();
+
         /*
         // prova de "FallState"
-
-        float mj = jump_ia.ReadValue<float>();
 
         if (mj != 0 && HasFeather == false)
         {
@@ -65,19 +75,21 @@ public class LinkController : MonoBehaviour
         }
 
         // fi de la prova
+        
 
 
         // prova de DeadControl
 
-        if (mj != 0 && HasFeather == false)
+        double health = maxHealth - damage;
+
+        if (GM.Hurt())
         {
             ChangeState(new DeadControl());
             return;
         }
 
         // fi prova DeadControl
-        */
-
+*/
 
     }
 
