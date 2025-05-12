@@ -6,8 +6,7 @@ public class HardHatBeetleController : Enemy
 {
     [SerializeField] float speed;
     [SerializeField] LinkController player;
-    [Range(0f, 1f)][SerializeField] float knockBackDistance;
-    private bool knockBackActive;
+    [Range(1f, 5f)][SerializeField] float knockBackPower;
     private float ogAnimSpeed;
 
     Rigidbody2D rb;
@@ -19,6 +18,7 @@ public class HardHatBeetleController : Enemy
         rb = GetComponent<Rigidbody2D>();
         ator = GetComponent<Animator>();
         ogAnimSpeed = ator.speed;
+        knockBackPower *= 10;
     }
     void Update()
     {
@@ -51,10 +51,10 @@ public class HardHatBeetleController : Enemy
         {
             state = EnemyStates.WAITING;
         }
-        else if (knockBackActive)
+        /*else if (knockBackActive)
         {
             state = EnemyStates.GET_HURT;
-        }
+        }*/
 
         float towardsPlayerX = player.transform.position.x - transform.position.x;
         float towardsPlayerY = player.transform.position.y - transform.position.y;
@@ -64,15 +64,10 @@ public class HardHatBeetleController : Enemy
 
     public void isGettingHurt()
     {
-        if (!knockBackActive)
+        /*if (!knockBackActive)
         {
             state = EnemyStates.WAITING;
-        }
-
-        ator.speed = 0;
-        Vector3 awayFromMe =  transform.position - player.transform.position;
-        awayFromMe.Normalize();
-        rb.AddForce(new Vector2(awayFromMe.x * knockBackDistance, awayFromMe.y * knockBackDistance), ForceMode2D.Impulse);
+        }*/
 
         StartCoroutine(StopKnockBack());
     }
@@ -80,7 +75,7 @@ public class HardHatBeetleController : Enemy
     public IEnumerator StopKnockBack()
     {
         yield return new WaitForSeconds(0.2f);
-        knockBackActive = false;
+        //knockBackActive = false;
         ator.speed = ogAnimSpeed;
         state = EnemyStates.WAITING;
     }
@@ -91,9 +86,14 @@ public class HardHatBeetleController : Enemy
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+        if (state == EnemyStates.ATTACKING && collision.tag == "Player")
         {
-            knockBackActive = true;
+            ator.speed = 0;
+            Vector3 awayFromMe = transform.position - player.transform.position;
+            awayFromMe.Normalize();
+            rb.AddForce(new Vector2(awayFromMe.x, awayFromMe.y) * knockBackPower, ForceMode2D.Impulse);
+
+            state = EnemyStates.GET_HURT;
         }
     }
 }

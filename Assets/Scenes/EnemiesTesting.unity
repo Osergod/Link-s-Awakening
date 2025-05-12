@@ -403,6 +403,14 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1746417260}
+    - target: {fileID: 3552444231871386984, guid: d9afe87a59747b24d8e54cafd1ef29cf, type: 3}
+      propertyPath: knockBackPower
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3552444231871386984, guid: d9afe87a59747b24d8e54cafd1ef29cf, type: 3}
+      propertyPath: knockBackDistance
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5495314145120898263, guid: d9afe87a59747b24d8e54cafd1ef29cf, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.3170934
@@ -458,6 +466,10 @@ PrefabInstance:
     - target: {fileID: 7133744761765353441, guid: d9afe87a59747b24d8e54cafd1ef29cf, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7133744761765353441, guid: d9afe87a59747b24d8e54cafd1ef29cf, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -588,6 +600,7 @@ MonoBehaviour:
   life: 99
   damage: 1
   effect: {fileID: 3352404865613277864, guid: e62c7fe820b98684cbf8c066037438bd, type: 3}
+  changeDelay: 1
 --- !u!50 &1357250619
 Rigidbody2D:
   serializedVersion: 4
@@ -750,6 +763,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1746417260}
+    - target: {fileID: 3552444231871386984, guid: d9afe87a59747b24d8e54cafd1ef29cf, type: 3}
+      propertyPath: knockBackPower
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 5495314145120898263, guid: d9afe87a59747b24d8e54cafd1ef29cf, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.323673
@@ -793,6 +810,10 @@ PrefabInstance:
     - target: {fileID: 7133744761765353441, guid: d9afe87a59747b24d8e54cafd1ef29cf, type: 3}
       propertyPath: m_Name
       value: HardHatBeetle (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7133744761765353441, guid: d9afe87a59747b24d8e54cafd1ef29cf, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1013,6 +1034,7 @@ MonoBehaviour:
   life: 99
   damage: 1
   effect: {fileID: 3352404865613277864, guid: e62c7fe820b98684cbf8c066037438bd, type: 3}
+  changeDelay: 1
 --- !u!50 &2046249807
 Rigidbody2D:
   serializedVersion: 4
@@ -1215,6 +1237,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6898840620004517374, guid: 696ef254477359446aef3840a236b952, type: 3}
+      propertyPath: changeDelay
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1267,6 +1293,10 @@ PrefabInstance:
     - target: {fileID: 3821119969530887320, guid: a7996dc276404c04fb8e7cc7ba4743f3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3846371224849654708, guid: a7996dc276404c04fb8e7cc7ba4743f3, type: 3}
+      propertyPath: targetPoints.Array.size
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3846371224849654708, guid: a7996dc276404c04fb8e7cc7ba4743f3, type: 3}
       propertyPath: targetPoints.Array.data[0]

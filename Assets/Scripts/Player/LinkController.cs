@@ -45,8 +45,6 @@ public class LinkController : MonoBehaviour
                 OnFloor();
                 break;
         }
-
-        Debug.Log(keys);
     }
 
     void OnFloor()
