@@ -6,6 +6,6 @@ public class DeathExplosionEffectController : MonoBehaviour
 {
     void Start()
     {
-        Destroy(gameObject, 0.25f);
+        Destroy(gameObject, 0.35f);
     }
 }

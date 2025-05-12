@@ -8,7 +8,6 @@ public class PokerManController : Enemy
     Animator ator;
     [SerializeField] GameObject effect;
     [SerializeField] float changeDelay;
-    //List<PokerManController> otherPokerMans = new List<PokerManController>();
     PokerManController[] pokerManControllers;
     private bool stunned;
 
@@ -126,7 +125,7 @@ public class PokerManController : Enemy
     public void isStunned()
     {
         
-        //CheckIfSameState();
+        CheckIfSameState();
     }
 
     public override void Attack()
@@ -141,8 +140,6 @@ public class PokerManController : Enemy
             stunned = true;
             currentPokerState = pokerState;
             state = EnemyStates.STUNNED;
-
-            CheckIfSameState();
         }
     }
 
@@ -175,13 +172,31 @@ public class PokerManController : Enemy
 
             if (allEqual)
             {
-                for (int i = 0; i < pokerManControllers.Length; i++)
-                {
-                    pokerManControllers[i].Die();
-                }
+                StartCoroutine(KillAll());
+            }
+            else
+            {
+                StartCoroutine(Reactivate());
             }
         }
-            
+    }
+
+    public IEnumerator Reactivate()
+    {
+        yield return new WaitForSeconds(2);
+        for (int i = 0; i < pokerManControllers.Length; i++)
+        {
+            pokerManControllers[i].stunned = false;
+        }
+    }
+
+    public IEnumerator KillAll()
+    {
+        yield return new WaitForSeconds(2);
+        for (int i = 0; i < pokerManControllers.Length; i++)
+        {
+            pokerManControllers[i].Die();
+        }
     }
 
     private void Die()
