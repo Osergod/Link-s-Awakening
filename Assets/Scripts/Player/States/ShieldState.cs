@@ -16,7 +16,6 @@ public class ShieldState : IPlayerState
         float mx = link.horizontal_ia.ReadValue<float>();
 
         link.rig.velocity = Vector2.zero;
-
         link.anim.SetFloat("shield", 1);
     }
 
@@ -33,8 +32,6 @@ public class ShieldState : IPlayerState
 
         Vector2 move = new Vector2(mx, my).normalized;
         link.rig.velocity = move * link.velocidad;
-
-        link.SetLastHorizontalInputValue(mx);
 
         if (dfs == 0)
         {
