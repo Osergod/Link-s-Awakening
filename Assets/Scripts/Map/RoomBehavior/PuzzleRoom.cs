@@ -6,7 +6,7 @@ public abstract class PuzzleRoom : MonoBehaviour
 {
     bool isSolved;
 
-    [SerializeField] List<BlockedDoorController> roomEnemies = new List<BlockedDoorController>();
+    [SerializeField] List<Enemy> roomEnemies = new List<Enemy>();
 
     private void Update()
     {
