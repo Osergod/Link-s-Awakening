@@ -40,8 +40,6 @@ public class PokerManController : Enemy
                 isStunned();
                 break;
         }
-        //Debug.Log("Hay " + pokerManControllers.Length + " PokerMans");
-        Debug.Log(pokerState);
 
         if (!stunned)
         {
@@ -106,27 +104,45 @@ public class PokerManController : Enemy
     public void isIdle()
     {
         rb.velocity = Vector3.zero;
+        //state = EnemyStates.MOVE;
     }
 
     public void isMoving()
     {
-        //rb.velocity = new Vector3(1, 0, 0);
-
-        //StartCoroutine(WalkTime());
+        rb.velocity = new Vector2(1, 0);
+        StartCoroutine(WalkTime());
     }
 
     public IEnumerator WalkTime()
     {
-        int seconds = Random.Range(1, 5);
-
-        yield return new WaitForSeconds(seconds);
+        yield return new WaitForSeconds(Random.Range(1, 5));
         state = EnemyStates.IDLE;
     }
 
     public void isStunned()
     {
-        
-        CheckIfSameState();
+        bool allEqual = true;
+
+        if (pokerManControllers[0].stunned && pokerManControllers[1].stunned && pokerManControllers[2].stunned)
+        {
+            for (int i = 1; i < pokerManControllers.Length; i++)
+            {
+                if (pokerManControllers[i].currentPokerState != pokerManControllers[i - 1].currentPokerState)
+                {
+                    allEqual = false;
+                }
+            }
+
+            if (allEqual)
+            {
+                StartCoroutine(KillAll());
+            }
+            else
+            {
+                StartCoroutine(Reactivate());
+            }
+        }
+        //CheckIfSameState();
     }
 
     public override void Attack()
@@ -141,31 +157,6 @@ public class PokerManController : Enemy
             stunned = true;
             currentPokerState = pokerState;
             state = EnemyStates.STUNNED;
-        }
-    }
-
-    private void CheckIfSameState()
-    {
-        bool allEqual = true;
-
-        if (pokerManControllers[0].stunned && pokerManControllers[1].stunned && pokerManControllers[2].stunned)
-        {
-            for (int i = 1; i < pokerManControllers.Length; i++)
-            {
-                if (pokerManControllers[i].currentPokerState != pokerManControllers[i-1].currentPokerState)
-                {
-                    allEqual = false;
-                }
-            }
-
-            if (allEqual)
-            {
-                StartCoroutine(KillAll());
-            }
-            else
-            {
-                StartCoroutine(Reactivate());
-            }
         }
     }
 
