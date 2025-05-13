@@ -6,18 +6,24 @@ using UnityEngine.SceneManagement;
 
 public class LinkController : MonoBehaviour
 {
+<<<<<<< HEAD
     [SerializeField] public float velocidad = 5f;
     public bool IsOnStairs = false;
 
     public float speedYModifier = 1;
     public bool HasFeather = false;
 
+=======
+    [SerializeField] int keys;
+    [SerializeField] private float velocidad;
+>>>>>>> test
     public InputActionAsset map;
     public InputAction horizontal_ia, vertical_ia, atack_ia, jump_ia, shield_ia;
 
     public Rigidbody2D rig;
     public Transform trans;
     public Animator anim;
+<<<<<<< HEAD
     public SpriteRenderer spriteRenderer;
     public IPlayerState currentState;
 
@@ -29,6 +35,10 @@ public class LinkController : MonoBehaviour
     // private UIManager GM;
 
     // double maxHealth = 3;
+=======
+    private SpriteRenderer SpritePlayer;
+    private float speedYModifier = 1;
+>>>>>>> test
 
     private void Awake()
     {
@@ -58,7 +68,126 @@ public class LinkController : MonoBehaviour
 
         if (OnJumping == true)
         {
+<<<<<<< HEAD
 
+=======
+            case STATES.ONFLOOR:
+                OnFloor();
+                break;
+        }
+
+        Debug.Log(keys);
+    }
+
+    void OnFloor()
+    {
+        float mx = horizontal_ia.ReadValue<float>();
+        float my = vertical_ia.ReadValue<float>() * speedYModifier;
+
+        rig.velocity = new Vector2(velocidad * mx, rig.velocity.y);
+        rig.velocity = new Vector2(rig.velocity.x, velocidad * my);
+
+        RotateCharacter(mx);
+    }
+
+    public void SetSpeedYModifier(float speedYModifier)
+    {
+        this.speedYModifier = speedYModifier;
+    }
+
+    public void ResetSpeedYModifier()
+    {
+        speedYModifier = 1;
+    }
+
+    void StateTransition()
+    {
+        float mx = horizontal_ia.ReadValue<float>();
+        float my = vertical_ia.ReadValue<float>();
+
+        if (mx == 0 && my == 0)
+        {
+            current_state = STATES.IDLE;
+        }
+        if (my < 0)
+        {
+            current_state = STATES.ON_WALK_DOWN;
+        }
+        else if (my > 0)
+        {
+            current_state = STATES.ON_WALK_UP;
+        }
+        if (mx != 0)
+        {
+            current_state = STATES.ON_WALK_HORIZONTAL;
+        }
+    }
+    public int GetKeys()
+    {
+        return keys;
+    }
+
+    public void DecrementKeys()
+    {
+        keys--;
+    }
+
+    public float GetHorizontalMovement()
+    {
+        return horizontal_ia.ReadValue<float>();
+    }
+
+    // Update is called once per frame
+    /*void Update()
+    {
+        StateTransition();
+
+        switch (current_state)
+        {
+            case STATES.IDLE:
+                //Still();
+                break;
+            case STATES.ON_WALK_DOWN:
+                OnWalkDown();
+                break;
+            case STATES.ON_WALK_UP:
+                OnWalkUp();
+                break;
+            case STATES.ON_WALK_HORIZONTAL:
+                OnWalkHorizontal();
+                break;
+        }
+    }
+
+    void Still()
+    {
+        anim.SetFloat("walk_down", 0);
+        anim.SetFloat("walk_up", 0);
+        anim.SetFloat("walk_right", 0);
+        //rig.velocity = new Vector2(0, 0);
+    }
+    void OnWalkDown()
+    {
+        anim.SetFloat("walk_down", Mathf.Abs(rig.velocity.magnitude));
+        anim.SetFloat("walk_up", 0);
+        Movement();
+    }
+    void OnWalkUp()
+    {
+        anim.SetFloat("walk_up", Mathf.Abs(rig.velocity.magnitude));
+        anim.SetFloat("walk_down", 0);
+        Movement();
+    }
+    void OnWalkHorizontal()
+    {
+        anim.SetFloat("walk_right", Mathf.Abs(rig.velocity.magnitude));
+        //Movement();
+        float mx = horizontal_ia.ReadValue<float>();
+
+        if (mx == 0)
+        {
+            current_state = STATES.IDLE;
+>>>>>>> test
         }
 
         //proves:
