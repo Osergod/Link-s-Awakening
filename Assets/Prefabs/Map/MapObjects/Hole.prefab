@@ -91,6 +91,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   effect: {fileID: 7681893608561471301, guid: 881a59d307ea77249aa8554e06dbc7d4, type: 3}
+  fallDelay: 0.5
 --- !u!1 &2324584954611607464
 GameObject:
   m_ObjectHideFlags: 0

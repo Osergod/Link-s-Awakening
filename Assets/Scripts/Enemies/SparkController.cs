@@ -18,7 +18,7 @@ public class SparkController : Enemy
     void Update()
     {
         Move();
-        Debug.Log(nextTagetPoint);
+        //Debug.Log(nextTagetPoint);
     }
 
     public void Move()

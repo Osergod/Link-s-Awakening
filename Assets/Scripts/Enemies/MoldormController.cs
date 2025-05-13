@@ -66,6 +66,11 @@ public class MoldormController : Enemy
         StartCoroutine(StopKnockBack());
     }
 
+    public void isAngry()
+    {
+
+    }
+
     public IEnumerator StopKnockBack()
     {
         yield return new WaitForSeconds(0.2f);

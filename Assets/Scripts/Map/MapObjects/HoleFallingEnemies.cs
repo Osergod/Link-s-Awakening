@@ -5,8 +5,8 @@ using UnityEngine;
 public class HoleFallingEnemies : MonoBehaviour
 {
     [SerializeField] GameObject effect;
-
-    private void OnTriggerStay2D(Collider2D collision)
+    [SerializeField] float fallDelay;
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Enemy")
         {
@@ -19,8 +19,14 @@ public class HoleFallingEnemies : MonoBehaviour
 
     private IEnumerator DestroyEnemy(Collider2D collision)
     {
-        yield return new WaitForSeconds(0.5f);
-        Destroy(collision.gameObject);
-        Instantiate(effect, collision.transform.position, Quaternion.identity);
+        Vector3 collisionPosition = collision.transform.position;
+        yield return new WaitForSeconds(fallDelay);
+
+        if (collision != null)
+        {
+            Instantiate(effect, collisionPosition, Quaternion.identity);
+            Destroy(collision.gameObject);
+        }
+        
     }
 }
