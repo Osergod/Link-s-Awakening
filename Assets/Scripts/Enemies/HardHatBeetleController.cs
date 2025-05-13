@@ -5,8 +5,6 @@ using UnityEngine;
 public class HardHatBeetleController : Enemy
 {
     [SerializeField] float speed;
-    [SerializeField] LinkController player;
-    [Range(1f, 5f)][SerializeField] float knockBackPower;
     private float ogAnimSpeed;
 
     Rigidbody2D rb;
@@ -18,7 +16,6 @@ public class HardHatBeetleController : Enemy
         rb = GetComponent<Rigidbody2D>();
         ator = GetComponent<Animator>();
         ogAnimSpeed = ator.speed;
-        knockBackPower *= 10;
     }
     void Update()
     {

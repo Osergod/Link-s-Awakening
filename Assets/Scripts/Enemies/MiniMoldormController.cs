@@ -10,7 +10,7 @@ public class MiniMoldormController : Enemy
     SpriteRenderer spriteRenderer;
     Vector2 movementDirection;
 
-    enum EnemyStates { IDLE, MOVING };
+    enum EnemyStates { WAITING, MOVING, STUNNED };
     EnemyStates state = EnemyStates.MOVING;
 
     private void Start()
@@ -25,30 +25,46 @@ public class MiniMoldormController : Enemy
     {
         switch (state)
         {
-            case EnemyStates.IDLE:
-                isIdle();
+            case EnemyStates.WAITING:
+                isWaiting();
                 break;
             case EnemyStates.MOVING:
                 isMoving();
                 break;
+            case EnemyStates.STUNNED:
+                isStunned();
+                break;
         }
-
-        rb.velocity = movementDirection * speed;
-
         ator.SetFloat("X", movementDirection.x);
         ator.SetFloat("Y", movementDirection.y);
 
         RotateHead();
     }
 
-    public void isIdle()
+    public void isWaiting()
     {
+        if (player != null)
+        {
+            state = EnemyStates.MOVING;
+        }
 
+        rb.velocity = Vector3.zero;
     }
 
     public void isMoving()
     {
-        
+        rb.velocity = movementDirection * speed;
+    }
+
+    public void isStunned()
+    {
+        StartCoroutine(StopKnockBack());
+    }
+
+    public IEnumerator StopKnockBack()
+    {
+        yield return new WaitForSeconds(0.2f);
+        state = EnemyStates.WAITING;
     }
 
     public override void Attack()
@@ -87,5 +103,18 @@ public class MiniMoldormController : Enemy
     public float GetSpeed()
     {
         return speed;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Player")
+        {
+            ator.speed = 0;
+            Vector3 awayFromMe = transform.position - collision.transform.position;
+            awayFromMe.Normalize();
+            rb.AddForce(new Vector2(awayFromMe.x, awayFromMe.y) * knockBackPower, ForceMode2D.Impulse);
+            state = EnemyStates.STUNNED;
+            GetHurt();
+        }
     }
 }

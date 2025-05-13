@@ -6,7 +6,7 @@ public class PokerManController : Enemy
 {
     Rigidbody2D rb;
     Animator ator;
-    [SerializeField] GameObject effect;
+    //[SerializeField] GameObject effect;
     [SerializeField] float changeDelay;
     [SerializeField] float waitTime;
     PokerManController[] pokerManControllers;
@@ -178,9 +178,9 @@ public class PokerManController : Enemy
         }
     }
 
-    private void Die()
+    /*private void Die()
     {
         Destroy(gameObject);
         Instantiate(effect, transform.position, Quaternion.identity);
-    }
+    }*/
 }
