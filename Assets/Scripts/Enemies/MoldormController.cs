@@ -34,6 +34,9 @@ public class MoldormController : Enemy
             case EnemyStates.STUNNED:
                 isStunned();
                 break;
+            case EnemyStates.ANGRY:
+                isAngry();
+                break;
         }
         ator.SetFloat("X", movementDirection.x);
         ator.SetFloat("Y", movementDirection.y);
@@ -105,18 +108,5 @@ public class MoldormController : Enemy
     public float GetSpeed()
     {
         return speed;
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.tag == "Player")
-        {
-            ator.speed = 0;
-            Vector3 awayFromMe = transform.position - collision.transform.position;
-            awayFromMe.Normalize();
-            rb.AddForce(new Vector2(awayFromMe.x, awayFromMe.y) * knockBackPower, ForceMode2D.Impulse);
-            state = EnemyStates.STUNNED;
-            GetHurt();
-        }
     }
 }
