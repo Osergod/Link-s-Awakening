@@ -8,10 +8,13 @@ public class HoleFallingEnemies : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        collision.transform.position = transform.position;
-        collision.GetComponent<Animator>().speed = 0;
-        collision.GetComponent<Enemy>().enabled = false;
-        StartCoroutine(DestroyEnemy(collision));
+        if (collision.tag == "Enemy")
+        {
+            collision.transform.position = transform.position;
+            collision.GetComponent<Animator>().speed = 0;
+            collision.GetComponent<Enemy>().enabled = false;
+            StartCoroutine(DestroyEnemy(collision));
+        }
     }
 
     private IEnumerator DestroyEnemy(Collider2D collision)
