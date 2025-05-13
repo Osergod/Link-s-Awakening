@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 2701549219623962518}
   - component: {fileID: 8352222255914417070}
   m_Layer: 0
-  m_Name: link
+  m_Name: Link
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -130,6 +130,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   velocidad: 5
   IsOnStairs: 0
+  keys: 0
   speedYModifier: 1
   HasFeather: 0
   map: {fileID: -944628639613478452, guid: 27471e3c76bd1444d91821a1ee60a27e, type: 3}
@@ -182,6 +183,7 @@ MonoBehaviour:
   trans: {fileID: 860660042454564613}
   anim: {fileID: 8480014185033501938}
   spriteRenderer: {fileID: 3131486699520587967}
+  OnJumping: 0
 --- !u!212 &3131486699520587967
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -222,7 +224,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: 692373513, guid: 818c7281c299dec4c9e50686b3228fd2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

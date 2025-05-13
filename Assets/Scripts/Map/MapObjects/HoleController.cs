@@ -4,13 +4,6 @@ using UnityEngine;
 
 public class HoleController : MonoBehaviour
 {
-<<<<<<< HEAD
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.tag == "Player")
-        {
-
-=======
     [Range(0, 1)][SerializeField] float atractionScale;
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -21,7 +14,6 @@ public class HoleController : MonoBehaviour
             towardsCenter.Normalize();
 
             collision.transform.position += towardsCenter * atractionScale;
->>>>>>> test
         }
     }
 }

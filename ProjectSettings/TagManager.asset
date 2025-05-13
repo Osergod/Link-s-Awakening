@@ -4,11 +4,7 @@
 TagManager:
   serializedVersion: 2
   tags:
-<<<<<<< HEAD
   - Stairs
-=======
-  - Explosion
->>>>>>> test
   layers:
   - Default
   - TransparentFX
