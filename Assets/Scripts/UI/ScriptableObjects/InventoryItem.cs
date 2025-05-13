@@ -14,10 +14,31 @@ public class InventoryItem : ScriptableObject
     public Sprite itemImage;
     public int numberHeldItem;
     public bool usableItem;
-    public bool uniqueItem; 
+    public bool uniqueItem;
+    /*internal static bool isActiveAndEnabled;
+    private GameObject gameObject;*/
 
-    public void Use() { 
-        thisEvent.Invoke();
-        Debug.Log("using Item");
+    public void Use() 
+    {
+         thisEvent.Invoke();
     }
+
+    public void ConsumeItem() 
+    {
+        numberHeldItem--;
+        if(numberHeldItem <= 0) 
+        { 
+            numberHeldItem = 0;
+        }
+    }
+
+    /*public void Show()
+    {
+        gameObject.SetActive(true);
+    }
+
+    public void Hide()
+    {
+        gameObject.SetActive(false);
+    }*/
 }

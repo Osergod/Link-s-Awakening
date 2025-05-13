@@ -43,7 +43,7 @@ public class InventoryUI : MonoBehaviour
             uiItem.OnRightMouseClick += HandleShowItemAtions;
         }
     }
-
+    
     private void HandleShowItemAtions(InventoryUIItem item)
     {
 

@@ -17,7 +17,7 @@ MonoBehaviour:
       m_Calls: []
   nameItem: Master Sword
   itemDesc: 'Your sword. Or at lest you think so. It has your name engraved on it. '
-  itemImage: {fileID: 14099669, guid: efeb60f8740a06844b8fa599a0f6cdb6, type: 3}
+  itemImage: {fileID: 1321959521, guid: 67d76df4f6a610449b67aeca55c4c2ba, type: 3}
   numberHeldItem: 1
   usableItem: 0
   uniqueItem: 1

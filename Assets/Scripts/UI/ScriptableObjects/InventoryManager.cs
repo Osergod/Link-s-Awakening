@@ -38,19 +38,22 @@ public class InventoryManager : MonoBehaviour
         {
             for (int i = 0; i < playerInventory.inventoryItems.Count; i++)
             {
-                GameObject temp = Instantiate(blankSlot, inventoryPanel.transform.position, Quaternion.identity);
-                temp.transform.SetParent(inventoryPanel.transform);
-                InventorySlots newSlot = temp.GetComponent<InventorySlots>();
-                if (newSlot)
-                {
-                    newSlot.SetUp(playerInventory.inventoryItems[i], this);
+                if (playerInventory.inventoryItems[i].numberHeldItem > 0) {
+                    GameObject temp = Instantiate(blankSlot, inventoryPanel.transform.position, Quaternion.identity);
+                    temp.transform.SetParent(inventoryPanel.transform);
+                    InventorySlots newSlot = temp.GetComponent<InventorySlots>();
+                    if (newSlot)
+                    {
+                        newSlot.SetUp(playerInventory.inventoryItems[i], this);
+                    }
                 }
             }
         }
     }
-    void Start()
+    void OnEnable()
     {
         CreateSlots();
+        Debug.Log("Inventory");
         SetTextAButton("", false);
     }
 
@@ -61,9 +64,20 @@ public class InventoryManager : MonoBehaviour
         useButton.SetActive(isUsable);   
     }
 
+    public void ClearSlots() 
+    {
+        for (int i = 0; i < inventoryPanel.transform.childCount; i++) 
+        { 
+            Destroy(inventoryPanel.transform.GetChild(i).gameObject);
+        }
+    }
+
     public void UseButtonPress() {
         if (currentItem) {
             currentItem.Use();
+            ClearSlots();
+            CreateSlots();
+            SetTextAButton("", false );
         }
     }
 }

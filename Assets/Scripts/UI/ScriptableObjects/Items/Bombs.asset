@@ -14,10 +14,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11400000}
+        m_TargetAssemblyTypeName: InventoryItem, Assembly-CSharp
+        m_MethodName: ConsumeItem
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   nameItem: Bombs
   itemDesc: 'Highly explosive. It could open up new ways for you to explore. '
-  itemImage: {fileID: -271311259, guid: a24c2db90db4c4848be86b70d89b5419, type: 3}
-  numberHeldItem: 35
+  itemImage: {fileID: 512786165, guid: 67d76df4f6a610449b67aeca55c4c2ba, type: 3}
+  numberHeldItem: 3
   usableItem: 1
-  uniqueItem: 1
+  uniqueItem: 0
