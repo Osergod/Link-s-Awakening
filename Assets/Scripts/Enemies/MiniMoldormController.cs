@@ -53,11 +53,13 @@ public class MiniMoldormController : Enemy
 
     public void isMoving()
     {
+        EnableLayer();
         rb.velocity = movementDirection * speed;
     }
 
     public void isStunned()
     {
+        DisableLayer();
         StartCoroutine(StopKnockBack());
     }
 

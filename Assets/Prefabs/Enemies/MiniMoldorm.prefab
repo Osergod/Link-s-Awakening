@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2122816946706414959}
   - component: {fileID: 5795112885535140002}
   - component: {fileID: 2039264729165106324}
-  - component: {fileID: 5440968614135438474}
+  - component: {fileID: 1709771624410829047}
   m_Layer: 0
   m_Name: BodyPart2
   m_TagString: Untagged
@@ -113,7 +113,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &5440968614135438474
+--- !u!114 &1709771624410829047
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -122,10 +122,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 4358493063512139093}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0706a6a52941db45a0ed3a351555c14, type: 3}
+  m_Script: {fileID: 11500000, guid: fd207945ea0761f419ea296895a1da2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  followSpeed: 0.85
+  followSpeed: 2
 --- !u!1 &5430238999519662055
 GameObject:
   m_ObjectHideFlags: 0
@@ -141,7 +141,7 @@ GameObject:
   - component: {fileID: 9172690809162628329}
   - component: {fileID: 8610951955095385638}
   - component: {fileID: 5643849014071392501}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: MiniMoldorm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -293,6 +293,7 @@ MonoBehaviour:
   health: 3
   damage: 0
   effect: {fileID: 3352404865613277864, guid: e62c7fe820b98684cbf8c066037438bd, type: 3}
+  knockBackPower: 0
   speed: 5
 --- !u!95 &8610951955095385638
 Animator:

@@ -8,12 +8,18 @@ public class HoleController : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
+        Vector3 towardsCenter = transform.position - collision.transform.position;
+        towardsCenter.Normalize();
+
         if (collision.tag == "Player")
         {
-            Vector3 towardsCenter = transform.position - collision.transform.position;
-            towardsCenter.Normalize();
+            collision.transform.position += towardsCenter * atractionScale;
+        }
 
+        if (collision.tag == "Enemy")
+        {
             collision.transform.position += towardsCenter * atractionScale;
         }
     }
+    
 }

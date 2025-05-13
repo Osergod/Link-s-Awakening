@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 3552444231871386984}
   m_Layer: 6
   m_Name: HardHatBeetle
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -219,8 +219,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5014c8dcdebf5b04fb68f7f5d5084504, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  life: 1
+  health: 1
   damage: 2
+  effect: {fileID: 0}
+  knockBackPower: 5
   speed: 3
-  player: {fileID: 0}
-  knockBackDistance: 1

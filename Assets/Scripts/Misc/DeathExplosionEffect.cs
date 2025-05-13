@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DeathExplosionEffectController : MonoBehaviour
+public class DeathExplosionEffectController : MiscEffect
 {
-    void Start()
+    public override void Start()
     {
-        Destroy(gameObject, 0.35f);
+        Destroy(gameObject, destructionDelay);
     }
 }

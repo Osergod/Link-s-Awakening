@@ -154,10 +154,74 @@ BlendTree:
     m_CycleOffset: 0
     m_DirectBlendParameter: Y
     m_Mirror: 0
+  - serializedVersion: 2
+    m_Motion: {fileID: 7400000, guid: 56127c57b88a2eb4d8368e4e9d0f3f9e, type: 2}
+    m_Threshold: 15
+    m_Position: {x: -1, y: 0.2}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: Y
+    m_Mirror: 0
+  - serializedVersion: 2
+    m_Motion: {fileID: 7400000, guid: 56127c57b88a2eb4d8368e4e9d0f3f9e, type: 2}
+    m_Threshold: 17
+    m_Position: {x: -1, y: -0.2}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: Y
+    m_Mirror: 0
+  - serializedVersion: 2
+    m_Motion: {fileID: 7400000, guid: 56127c57b88a2eb4d8368e4e9d0f3f9e, type: 2}
+    m_Threshold: 19
+    m_Position: {x: 1, y: 0.2}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: Y
+    m_Mirror: 0
+  - serializedVersion: 2
+    m_Motion: {fileID: 7400000, guid: 56127c57b88a2eb4d8368e4e9d0f3f9e, type: 2}
+    m_Threshold: 21
+    m_Position: {x: 1, y: -0.2}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: Y
+    m_Mirror: 0
+  - serializedVersion: 2
+    m_Motion: {fileID: 7400000, guid: 56127c57b88a2eb4d8368e4e9d0f3f9e, type: 2}
+    m_Threshold: 23
+    m_Position: {x: 0.2, y: 1}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: Y
+    m_Mirror: 0
+  - serializedVersion: 2
+    m_Motion: {fileID: 7400000, guid: 56127c57b88a2eb4d8368e4e9d0f3f9e, type: 2}
+    m_Threshold: 25
+    m_Position: {x: -0.2, y: 1}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: Y
+    m_Mirror: 0
+  - serializedVersion: 2
+    m_Motion: {fileID: 7400000, guid: 56127c57b88a2eb4d8368e4e9d0f3f9e, type: 2}
+    m_Threshold: 27
+    m_Position: {x: 0.2, y: -1}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: Y
+    m_Mirror: 0
+  - serializedVersion: 2
+    m_Motion: {fileID: 7400000, guid: 56127c57b88a2eb4d8368e4e9d0f3f9e, type: 2}
+    m_Threshold: 29
+    m_Position: {x: -0.2, y: -1}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: Y
+    m_Mirror: 0
   m_BlendParameter: Y
   m_BlendParameterY: X
   m_MinThreshold: -1
-  m_MaxThreshold: 13
+  m_MaxThreshold: 29
   m_UseAutomaticThresholds: 0
   m_NormalizedBlendValues: 0
   m_BlendType: 1

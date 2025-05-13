@@ -48,6 +48,7 @@ public class HardHatBeetleController : Enemy
         {
             state = EnemyStates.WAITING;
         }
+        EnableLayer();
         /*else if (knockBackActive)
         {
             state = EnemyStates.GET_HURT;
@@ -65,7 +66,7 @@ public class HardHatBeetleController : Enemy
         {
             state = EnemyStates.WAITING;
         }*/
-
+        DisableLayer();
         StartCoroutine(StopKnockBack());
     }
 
