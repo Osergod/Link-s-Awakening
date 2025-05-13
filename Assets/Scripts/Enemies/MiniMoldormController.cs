@@ -18,7 +18,7 @@ public class MiniMoldormController : Enemy
         rb = GetComponent<Rigidbody2D>();
         ator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-        ChooseRandomDirection();
+        movementDirection = new Vector2(1f, 1f);
     }
 
     private void Update()
@@ -34,6 +34,9 @@ public class MiniMoldormController : Enemy
         }
 
         rb.velocity = movementDirection * speed;
+
+        ator.SetFloat("X", movementDirection.x);
+        ator.SetFloat("Y", movementDirection.y);
 
         RotateHead();
     }
@@ -61,12 +64,6 @@ public class MiniMoldormController : Enemy
         ator.SetFloat("Y", movementDirection.y);
     }
 
-    public void ChooseRandomDirection()
-    {
-        float angle = Random.Range(0, 360f);
-        movementDirection = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle)).normalized;
-    }
-
     public void RotateHead()
     {
         if (movementDirection.x > 0)
@@ -76,6 +73,14 @@ public class MiniMoldormController : Enemy
         if (movementDirection.x < 0) 
         {
             spriteRenderer.flipX = false;
+        }
+        if (movementDirection.y > 0)
+        {
+            spriteRenderer.flipY = true;
+        }
+        if (movementDirection.y < 0)
+        {
+            spriteRenderer.flipY = false;
         }
     }
 
