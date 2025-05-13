@@ -7,6 +7,7 @@ public class MiniMoldormController : Enemy
     [SerializeField] float speed;
     Rigidbody2D rb;
     Animator ator;
+    SpriteRenderer spriteRenderer;
     Vector2 movementDirection;
 
     enum EnemyStates { IDLE, MOVING };
@@ -16,6 +17,7 @@ public class MiniMoldormController : Enemy
     {
         rb = GetComponent<Rigidbody2D>();
         ator = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
         ChooseRandomDirection();
     }
 
@@ -32,6 +34,8 @@ public class MiniMoldormController : Enemy
         }
 
         rb.velocity = movementDirection * speed;
+
+        RotateHead();
     }
 
     public void isIdle()
@@ -54,12 +58,25 @@ public class MiniMoldormController : Enemy
         ContactPoint2D contact = collision.contacts[0];
         Vector2 normal = contact.normal;
         movementDirection = Vector2.Reflect(movementDirection, normal).normalized;
+        ator.SetFloat("Y", movementDirection.y);
     }
 
     public void ChooseRandomDirection()
     {
         float angle = Random.Range(0, 360f);
         movementDirection = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle)).normalized;
+    }
+
+    public void RotateHead()
+    {
+        if (movementDirection.x > 0)
+        {
+            spriteRenderer.flipX = true;
+        }
+        if (movementDirection.x < 0) 
+        {
+            spriteRenderer.flipX = false;
+        }
     }
 
     public float GetSpeed()
