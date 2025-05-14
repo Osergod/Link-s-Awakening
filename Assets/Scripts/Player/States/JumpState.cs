@@ -20,8 +20,9 @@ public class JumpState : IPlayerState
 
         Vector2 move = new Vector2(mx, my).normalized;
 
-        link.spriteRenderer.transform.position += Vector3.up * 1;
-        link.spriteRenderer.transform.localScale += Vector3.up * 1 / 4;
+        link.transform.position += Vector3.up * 1;
+        link.shadow.transform.localPosition = Vector3.down * 1;
+        link.transform.localScale += Vector3.up * 1 / 4;
 
         link.GetComponentInChildren<BoxCollider2D>().enabled = false;
 
@@ -35,6 +36,7 @@ public class JumpState : IPlayerState
         link.GetComponentInChildren<BoxCollider2D>().enabled = true;
 
         link.transform.position += Vector3.down * 1;
+        link.shadow.transform.localPosition = Vector3.up * 1;
         link.transform.localScale += Vector3.down * 1 / 4;
 
         link.OnJumping = false;

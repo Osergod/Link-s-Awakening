@@ -10,24 +10,49 @@ public class OnDamagedState : IPlayerState
     public void Enter(LinkController link)
     {
         this.link = link;
-        link.anim.SetBool("hurt", true);
 
-        Vector2 pushDir = new Vector2(link.GetLastHorizontalMovementValue(), link.GetLastVerticalMovementValue()).normalized;
-        link.rig.velocity = pushDir * link.velocidad;
+        float mx = link.horizontal_ia.ReadValue<float>();
+        float my = link.vertical_ia.ReadValue<float>() * link.speedYModifier;
+
+        Vector2 move = new Vector2(mx, my).normalized;
+        link.rig.velocity = move * link.velocidad;
+
+        link.anim.SetBool("hurt", true);
     }
 
     public void Exit()
     {
+        ResetAnimation();
+    }
+
+    void ResetAnimation()
+    {
         link.anim.SetBool("hurt", false);
-        link.rig.velocity = Vector2.zero;
     }
 
     public void Update()
     {
+        float mx = link.horizontal_ia.ReadValue<float>();
+        float my = link.vertical_ia.ReadValue<float>() * link.speedYModifier;
+
         timer += Time.deltaTime;
         if (timer >= duration)
         {
             link.ChangeState(new WalkState());
+            return;
+        }
+
+        Vector2 move = new Vector2(mx, my).normalized;
+        link.rig.velocity = move * link.velocidad;
+
+        ResetAnimation();
+
+        link.anim.SetBool("hurt", true);
+
+        if (move != Vector2.zero)
+        {
+            link.SetLastHorizontalInputValue(move.x);
+            link.SetLastVerticalInputValue(move.y);
         }
     }
 

@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class LinkController : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class LinkController : MonoBehaviour
 
     public Rigidbody2D rig;
     public Transform trans;
+    public Transform shadow;
     public Animator anim;
     public SpriteRenderer spriteRenderer;
     public IPlayerState currentState;

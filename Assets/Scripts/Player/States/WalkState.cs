@@ -50,7 +50,7 @@ public class WalkState : IPlayerState
         if (dfs != 0)
         {
             link.ChangeState(new ShieldState());
-            return;
+            return; 
         }
 
         Vector2 move = new Vector2(mx, my).normalized;
