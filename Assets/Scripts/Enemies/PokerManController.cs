@@ -72,13 +72,14 @@ public class PokerManController : Enemy
 
     public IEnumerator RotateSprite()
     {
+        float spriteFlippingDelay = 0.2f;
         if (!spriteRotating)
         {
             spriteRotating = true;
             while (state == EnemyStates.MOVE && !stunned)
             {
                 spriteRenderer.flipX = !spriteRenderer.flipX;
-                yield return new WaitForSeconds(0.2f);
+                yield return new WaitForSeconds(spriteFlippingDelay);
             }
             spriteRotating = false;
         }
