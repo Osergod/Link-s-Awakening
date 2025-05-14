@@ -25,6 +25,8 @@ public class PlayerHealth : MonoBehaviour
             health = 0;
             Debug.Log("You're dead");
             OnPlayedDamaged?.Invoke();
+
+            GetComponent<LinkController>().Death();
         }
     }
 }

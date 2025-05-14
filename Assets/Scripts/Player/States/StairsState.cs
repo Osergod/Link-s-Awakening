@@ -62,6 +62,8 @@ public class StairsState : IPlayerState
         link.SetLastHorizontalInputValue(mx);
     }
 
+    
+
     public void HandleInput() { }
 }
 

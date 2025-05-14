@@ -6,8 +6,9 @@ using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class JumpState : IPlayerState
 {
+    public bool OnJumpState;
     float jumpTimer;
-    float jumpDuration = 0.5f;
+    float jumpDuration = 1f;
     private LinkController link;
 
     public void Enter(LinkController link)
@@ -18,7 +19,6 @@ public class JumpState : IPlayerState
         float my = link.vertical_ia.ReadValue<float>();
 
         Vector2 move = new Vector2(mx, my).normalized;
-        link.rig.velocity = move * 0;
 
         link.spriteRenderer.transform.position += Vector3.up * 1;
         link.spriteRenderer.transform.localScale += Vector3.up * 1 / 4;
@@ -26,6 +26,7 @@ public class JumpState : IPlayerState
         link.GetComponentInChildren<BoxCollider2D>().enabled = false;
 
         link.OnJumping = true;
+        SetStairsTrigger(false);
     }
 
     public void Exit()
@@ -37,6 +38,7 @@ public class JumpState : IPlayerState
         link.transform.localScale += Vector3.down * 1 / 4;
 
         link.OnJumping = false;
+        SetStairsTrigger(true);
     }
 
     void ResetAnimation()
@@ -82,5 +84,19 @@ public class JumpState : IPlayerState
 
         link.SetLastHorizontalInputValue(mx);
     }
+
+    void SetStairsTrigger(bool isTrigger)
+    {
+        GameObject[] stairs = GameObject.FindGameObjectsWithTag("Stairs");
+        foreach (GameObject stair in stairs)
+        {
+            Collider2D col = stair.GetComponent<Collider2D>();
+            if (col != null)
+            {
+                col.isTrigger = isTrigger;
+            }
+        }
+    }
+
     public void HandleInput() { }
 }

@@ -44,7 +44,7 @@ public class WalkState : IPlayerState
         }
         if (mj != 0 && link.HasFeather == true)
         {
-            link.ChangeState(new JumpState());
+            link.StartCoroutine(link.DelayJump());
             return;
         }
         if (dfs != 0)

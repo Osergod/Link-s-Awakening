@@ -27,9 +27,6 @@ public class LinkController : MonoBehaviour
 
     public bool OnJumping;
 
-    // private UIManager GM;
-
-    // double maxHealth = 3;
 
     private void Awake()
     {
@@ -57,10 +54,6 @@ public class LinkController : MonoBehaviour
         currentState.HandleInput();
         currentState.Update();
 
-        if (OnJumping == true)
-        {
-        }
-
         //proves:
 
         float mj = jump_ia.ReadValue<float>();
@@ -75,22 +68,7 @@ public class LinkController : MonoBehaviour
         }
 
         // fi de la prova
-        
-
-
-        // prova de DeadControl
-
-        double health = maxHealth - damage;
-
-        if (GM.Hurt())
-        {
-            ChangeState(new DeadControl());
-            return;
-        }
-
-        // fi prova DeadControl
-*/
-
+        */
     }
 
     public void ChangeState(IPlayerState newState)
@@ -151,7 +129,7 @@ public class LinkController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Stairs"))
+        if (other.CompareTag("Stairs") && OnJumping == false)
         {
             IsOnStairs = true;
             ChangeState(new StairsState());
@@ -164,6 +142,12 @@ public class LinkController : MonoBehaviour
         {
             IsOnStairs = false;
         }
+    }
+
+    public IEnumerator DelayJump()
+    {
+        yield return new WaitForSeconds(0.1f);
+        ChangeState(new JumpState());
     }
 
     public IEnumerator Fall_ReloadSceneAfterFall()
@@ -195,5 +179,10 @@ public class LinkController : MonoBehaviour
     public float GetHorizontalMovement()
     {
         return horizontal_ia.ReadValue<float>();
+    }
+
+    public void Death()
+    {
+        ChangeState(new DeadControl());
     }
 }
