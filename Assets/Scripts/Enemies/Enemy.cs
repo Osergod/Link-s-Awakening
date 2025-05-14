@@ -4,10 +4,11 @@ using UnityEngine;
 
 public abstract class Enemy : MonoBehaviour
 {
-    [SerializeField] public int health = 1;
+    [SerializeField] public int maxHealth = 1;
     [SerializeField] protected int damage;
     [SerializeField] protected GameObject effect;
     [Range(1f, 5f)][SerializeField] protected float knockBackPower;
+    int health;
     protected LayerMask originalLayer;
     protected LinkController player;
     Vector2 initialPos;
@@ -18,6 +19,7 @@ public abstract class Enemy : MonoBehaviour
         originalLayer = gameObject.layer;
         knockBackPower *= 10;
         player = FindAnyObjectByType<LinkController>();
+        health = maxHealth;
     }
 
     public abstract void Attack();
@@ -65,6 +67,7 @@ public abstract class Enemy : MonoBehaviour
 
     public void Deactivate()
     {
+        health = maxHealth;
         gameObject.transform.position = initialPos;
         gameObject.SetActive(false);
     }
