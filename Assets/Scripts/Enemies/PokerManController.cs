@@ -1,17 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class PokerManController : Enemy
 {
+    [SerializeField] float speed;
     Rigidbody2D rb;
     Animator ator;
-    //[SerializeField] GameObject effect;
     [SerializeField] float changeDelay;
     [SerializeField] float waitTime;
     PokerManController[] pokerManControllers;
+    Vector2 moveDirection;
+    SpriteRenderer spriteRenderer;
     private bool stunned;
-
+    private bool changedDirection = false;
     enum EnemyStates { IDLE, MOVE, STUNNED }
     EnemyStates state = EnemyStates.IDLE;
 
@@ -23,7 +27,9 @@ public class PokerManController : Enemy
     {
         rb = GetComponent<Rigidbody2D>();
         ator = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
         pokerManControllers = FindObjectsOfType<PokerManController>();
+        moveDirection = Random.insideUnitCircle.normalized;
     }
     
     void Update()
@@ -103,14 +109,23 @@ public class PokerManController : Enemy
 
     public void isIdle()
     {
-        rb.velocity = Vector3.zero;
-        //state = EnemyStates.MOVE;
+        moveDirection = Vector2.zero;
+        changedDirection = false;
+        state = EnemyStates.MOVE;
     }
 
     public void isMoving()
     {
-        rb.velocity = new Vector2(1, 0);
-        StartCoroutine(WalkTime());
+        if (!stunned)
+        {
+            if (!changedDirection)
+            {
+                moveDirection = Random.insideUnitCircle.normalized;
+                changedDirection = true;
+                rb.velocity = moveDirection * speed;
+                StartCoroutine(WalkTime());
+            }
+        }
     }
 
     public IEnumerator WalkTime()
@@ -154,6 +169,8 @@ public class PokerManController : Enemy
     {
         if (collision.tag == "Player")
         {
+            moveDirection = Vector2.zero;
+            rb.velocity = Vector2.zero;
             stunned = true;
             currentPokerState = pokerState;
             state = EnemyStates.STUNNED;
