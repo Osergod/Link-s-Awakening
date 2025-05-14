@@ -29,7 +29,8 @@ public class PhysicalItem : MonoBehaviour
             }
             else 
             {
-                inventory.inventoryItems.Add(item);          
+                inventory.inventoryItems.Add(item);
+                item.numberHeldItem++;
             }
         }
     }

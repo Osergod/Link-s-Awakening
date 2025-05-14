@@ -30,6 +30,6 @@ MonoBehaviour:
   nameItem: Bombs
   itemDesc: 'Highly explosive. It could open up new ways for you to explore. '
   itemImage: {fileID: 512786165, guid: 67d76df4f6a610449b67aeca55c4c2ba, type: 3}
-  numberHeldItem: 3
+  numberHeldItem: 2
   usableItem: 1
   uniqueItem: 0
