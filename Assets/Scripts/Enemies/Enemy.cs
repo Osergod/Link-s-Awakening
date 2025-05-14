@@ -6,7 +6,7 @@ public abstract class Enemy : MonoBehaviour
 {
     [SerializeField] public int health = 1;
     [SerializeField] protected int damage;
-    [SerializeField] GameObject effect;
+    [SerializeField] protected GameObject effect;
     protected LayerMask originalLayer;
     [Range(1f, 5f)][SerializeField] protected float knockBackPower;
     protected LinkController player;

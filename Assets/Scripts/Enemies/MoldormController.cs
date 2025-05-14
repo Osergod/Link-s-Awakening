@@ -12,7 +12,6 @@ public class MoldormController : Enemy
     [SerializeField] float secondsToRecover;
     [SerializeField] float secondsToCalmDown;
     [SerializeField] float angleVariationScale;
-    [SerializeField] GameObject explosionEffect;
     Rigidbody2D rb;
     Animator ator;
     SpriteRenderer spriteRenderer;
@@ -22,7 +21,6 @@ public class MoldormController : Enemy
     private bool gotHurt = false;
     private bool isRecovering = false;
     private bool isDead = false;
-    private int numExplosions = 15;
     enum EnemyStates { WAITING, MOVING, STUNNED, ANGRY };
     EnemyStates state = EnemyStates.MOVING;
     private void Start()
@@ -224,6 +222,12 @@ public class MoldormController : Enemy
 
     public IEnumerator DestroyBody()
     {
+        float effectDistance = 1;
+        float effectDelay = 0.1f;
+        float effectSeparation = 1.5f;
+        float effectToCenter = 0.05f;
+        int numEffects = 15;
+
         yield return new WaitForSeconds(bodyDestructionDelay);
         tail.Eliminate();
         
@@ -235,24 +239,18 @@ public class MoldormController : Enemy
 
         yield return new WaitForSeconds(bodyDestructionDelay);
 
-        float explosionDistance = 1;
-        float explosionDelay = 0.1f;
-        float explosionSeparation = 1.5f;
-        float explosionToCenter = 0.05f;
-
-        for (int i = 0; i < numExplosions; i++)
+        for (int i = 0; i < numEffects; i++)
         {
-            float angle = (i * explosionSeparation) * Mathf.PI * 2 / numExplosions;
-            float x = Mathf.Cos(angle) * explosionDistance;
-            float y = Mathf.Sin(angle) * explosionDistance;
+            float angle = (i * effectSeparation) * Mathf.PI * 2 / numEffects;
+            float x = Mathf.Cos(angle) * effectDistance;
+            float y = Mathf.Sin(angle) * effectDistance;
 
-            yield return new WaitForSeconds(explosionDelay);
+            yield return new WaitForSeconds(effectDelay);
             Vector3 explosionPosition = new Vector3(x, y, 0) + transform.position;
-            Instantiate(explosionEffect, explosionPosition, Quaternion.identity);
-            explosionDistance -= explosionToCenter;
+            Instantiate(effect, explosionPosition, Quaternion.identity);
+            effectDistance -= effectToCenter;
         }
 
-        Instantiate(explosionEffect, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 }
