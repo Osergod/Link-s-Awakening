@@ -19,7 +19,7 @@ public abstract class PuzzleRoom : MonoBehaviour
             UnSolveRoom();
         }
 
-        roomEnemies.RemoveAll(s => s == null);
+        roomEnemies.RemoveAll(deadEnemies => deadEnemies == null);
     }
 
     public abstract void SolveRoom();

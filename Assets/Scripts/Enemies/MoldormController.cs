@@ -21,6 +21,7 @@ public class MoldormController : Enemy
     private bool gotHurt = false;
     private bool isRecovering = false;
     private bool isDead = false;
+    private bool isStillColliding = false;
     enum EnemyStates { WAITING, MOVING, STUNNED, ANGRY };
     EnemyStates state = EnemyStates.MOVING;
     private void Start()
@@ -52,7 +53,7 @@ public class MoldormController : Enemy
         }
         ator.SetFloat("X", movementDirection.x);
         ator.SetFloat("Y", movementDirection.y);
-        RotateHead();
+        
     }
 
     public void isWaiting()
@@ -71,6 +72,7 @@ public class MoldormController : Enemy
         {
             state = EnemyStates.STUNNED;
         }
+        RotateHead();
         rb.velocity = movementDirection * speed;
     }
 
@@ -108,6 +110,7 @@ public class MoldormController : Enemy
     }
     public void isAngry()
     {
+        RotateHead();
         rb.velocity = movementDirection * (speed * 2);
         StartCoroutine(CalmDown());
     }
@@ -135,15 +138,42 @@ public class MoldormController : Enemy
         }
     }
 
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        
+        isStillColliding = true;
+        StartCoroutine(ReflectCharacter(collision));
+        
+    }
+
+    private IEnumerator ReflectCharacter(Collision2D collision)
+    {
+        yield return new WaitForSeconds(0.2f);
+        if (isStillColliding)
+        {
+            ContactPoint2D contact = collision.contacts[0];
+            Vector2 normal = contact.normal;
+            movementDirection = Vector2.Reflect(movementDirection, normal).normalized;
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        isStillColliding = false;
+    }
+
     public IEnumerator ChangeDirection()
     {
-        float angleVariation = Random.Range(angleVariationScale * -1, angleVariationScale);
-        Quaternion rotation = Quaternion.Euler(0, 0, angleVariation);
-
-        yield return new WaitForSeconds(0.5f);
-        if (Random.Range(0,50) > 25 && !gotHurt)
+        if (!isStillColliding)
         {
-            movementDirection = rotation * movementDirection;
+            float angleVariation = Random.Range(angleVariationScale * -1, angleVariationScale);
+            Quaternion rotation = Quaternion.Euler(0, 0, angleVariation);
+
+            yield return new WaitForSeconds(0.5f);
+            if (Random.Range(0,50) > 25 && !gotHurt)
+            {
+                movementDirection = rotation * movementDirection;
+            }
         }
     }
 

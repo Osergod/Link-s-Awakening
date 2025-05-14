@@ -7,12 +7,14 @@ public abstract class Enemy : MonoBehaviour
     [SerializeField] public int health = 1;
     [SerializeField] protected int damage;
     [SerializeField] protected GameObject effect;
-    protected LayerMask originalLayer;
     [Range(1f, 5f)][SerializeField] protected float knockBackPower;
+    protected LayerMask originalLayer;
     protected LinkController player;
+    Vector2 initialPos;
 
     private void Awake()
     {
+        initialPos = gameObject.transform.position;
         originalLayer = gameObject.layer;
         knockBackPower *= 10;
         player = FindAnyObjectByType<LinkController>();
@@ -54,5 +56,16 @@ public abstract class Enemy : MonoBehaviour
     public void EnableLayer()
     {
         gameObject.layer = originalLayer;
+    }
+
+    public void Activate()
+    {
+        gameObject.SetActive(true);
+    }
+
+    public void Deactivate()
+    {
+        gameObject.transform.position = initialPos;
+        gameObject.SetActive(false);
     }
 }
