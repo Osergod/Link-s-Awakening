@@ -16,6 +16,7 @@ public class PokerManController : Enemy
     SpriteRenderer spriteRenderer;
     private bool stunned;
     private bool changedDirection = false;
+    private bool spriteRotating = false;
     enum EnemyStates { IDLE, MOVE, STUNNED }
     EnemyStates state = EnemyStates.IDLE;
 
@@ -65,8 +66,23 @@ public class PokerManController : Enemy
                     break;
             }
         }
+
+        StartCoroutine(RotateSprite());
     }
 
+    public IEnumerator RotateSprite()
+    {
+        if (!spriteRotating)
+        {
+            spriteRotating = true;
+            while (state == EnemyStates.MOVE && !stunned)
+            {
+                spriteRenderer.flipX = !spriteRenderer.flipX;
+                yield return new WaitForSeconds(0.2f);
+            }
+            spriteRotating = false;
+        }
+    }
     public IEnumerator ChangeToDiamond()
     {
         yield return new WaitForSeconds(changeDelay);
@@ -157,7 +173,6 @@ public class PokerManController : Enemy
                 StartCoroutine(Reactivate());
             }
         }
-        //CheckIfSameState();
     }
 
     public override void Attack()

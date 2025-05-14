@@ -834,6 +834,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PokerMan (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 144595544989537565, guid: 696ef254477359446aef3840a236b952, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3074540292544679902, guid: 696ef254477359446aef3840a236b952, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.7
@@ -1171,7 +1175,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7051252895466260124, guid: 8cd87c207ab0b914280912d5b197c617, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.1703985
+      value: 0.43
       objectReference: {fileID: 0}
     - target: {fileID: 7051252895466260124, guid: 8cd87c207ab0b914280912d5b197c617, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1229,6 +1233,10 @@ PrefabInstance:
     - target: {fileID: 144595544989537565, guid: 696ef254477359446aef3840a236b952, type: 3}
       propertyPath: m_Name
       value: PokerMan (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 144595544989537565, guid: 696ef254477359446aef3840a236b952, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3074540292544679902, guid: 696ef254477359446aef3840a236b952, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1589,6 +1597,10 @@ PrefabInstance:
     - target: {fileID: 144595544989537565, guid: 696ef254477359446aef3840a236b952, type: 3}
       propertyPath: m_Name
       value: PokerMan
+      objectReference: {fileID: 0}
+    - target: {fileID: 144595544989537565, guid: 696ef254477359446aef3840a236b952, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3074540292544679902, guid: 696ef254477359446aef3840a236b952, type: 3}
       propertyPath: m_LocalPosition.x
