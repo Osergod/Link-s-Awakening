@@ -5,6 +5,7 @@ using UnityEngine;
 public class MoldormTailController : MonoBehaviour
 {
     [SerializeField] float followSpeed;
+    [SerializeField] GameObject effect;
     MoldormController head;
     MoldormBodyController body;
     Rigidbody2D rb;
@@ -77,5 +78,11 @@ public class MoldormTailController : MonoBehaviour
     public void ResumeMovement()
     {
         movementStopped = false;
+    }
+
+    public void Eliminate()
+    {
+        Instantiate(effect, transform.position, Quaternion.identity);
+        Destroy(gameObject);
     }
 }

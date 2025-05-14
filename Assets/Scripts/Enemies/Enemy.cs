@@ -40,7 +40,7 @@ public abstract class Enemy : MonoBehaviour
         }
     }
 
-    public void Die()
+    public virtual void Die()
     {
         Destroy(gameObject);
         Instantiate(effect, transform.position, Quaternion.identity);

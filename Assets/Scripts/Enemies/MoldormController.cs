@@ -2,22 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
+using static UnityEngine.EventSystems.EventTrigger;
 
 public class MoldormController : Enemy
 {
     [SerializeField] float speed;
+    [SerializeField] float bodyDestructionDelay;
+    [SerializeField] float secondsToRecover;
+    [SerializeField] float secondsToCalmDown;
+    [SerializeField] float angleVariationScale;
+    [SerializeField] GameObject explosionEffect;
     Rigidbody2D rb;
     Animator ator;
     SpriteRenderer spriteRenderer;
-    Vector2 movementDirection;
-    Vector2 lastMovementDirection;
+    MoldormBodyController[] bodyParts;
+    Vector2 movementDirection, lastMovementDirection;
     MoldormTailController tail;
     private bool gotHurt = false;
     private bool isRecovering = false;
-    MoldormBodyController[] bodyParts;
+    private bool isDead = false;
+    private int numExplosions = 15;
     enum EnemyStates { WAITING, MOVING, STUNNED, ANGRY };
     EnemyStates state = EnemyStates.MOVING;
-
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -80,24 +87,21 @@ public class MoldormController : Enemy
             rb.velocity = Vector2.zero;
             tail.StopMovement();
 
-            for (int i = 0; i < bodyParts.Length; i++)
-            {
-                bodyParts[i].StopMovement();
-            }
+            StopBodyMovement();
 
-            StartCoroutine(Recover());
+            if (!isDead)
+            {
+                StartCoroutine(Recover());
+            }
         }
     }
 
     public IEnumerator Recover()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(secondsToRecover);
         tail.ResumeMovement();
 
-        for (int i = 0; i < bodyParts.Length; i++)
-        {
-            bodyParts[i].ResumeMovement();
-        }
+        ResumeBodyMovement();
         movementDirection = lastMovementDirection;
         state = EnemyStates.ANGRY;
         gotHurt = false;
@@ -112,7 +116,7 @@ public class MoldormController : Enemy
 
     public IEnumerator CalmDown()
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(secondsToCalmDown);
         state = EnemyStates.MOVING;
     }
 
@@ -135,7 +139,7 @@ public class MoldormController : Enemy
 
     public IEnumerator ChangeDirection()
     {
-        float angleVariation = Random.Range(-45f, 45f);
+        float angleVariation = Random.Range(angleVariationScale * -1, angleVariationScale);
         Quaternion rotation = Quaternion.Euler(0, 0, angleVariation);
 
         yield return new WaitForSeconds(0.5f);
@@ -188,5 +192,67 @@ public class MoldormController : Enemy
     {
         rb.velocity = Vector2.zero;
         state = EnemyStates.STUNNED;
+    }
+
+    public void StopBodyMovement()
+    {
+        for (int i = 0; i < bodyParts.Length; i++)
+        {
+            bodyParts[i].StopMovement();
+        }
+    }
+
+    public void ResumeBodyMovement()
+    {
+        for (int i = 0; i < bodyParts.Length; i++)
+        {
+            bodyParts[i].ResumeMovement();
+        }
+    }
+    public override void Die()
+    {
+        isDead = true;
+        movementDirection = Vector2.zero;
+        ator.SetBool("isHurt", true);
+
+        StopBodyMovement();
+
+        tail.StopMovement();
+
+        StartCoroutine(DestroyBody());
+    }
+
+    public IEnumerator DestroyBody()
+    {
+        yield return new WaitForSeconds(bodyDestructionDelay);
+        tail.Eliminate();
+        
+        for (int i = bodyParts.Length; i > 0; i--)
+        {
+            yield return new WaitForSeconds(bodyDestructionDelay);
+            bodyParts[i - 1].Eliminate();
+        }
+
+        yield return new WaitForSeconds(bodyDestructionDelay);
+
+        float explosionDistance = 1;
+        float explosionDelay = 0.1f;
+        float explosionSeparation = 1.5f;
+        float explosionToCenter = 0.05f;
+
+        for (int i = 0; i < numExplosions; i++)
+        {
+            float angle = (i * explosionSeparation) * Mathf.PI * 2 / numExplosions;
+            float x = Mathf.Cos(angle) * explosionDistance;
+            float y = Mathf.Sin(angle) * explosionDistance;
+
+            yield return new WaitForSeconds(explosionDelay);
+            Vector3 explosionPosition = new Vector3(x, y, 0) + transform.position;
+            Instantiate(explosionEffect, explosionPosition, Quaternion.identity);
+            explosionDistance -= explosionToCenter;
+        }
+
+        Instantiate(explosionEffect, transform.position, Quaternion.identity);
+        Destroy(gameObject);
     }
 }

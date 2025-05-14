@@ -6,6 +6,7 @@ using UnityEngine;
 public class MoldormBodyController : MonoBehaviour
 {
     [SerializeField] float followSpeed;
+    [SerializeField] GameObject effect;
     MoldormController head;
     Rigidbody2D rb;
     private bool movementStopped;
@@ -68,5 +69,11 @@ public class MoldormBodyController : MonoBehaviour
     {
         ator.SetBool("isHurt", false);
         movementStopped = false;
+    }
+
+    public void Eliminate()
+    {
+        Instantiate(effect, transform.position, Quaternion.identity);
+        Destroy(gameObject);
     }
 }
