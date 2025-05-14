@@ -10,9 +10,11 @@ public class MoldormController : Enemy
     Animator ator;
     SpriteRenderer spriteRenderer;
     Vector2 movementDirection;
+    Vector2 lastMovementDirection;
     MoldormTailController tail;
     private bool gotHurt = false;
-
+    private bool isRecovering = false;
+    MoldormBodyController[] bodyParts;
     enum EnemyStates { WAITING, MOVING, STUNNED, ANGRY };
     EnemyStates state = EnemyStates.MOVING;
 
@@ -23,6 +25,7 @@ public class MoldormController : Enemy
         spriteRenderer = GetComponent<SpriteRenderer>();
         tail = GetComponentInChildren<MoldormTailController>();
         movementDirection = new Vector2(1f, 1f);
+        bodyParts = GetComponentsInChildren<MoldormBodyController>();
     }
 
     private void Update()
@@ -68,18 +71,37 @@ public class MoldormController : Enemy
 
     public void isStunned()
     {
-        ator.SetBool("isHurt", true);
-        rb.velocity = Vector2.zero;
-        tail.StopMovement();
-        StartCoroutine(Recover());
+        if (!isRecovering)
+        {
+            isRecovering = true;
+            lastMovementDirection = movementDirection;
+            movementDirection = Vector2.zero;
+            ator.SetBool("isHurt", true);
+            rb.velocity = Vector2.zero;
+            tail.StopMovement();
+
+            for (int i = 0; i < bodyParts.Length; i++)
+            {
+                bodyParts[i].StopMovement();
+            }
+
+            StartCoroutine(Recover());
+        }
     }
 
     public IEnumerator Recover()
     {
         yield return new WaitForSeconds(1);
         tail.ResumeMovement();
+
+        for (int i = 0; i < bodyParts.Length; i++)
+        {
+            bodyParts[i].ResumeMovement();
+        }
+        movementDirection = lastMovementDirection;
         state = EnemyStates.ANGRY;
         gotHurt = false;
+        isRecovering = false;
         ator.SetBool("isHurt", false);
     }
     public void isAngry()
@@ -101,24 +123,27 @@ public class MoldormController : Enemy
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        ContactPoint2D contact = collision.contacts[0];
-        Vector2 normal = contact.normal;
-        movementDirection = Vector2.Reflect(movementDirection, normal).normalized;
+        if (!gotHurt)
+        {
+            ContactPoint2D contact = collision.contacts[0];
+            Vector2 normal = contact.normal;
+            movementDirection = Vector2.Reflect(movementDirection, normal).normalized;
 
-        //StartCoroutine(ChangeDirection());
+            StartCoroutine(ChangeDirection());
+        }
     }
 
-    /*public IEnumerator ChangeDirection()
+    public IEnumerator ChangeDirection()
     {
         float angleVariation = Random.Range(-45f, 45f);
         Quaternion rotation = Quaternion.Euler(0, 0, angleVariation);
 
         yield return new WaitForSeconds(0.5f);
-        if (Random.Range(0,50) > 25 && state != EnemyStates.STUNNED)
+        if (Random.Range(0,50) > 25 && !gotHurt)
         {
             movementDirection = rotation * movementDirection;
         }
-    }*/
+    }
 
     public void RotateHead()
     {
@@ -147,11 +172,21 @@ public class MoldormController : Enemy
 
     public void SetGotHurt(bool gotHurt)
     {
-        this.gotHurt = gotHurt;
+        if (state != EnemyStates.STUNNED)
+        {
+            this.gotHurt = gotHurt;
+        }
+        
     }
 
     public bool GetGotHurt()
     {
         return gotHurt;
+    }
+
+    public void StopMovement()
+    {
+        rb.velocity = Vector2.zero;
+        state = EnemyStates.STUNNED;
     }
 }

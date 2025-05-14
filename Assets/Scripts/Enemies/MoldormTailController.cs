@@ -6,7 +6,7 @@ public class MoldormTailController : MonoBehaviour
 {
     [SerializeField] float followSpeed;
     MoldormController head;
-    MiniMoldormBody body;
+    MoldormBodyController body;
     Rigidbody2D rb;
     Animator ator;
     Vector2 toBody;
@@ -17,7 +17,7 @@ public class MoldormTailController : MonoBehaviour
     {
         ator = GetComponent<Animator>();
         head = GetComponentInParent<MoldormController>();
-        //body = GetComponentInParent<MiniMoldormBody>();
+        body = GetComponentInParent<MoldormBodyController>();
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -53,8 +53,8 @@ public class MoldormTailController : MonoBehaviour
             state = TailStates.STILL;
         }
 
-        toBody = head.transform.position - transform.position;
-        if (transform.position != head.transform.position)
+        toBody = body.transform.position - transform.position;
+        if (transform.position != body.transform.position)
         {
             rb.velocity = toBody * head.GetSpeed() * followSpeed;
         }
@@ -64,6 +64,7 @@ public class MoldormTailController : MonoBehaviour
         if (collision.tag == "Player" && !head.GetGotHurt())
         {
             head.SetGotHurt(true);
+            //head.StopMovement();
             head.GetHurt();
         }
     }
