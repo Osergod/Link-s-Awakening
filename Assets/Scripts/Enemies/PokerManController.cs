@@ -24,6 +24,14 @@ public class PokerManController : Enemy
     PokerStates pokerState = PokerStates.SPADE;
     PokerStates currentPokerState;
 
+    private void OnDisable()
+    {
+        state = EnemyStates.IDLE;
+        pokerState = PokerStates.SPADE;
+        stunned = false;
+        spriteRotating = false;
+    }
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -210,10 +218,4 @@ public class PokerManController : Enemy
             pokerManControllers[i].Die();
         }
     }
-
-    /*private void Die()
-    {
-        Destroy(gameObject);
-        Instantiate(effect, transform.position, Quaternion.identity);
-    }*/
 }

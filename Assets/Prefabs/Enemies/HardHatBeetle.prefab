@@ -222,5 +222,5 @@ MonoBehaviour:
   health: 1
   damage: 2
   effect: {fileID: 0}
-  knockBackPower: 5
+  knockBackPower: 3
   speed: 3

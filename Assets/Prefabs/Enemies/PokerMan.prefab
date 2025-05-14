@@ -189,7 +189,7 @@ MonoBehaviour:
   effect: {fileID: 3352404865613277864, guid: e62c7fe820b98684cbf8c066037438bd, type: 3}
   knockBackPower: 1
   speed: 2
-  changeDelay: 1
+  changeDelay: 0.2
   waitTime: 1
 --- !u!1 &1116027946680182555
 GameObject:

@@ -10,6 +10,11 @@ public class SparkController : Enemy
 
     int nextTagetPoint = 0;
 
+    private void OnDisable()
+    {
+        nextTagetPoint = 0;
+    }
+
     void Start()
     {
 
