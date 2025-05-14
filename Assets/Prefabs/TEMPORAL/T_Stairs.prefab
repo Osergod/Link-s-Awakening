@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 8378477457059012065}
   - component: {fileID: 1330915998942698512}
   m_Layer: 0
-  m_Name: escaleras
-  m_TagString: Untagged
+  m_Name: T_Stairs
+  m_TagString: Stairs
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 1553884801634142444}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.8664, y: 2.474, z: 10}
+  m_LocalPosition: {x: -6.28, y: 2.11, z: 10}
   m_LocalScale: {x: 21.238045, y: 31.647911, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

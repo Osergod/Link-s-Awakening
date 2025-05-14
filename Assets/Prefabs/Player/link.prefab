@@ -87,6 +87,7 @@ GameObject:
   m_Component:
   - component: {fileID: 860660042454564613}
   - component: {fileID: 2458532200677476623}
+  - component: {fileID: 1354956884579573860}
   - component: {fileID: 3131486699520587967}
   - component: {fileID: 8480014185033501938}
   - component: {fileID: 2701549219623962518}
@@ -107,7 +108,7 @@ Transform:
   m_GameObject: {fileID: 1473571407825001124}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -171,7 +172,7 @@ MonoBehaviour:
     m_SingletonActionBindings: []
     m_Flags: 0
   shield_ia:
-    m_Name: 
+    m_Name: Shield_ia
     m_Type: 0
     m_ExpectedControlType: 
     m_Id: 89e8fce2-933a-4d48-b3f4-4639dc25b122
@@ -184,6 +185,20 @@ MonoBehaviour:
   anim: {fileID: 8480014185033501938}
   spriteRenderer: {fileID: 3131486699520587967}
   OnJumping: 0
+--- !u!114 &1354956884579573860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1473571407825001124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a3ffffffa207264db1983cece01ae31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 6
+  maxHealth: 6
 --- !u!212 &3131486699520587967
 SpriteRenderer:
   m_ObjectHideFlags: 0
