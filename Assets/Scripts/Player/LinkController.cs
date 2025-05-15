@@ -3,7 +3,6 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class LinkController : MonoBehaviour
 {
@@ -29,6 +28,8 @@ public class LinkController : MonoBehaviour
 
     public bool OnJumping;
 
+    public Vector2 shieldDirection { get; private set; }
+    public ShieldCollider shieldCollider;
 
     private void Awake()
     {
@@ -56,21 +57,15 @@ public class LinkController : MonoBehaviour
         currentState.HandleInput();
         currentState.Update();
 
-        //proves:
-
-        float mj = jump_ia.ReadValue<float>();
-
-        /*
-        // prova de "FallState"
-
-        if (mj != 0 && HasFeather == false)
+        float mx = horizontal_ia.ReadValue<float>();
+        float my = vertical_ia.ReadValue<float>();
+        Vector2 dir = new Vector2(mx, my);
+        if (dir != Vector2.zero)
         {
-            ChangeState(new FallState());
-            return;
+            SetShieldDirection(dir);
         }
 
-        // fi de la prova
-        */
+        float mj = jump_ia.ReadValue<float>();
     }
 
     public void ChangeState(IPlayerState newState)
@@ -155,17 +150,13 @@ public class LinkController : MonoBehaviour
     public IEnumerator Fall_ReloadSceneAfterFall()
     {
         yield return new WaitForSeconds(0.6f);
-        UnityEngine.SceneManagement.SceneManager.LoadScene(
-            UnityEngine.SceneManagement.SceneManager.GetActiveScene().name
-        );
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public IEnumerator Dead_ReloadSceneAfterFall()
     {
         yield return new WaitForSeconds(1.2f);
-        UnityEngine.SceneManagement.SceneManager.LoadScene(
-            UnityEngine.SceneManagement.SceneManager.GetActiveScene().name
-        );
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public int GetKeys()
@@ -186,5 +177,10 @@ public class LinkController : MonoBehaviour
     public void Death()
     {
         ChangeState(new DeadControl());
+    }
+
+    public void SetShieldDirection(Vector2 dir)
+    {
+        shieldDirection = dir.normalized;
     }
 }
