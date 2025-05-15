@@ -16,6 +16,11 @@ public class InfoReference : MonoBehaviour
 
     PlayerInfo player = new PlayerInfo();
 
+    private void Start()
+    {
+        ScoreManager.instance.Player
+    }
+
     public void saveData() 
     { 
         player.PlayerID = this.idPlayer.id;

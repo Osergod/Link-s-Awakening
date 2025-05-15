@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Unity.Collections.AllocatorManager;
 
 public class ScoreManager : MonoBehaviour
 {
@@ -24,7 +25,7 @@ public class ScoreManager : MonoBehaviour
     }
 
     [SerializeField]
-    private PlayerID idPlayers;
+    PlayerID idPlayers;
     [SerializeField]
     private PlayerName usernamePlayers;
     [SerializeField]
@@ -32,8 +33,8 @@ public class ScoreManager : MonoBehaviour
     [SerializeField]
     private PlayerRunTime runtimePlayers;
 
-
-    /* //Resetear Score
+    /* 
+    //Reset Score
     public void ResetMoney(bool save = true)
     {
         PlayerPrefs.DeleteKey(SAVEGAMEKEY_MONEY);
@@ -44,5 +45,22 @@ public class ScoreManager : MonoBehaviour
 
         LoadMoney();
 
+    }
+
+    //Save score
+    public void SaveMoney(bool save = true)
+    {
+        PlayerPrefs.SetFloat(SAVEGAMEKEY_MONEY, banck);
+
+        if (save)
+        {
+            PlayerPrefs.Save();
+        }
+    }
+
+    //Load score
+    public void LoadMoney()
+    {
+        banck = PlayerPrefs.GetFloat(SAVEGAMEKEY_MONEY, 0);
     }*/
 }
