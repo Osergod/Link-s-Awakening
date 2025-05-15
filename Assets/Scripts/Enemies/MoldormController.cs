@@ -126,7 +126,48 @@ public class MoldormController : Enemy
         throw new System.NotImplementedException();
     }
 
+    /*private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.contactCount == 0) return;
+
+        Vector2 avgNormal = Vector2.zero;
+
+        foreach (ContactPoint2D contact in collision.contacts)
+        {
+            avgNormal += contact.normal;
+        }
+        avgNormal.Normalize();
+
+        Vector2 newDirection = Vector2.Reflect(movementDirection, avgNormal).normalized;
+
+        if (newDirection.magnitude < 0.1f)
+        {
+            newDirection = Random.insideUnitCircle.normalized;
+        }
+
+        movementDirection = newDirection;
+        transform.position += (Vector3) avgNormal * 0.05f;
+    }*/
+
     private void OnCollisionEnter2D(Collision2D collision)
+    {
+        ContactPoint2D contact = collision.contacts[0];
+        Vector2 normal = contact.normal;
+        Vector2 newDirection = Vector2.Reflect(movementDirection, normal).normalized;
+
+        if (newDirection == Vector2.zero || newDirection.magnitude < 0.1f)
+        {
+            newDirection = Random.insideUnitCircle.normalized;
+        }
+
+        movementDirection = newDirection;
+
+        transform.position += (Vector3)normal * 0.05f;
+
+        StartCoroutine(ChangeDirection());
+    }
+
+    /*private void OnCollisionEnter2D(Collision2D collision)
     {
         if (!gotHurt)
         {
@@ -160,7 +201,7 @@ public class MoldormController : Enemy
     private void OnCollisionExit2D(Collision2D collision)
     {
         isStillColliding = false;
-    }
+    }*/
 
     public IEnumerator ChangeDirection()
     {

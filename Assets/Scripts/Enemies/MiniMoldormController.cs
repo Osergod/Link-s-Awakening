@@ -9,7 +9,6 @@ public class MiniMoldormController : Enemy
     Animator ator;
     SpriteRenderer spriteRenderer;
     Vector2 movementDirection;
-    bool isStillColliding = false;
 
     enum EnemyStates { WAITING, MOVING, STUNNED };
     EnemyStates state = EnemyStates.MOVING;
@@ -79,30 +78,16 @@ public class MiniMoldormController : Enemy
     {
         ContactPoint2D contact = collision.contacts[0];
         Vector2 normal = contact.normal;
-        movementDirection = Vector2.Reflect(movementDirection, normal).normalized;
-        ator.SetFloat("Y", movementDirection.y);
-    }
+        Vector2 newDirection = Vector2.Reflect(movementDirection, normal).normalized;
 
-    private void OnCollisionStay2D(Collision2D collision)
-    {
-        isStillColliding = true;
-        StartCoroutine(ReflectCharacter(collision));
-    }
-
-    private IEnumerator ReflectCharacter(Collision2D collision)
-    {
-        yield return new WaitForSeconds(0.2f);
-        if (isStillColliding)
+        if (newDirection == Vector2.zero || newDirection.magnitude < 0.1f)
         {
-            ContactPoint2D contact = collision.contacts[0];
-            Vector2 normal = contact.normal;
-            movementDirection = Vector2.Reflect(movementDirection, normal).normalized;
+            newDirection = Random.insideUnitCircle.normalized;
         }
-    }
 
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        isStillColliding = false;
+        movementDirection = newDirection;
+
+        transform.position += (Vector3)normal * 0.05f;
     }
 
     public void RotateHead()

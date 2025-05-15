@@ -17,6 +17,7 @@ public class PokerManController : Enemy
     private bool stunned;
     private bool changedDirection = false;
     private bool spriteRotating = false;
+    private bool isDiamond, isSpade, isClover, isHeart;
     enum EnemyStates { IDLE, MOVE, STUNNED }
     EnemyStates state = EnemyStates.IDLE;
 
@@ -30,6 +31,10 @@ public class PokerManController : Enemy
         pokerState = PokerStates.SPADE;
         stunned = false;
         spriteRotating = false;
+        isHeart = false;
+        isSpade = false;
+        isDiamond = false;
+        isClover = false;
     }
 
     void Start()
@@ -95,8 +100,12 @@ public class PokerManController : Enemy
     public IEnumerator ChangeToDiamond()
     {
         yield return new WaitForSeconds(changeDelay);
-        if (!stunned)
+        if (!stunned && !isDiamond)
         {
+            isSpade = false;
+            isClover = false;
+            isHeart = false;
+            isDiamond = true;
             pokerState = PokerStates.DIAMOND;
             ator.SetTrigger("ToDiamond");
         }
@@ -105,8 +114,12 @@ public class PokerManController : Enemy
     public IEnumerator ChangeToClover()
     {
         yield return new WaitForSeconds(changeDelay);
-        if (!stunned)
+        if (!stunned && !isClover)
         {
+            isHeart = false;
+            isSpade = false;
+            isDiamond = false;
+            isClover = true;
             pokerState = PokerStates.CLOVER;
             ator.SetTrigger("ToClover");
         }
@@ -115,8 +128,12 @@ public class PokerManController : Enemy
     public IEnumerator ChangeToHeart()
     {
         yield return new WaitForSeconds(changeDelay);
-        if (!stunned)
+        if (!stunned && !isHeart)
         {
+            isClover = false;
+            isSpade = false;
+            isDiamond = false;
+            isHeart = true;
             pokerState = PokerStates.HEART;
             ator.SetTrigger("ToHeart");
         }
@@ -125,8 +142,12 @@ public class PokerManController : Enemy
     public IEnumerator ChangeToSpade()
     {
         yield return new WaitForSeconds(changeDelay);
-        if (!stunned)
+        if (!stunned && !isSpade)
         {
+            isHeart = false;
+            isDiamond = false;
+            isClover = false;
+            isSpade = true;
             pokerState = PokerStates.SPADE;
             ator.SetTrigger("ToSpade");
         }
