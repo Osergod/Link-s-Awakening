@@ -24,8 +24,6 @@ public class JumpState : IPlayerState
         link.shadow.transform.localPosition = Vector3.down * 1;
         link.transform.localScale += Vector3.up * 1 / 4;
 
-        link.GetComponentInChildren<BoxCollider2D>().enabled = false;
-
         link.OnJumping = true;
         SetStairsTrigger(false);
     }
@@ -33,10 +31,9 @@ public class JumpState : IPlayerState
     public void Exit()
     {
         ResetAnimation();
-        link.GetComponentInChildren<BoxCollider2D>().enabled = true;
 
         link.transform.position += Vector3.down * 1;
-        link.shadow.transform.localPosition = Vector3.up * 1;
+        link.shadow.transform.localPosition = Vector3.up * -0.5f;
         link.transform.localScale += Vector3.down * 1 / 4;
 
         link.OnJumping = false;

@@ -671,6 +671,10 @@ PrefabInstance:
       propertyPath: shield_ia.m_Name
       value: Shield_ia
       objectReference: {fileID: 0}
+    - target: {fileID: 3996817331795052440, guid: 3f947c4d3fad9b34ca1175caf163b4fb, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6284271915252014990, guid: 3f947c4d3fad9b34ca1175caf163b4fb, type: 3}
       propertyPath: m_Size.x
       value: 0.2
