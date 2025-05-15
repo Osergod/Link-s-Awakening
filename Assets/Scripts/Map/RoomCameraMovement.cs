@@ -5,10 +5,18 @@ using UnityEngine.Tilemaps;
 
 public class RoomCameraMovement : MonoBehaviour
 {
-    /*private void Start()
+    SpriteRenderer[] objects;
+
+    private void Start()
     {
         gameObject.GetComponent<TilemapRenderer>().enabled = false;
-    }*/
+        objects = GetComponentsInChildren<SpriteRenderer>();
+
+        for (int i = 0; i < objects.Length; i++)
+        {
+            objects[i].enabled = false;
+        }
+    }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
@@ -16,15 +24,31 @@ public class RoomCameraMovement : MonoBehaviour
         {
             CameraController.instance.SetRoom(gameObject);
             CameraController.instance.MoveToRoom();
-            //gameObject.GetComponent<TilemapRenderer>().enabled = true;
+            gameObject.GetComponent<TilemapRenderer>().enabled = true;
+
+            for (int i = 0; i < objects.Length; i++)
+            {
+                if (objects[i] != null)
+                {
+                    objects[i].enabled = true;
+                }
+            }
         }
     }
 
-    /*private void OnTriggerExit2D(Collider2D collision)
+    private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.tag == "Player")
         {
             gameObject.GetComponent<TilemapRenderer>().enabled = false;
+
+            for (int i = 0; i < objects.Length; i++)
+            {
+                if (objects[i] != null)
+                {
+                    objects[i].enabled = false;
+                }
+            }
         }
-    }*/
+    }
 }
