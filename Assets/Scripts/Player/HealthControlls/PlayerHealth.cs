@@ -5,33 +5,27 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
+    // Eventos para notificar daño y muerte del jugador
     public static event Action OnPlayedDamaged;
     public static event Action OnPlayerDeath;
 
     public float health, maxHealth;
+    private bool isInvulnerable = false;  // Controla la invulnerabilidad temporal
 
-    private bool isInvulnerable = false;  // Variable para gestionar la invulnerabilidad
-
+    // Inicializa la vida al máximo al comenzar
     private void Start()
     {
         health = maxHealth;
     }
 
-    // Función para comprobar si el jugador es invulnerable
-    public bool IsInvulnerable()
-    {
-        return isInvulnerable;  // Devuelve el estado de invulnerabilidad
-    }
+    // Maneja el estado de invulnerabilidad
+    public bool IsInvulnerable() => isInvulnerable;
+    public void SetInvulnerable(bool value) => isInvulnerable = value;
 
-    // Función que activa la invulnerabilidad
-    public void SetInvulnerable(bool value)
-    {
-        isInvulnerable = value;
-    }
-
+    // Aplica daño al jugador y gestiona estados relacionados
     public void TakeDamage(float amount)
     {
-        if (isInvulnerable) return;  // Si el jugador es invulnerable, no recibirá daño
+        if (isInvulnerable) return;
 
         health -= amount;
         OnPlayedDamaged?.Invoke();
@@ -39,7 +33,7 @@ public class PlayerHealth : MonoBehaviour
         LinkController link = GetComponent<LinkController>();
         if (link != null)
         {
-            link.ChangeState(new OnDamagedState());  // Cambiar al estado de "dañado"
+            link.ChangeState(new OnDamagedState());
         }
 
         if (health <= 0)
@@ -47,17 +41,17 @@ public class PlayerHealth : MonoBehaviour
             health = 0;
             Debug.Log("You're dead");
             OnPlayerDeath?.Invoke();
-
             link?.Death();
         }
     }
 
-    // Puedes añadir un temporizador para manejar la invulnerabilidad por un tiempo determinado
+    // Activa invulnerabilidad temporal por un tiempo determinado
     public void BecomeTemporarilyInvulnerable(float duration)
     {
         StartCoroutine(TemporaryInvulnerability(duration));
     }
 
+    // Corrutina para gestionar el tiempo de invulnerabilidad
     private IEnumerator TemporaryInvulnerability(float duration)
     {
         SetInvulnerable(true);
@@ -65,6 +59,7 @@ public class PlayerHealth : MonoBehaviour
         SetInvulnerable(false);
     }
 
+    // Verifica si el escudo está bloqueando un ataque desde cierta posición
     public bool IsShieldBlocking(Vector2 attackerPosition)
     {
         LinkController link = GetComponent<LinkController>();
@@ -73,7 +68,6 @@ public class PlayerHealth : MonoBehaviour
         Vector2 toAttacker = (attackerPosition - (Vector2)transform.position).normalized;
         float dot = Vector2.Dot(link.shieldDirection, toAttacker);
 
-        return dot > 0.7f; // Pot ajustar-se el marge (0.7 és ~45º)
+        return dot > 0.5f;  // Distancia para considerar bloqueo efectivo
     }
-
 }

@@ -9,13 +9,14 @@ public class FallState : IPlayerState
 
     public void Enter(LinkController link)
     {
+        // Inicia la caída: congela el movimiento y activa la animación de caída.
         this.link = link;
-
         link.rig.velocity = Vector2.zero;
         link.anim.SetTrigger("fall");
 
         link.StartCoroutine(link.Fall_ReloadSceneAfterFall());
     }
+
     public void Exit() { }
     public void Update() { }
     public void HandleInput() { }

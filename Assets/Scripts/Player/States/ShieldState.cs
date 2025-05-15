@@ -10,6 +10,7 @@ public class ShieldState : IPlayerState
 
     public void Enter(LinkController link)
     {
+        // Activa el estado de defensa: congela movimiento, orienta el escudo y gestiona colisiones enemigas
         this.link = link;
         defenseTimer = defenseMinDuration;
 
@@ -24,6 +25,7 @@ public class ShieldState : IPlayerState
 
         link.SetShieldDirection(dir);
 
+        // Desactiva temporalmente los triggers de enemigos para permitir bloqueo físico
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
         foreach (GameObject enemy in enemies)
         {
@@ -36,9 +38,9 @@ public class ShieldState : IPlayerState
         }
     }
 
-
     public void Exit()
     {
+        // Restaura el estado original: animación y colisiones enemigas
         link.anim.SetFloat("shield", 0);
 
         foreach (Collider2D hitbox in enemyHitboxes)
@@ -54,6 +56,7 @@ public class ShieldState : IPlayerState
 
     public void Update()
     {
+        // Controla la duración mínima de bloqueo y permite movimiento gradual al soltar el escudo
         float mx = link.horizontal_ia.ReadValue<float>();
         float my = link.vertical_ia.ReadValue<float>();
         float dfs = link.shield_ia.ReadValue<float>();

@@ -9,20 +9,20 @@ public class AtackState : IPlayerState
 
     public void Enter(LinkController link)
     {
+        // Inicia el ataque: congela el movimiento y activa la animación.
         this.link = link;
         float mx = link.horizontal_ia.ReadValue<float>();
         attackTimer = attackDuration;
 
         link.anim.SetTrigger("atack");
-
         link.rig.velocity = Vector2.zero;
-
     }
 
     public void Exit() { }
 
     public void Update()
     {
+        // Controla la duración del ataque y transición a idle si no hay input.
         float atk = link.atack_ia.ReadValue<float>();
 
         if (atk == 0)

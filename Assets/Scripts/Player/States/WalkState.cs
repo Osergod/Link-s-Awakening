@@ -7,17 +7,20 @@ public class WalkState : IPlayerState
 
     public void Enter(LinkController link)
     {
+        // Prepara al personaje para moverse: establece velocidad base y configura animaciones.
         this.link = link;
         link.velocidad = 4;
     }
 
     public void Exit()
     {
+        // Limpia las animaciones de movimiento al salir del estado.
         ResetAnimation();
     }
 
     void ResetAnimation()
     {
+        // Reinicia todos los parámetros de animación de caminata.
         link.anim.SetFloat("walk_up", 0);
         link.anim.SetFloat("walk_down", 0);
         link.anim.SetFloat("walk_left", 0);
@@ -26,6 +29,7 @@ public class WalkState : IPlayerState
 
     public void Update()
     {
+        // Gestiona el movimiento continuo, transiciones a otros estados y animaciones según dirección.
         float mx = link.horizontal_ia.ReadValue<float>();
         float my = link.vertical_ia.ReadValue<float>() * link.speedYModifier;
         float atk = link.atack_ia.ReadValue<float>();
@@ -50,13 +54,13 @@ public class WalkState : IPlayerState
         if (dfs != 0)
         {
             link.ChangeState(new ShieldState());
-            return; 
+            return;
         }
 
         Vector2 move = new Vector2(mx, my).normalized;
         link.rig.velocity = move * link.velocidad;
 
-        ResetAnimation(); 
+        ResetAnimation();
 
         if (Mathf.Abs(mx) > Mathf.Abs(my))
         {
@@ -79,7 +83,6 @@ public class WalkState : IPlayerState
             link.SetLastVerticalInputValue(move.y);
         }
     }
-
 
     public void HandleInput() { }
 }

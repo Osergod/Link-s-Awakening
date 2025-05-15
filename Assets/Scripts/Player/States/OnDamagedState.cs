@@ -3,12 +3,15 @@ using UnityEngine;
 
 public class OnDamagedState : IPlayerState
 {
+    // Variables de estado
     private LinkController link;
     private float timer = 0f;
     private float duration = 1f;
 
+    // Método de entrada al estado
     public void Enter(LinkController link)
     {
+        // Inicia el estado de daño: aplica retroceso físico y activa la animación de herido
         this.link = link;
 
         float mx = link.horizontal_ia.ReadValue<float>();
@@ -20,18 +23,10 @@ public class OnDamagedState : IPlayerState
         link.anim.SetBool("hurt", true);
     }
 
-    public void Exit()
-    {
-        ResetAnimation();
-    }
-
-    void ResetAnimation()
-    {
-        link.anim.SetBool("hurt", false);
-    }
-
+    // Método de actualización
     public void Update()
     {
+        // Controla la duración del estado y permite movimiento limitado durante el daño
         float mx = link.horizontal_ia.ReadValue<float>();
         float my = link.vertical_ia.ReadValue<float>() * link.speedYModifier;
 
@@ -46,7 +41,6 @@ public class OnDamagedState : IPlayerState
         link.rig.velocity = move * link.velocidad;
 
         ResetAnimation();
-
         link.anim.SetBool("hurt", true);
 
         if (move != Vector2.zero)
@@ -56,5 +50,20 @@ public class OnDamagedState : IPlayerState
         }
     }
 
+    // Método de salida del estado
+    public void Exit()
+    {
+        // Restaura las animaciones al salir del estado de daño
+        ResetAnimation();
+    }
+
+    // Método auxiliar
+    void ResetAnimation()
+    {
+        // Asegura que la animación de "herido" se desactive para evitar bugs visuales
+        link.anim.SetBool("hurt", false);
+    }
+
+    // Método obligatorio (sin uso en este estado)
     public void HandleInput() { }
 }

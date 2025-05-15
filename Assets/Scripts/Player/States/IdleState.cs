@@ -7,8 +7,8 @@ public class IdleState : IPlayerState
 
     public void Enter(LinkController link)
     {
+        // Configura el estado inicial de idle (animación y física).
         this.link = link;
-
         link.rig.velocity = Vector2.zero;
 
         link.anim.SetFloat("walk_up", 0);
@@ -27,6 +27,7 @@ public class IdleState : IPlayerState
 
     public void Update()
     {
+        // Detecta inputs para transicionar a otros estados (movimiento, ataque, salto o escudo).
         float mx = link.horizontal_ia.ReadValue<float>();
         float my = link.vertical_ia.ReadValue<float>();
         float atk = link.atack_ia.ReadValue<float>();

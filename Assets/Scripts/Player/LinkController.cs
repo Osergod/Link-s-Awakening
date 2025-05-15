@@ -6,33 +6,39 @@ using UnityEngine.SceneManagement;
 
 public class LinkController : MonoBehaviour
 {
+    // Configuración de movimiento
     [SerializeField] public float velocidad = 5f;
     public bool IsOnStairs = false;
-    [SerializeField] int keys;
+    [SerializeField] int keys;  // Cantidad de llaves recolectadas
 
+    // Modificadores de movimiento
     public float speedYModifier = 1;
-    public bool HasFeather = false;
+    public bool HasFeather = false;  // Habilidad especial
 
+    // Sistema de input
     public InputActionAsset map;
     public InputAction horizontal_ia, vertical_ia, atack_ia, jump_ia, shield_ia;
 
+    // Componentes y referencias
     public Rigidbody2D rig;
     public Transform trans;
-    public Transform shadow;
+    public Transform shadow;  // Sombra del personaje
     public Animator anim;
     public SpriteRenderer spriteRenderer;
-    public IPlayerState currentState;
+    public IPlayerState currentState;  // Estado actual del jugador
 
+    // Variables de movimiento
     private float lastHorizontalMovementValue;
     private float lastVerticalMovementValue;
+    public bool OnJumping;  // Indica si está saltando
 
-    public bool OnJumping;
-
+    // Sistema de defensa
     public Vector2 shieldDirection { get; private set; }
     public ShieldCollider shieldCollider;
 
     private void Awake()
     {
+        // Configuración inicial del sistema de input
         map.Enable();
         horizontal_ia = map.FindActionMap("Movement").FindAction("Horizontal");
         vertical_ia = map.FindActionMap("Movement").FindAction("Vertical");
@@ -40,6 +46,7 @@ public class LinkController : MonoBehaviour
         jump_ia = map.FindActionMap("Movement").FindAction("Jump");
         shield_ia = map.FindActionMap("Defense").FindAction("Shield");
 
+        // Obtención de componentes
         rig = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -47,16 +54,19 @@ public class LinkController : MonoBehaviour
 
     void Start()
     {
+        // Estado inicial del personaje
         ChangeState(new IdleState());
     }
 
     void Update()
     {
+        // Actualización del estado actual
         if (currentState == null) return;
 
         currentState.HandleInput();
         currentState.Update();
 
+        // Manejo de dirección del escudo
         float mx = horizontal_ia.ReadValue<float>();
         float my = vertical_ia.ReadValue<float>();
         Vector2 dir = new Vector2(mx, my);
@@ -65,9 +75,11 @@ public class LinkController : MonoBehaviour
             SetShieldDirection(dir);
         }
 
+        // Lectura del input de salto
         float mj = jump_ia.ReadValue<float>();
     }
 
+    // Cambia el estado del jugador
     public void ChangeState(IPlayerState newState)
     {
         currentState?.Exit();
@@ -75,6 +87,7 @@ public class LinkController : MonoBehaviour
         currentState.Enter(this);
     }
 
+    // Resetea el estado de ataque
     public void NotAtack()
     {
         float atk = atack_ia.ReadValue<float>();
@@ -82,10 +95,12 @@ public class LinkController : MonoBehaviour
         transform.rotation = Quaternion.Euler(0, 0, 0);
     }
 
+    // Manejo de la última dirección horizontal
     public void SetLastHorizontalInputValue(float v)
     {
         lastHorizontalMovementValue = v;
 
+        // Orientación del sprite
         if (lastHorizontalMovementValue > 0)
         {
             transform.rotation = Quaternion.Euler(0, 180, 0);
@@ -98,32 +113,22 @@ public class LinkController : MonoBehaviour
         anim.SetFloat("LastMoveX", v);
     }
 
-    public float GetLastHorizontalMovementValue()
-    {
-        return lastHorizontalMovementValue;
-    }
+    public float GetLastHorizontalMovementValue() => lastHorizontalMovementValue;
 
+    // Manejo de la última dirección vertical
     public void SetLastVerticalInputValue(float v)
     {
         lastVerticalMovementValue = v;
         anim.SetFloat("LastMoveY", v);
     }
 
-    public float GetLastVerticalMovementValue()
-    {
-        return lastVerticalMovementValue;
-    }
+    public float GetLastVerticalMovementValue() => lastVerticalMovementValue;
 
-    public void SetSpeedYModifier(float speedYModifier)
-    {
-        this.speedYModifier = speedYModifier;
-    }
+    // Modificadores de velocidad vertical
+    public void SetSpeedYModifier(float speedYModifier) => this.speedYModifier = speedYModifier;
+    public void ResetSpeedYModifier() => speedYModifier = 1;
 
-    public void ResetSpeedYModifier()
-    {
-        speedYModifier = 1;
-    }
-
+    // Detección de escaleras
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Stairs") && OnJumping == false)
@@ -141,6 +146,7 @@ public class LinkController : MonoBehaviour
         }
     }
 
+    // Corrutinas para acciones especiales
     public IEnumerator DelayJump()
     {
         yield return new WaitForSeconds(0.1f);
@@ -159,28 +165,12 @@ public class LinkController : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
-    public int GetKeys()
-    {
-        return keys;
-    }
+    // Manejo de llaves
+    public int GetKeys() => keys;
+    public void DecrementKeys() => keys--;
 
-    public void DecrementKeys()
-    {
-        keys--;
-    }
-
-    public float GetHorizontalMovement()
-    {
-        return horizontal_ia.ReadValue<float>();
-    }
-
-    public void Death()
-    {
-        ChangeState(new DeadControl());
-    }
-
-    public void SetShieldDirection(Vector2 dir)
-    {
-        shieldDirection = dir.normalized;
-    }
+    // Movimiento y estado
+    public float GetHorizontalMovement() => horizontal_ia.ReadValue<float>();
+    public void Death() => ChangeState(new DeadControl());
+    public void SetShieldDirection(Vector2 dir) => shieldDirection = dir.normalized;
 }
