@@ -1175,6 +1175,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9fa84fd00c4c4d48915fc539c490629, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  idPlayers: 0
+  usernamePlayers: 
+  scorePlayers: 0
+  runtimePlayers: 0
 --- !u!1001 &633307150
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1377,6 +1381,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9fa84fd00c4c4d48915fc539c490629, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  idPlayers: 0
+  usernamePlayers: 
+  scorePlayers: 0
+  runtimePlayers: 0
 --- !u!4 &976971124
 Transform:
   m_ObjectHideFlags: 0

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem.Utilities;
+using static Unity.Collections.AllocatorManager;
 
 public class GameManager : MonoBehaviour
 {
@@ -20,15 +21,5 @@ public class GameManager : MonoBehaviour
             singletonManger = FindObjectOfType<GameManager>();
         }
         return singletonManger;
-    }
-
-    int heartsHP = 6;
-
-    public void DecreaseLife(int damage)
-    {
-        if (Input.GetKeyDown(KeyCode.T)) { 
-            heartsHP -= damage;
-            Debug.Log(heartsHP);
-        }
     }
 }
