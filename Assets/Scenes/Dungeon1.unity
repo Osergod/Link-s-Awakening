@@ -33587,7 +33587,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7056742759573827228, guid: 8cd87c207ab0b914280912d5b197c617, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -39376,8 +39376,8 @@ Tilemap:
   - first: {x: -3, y: 0, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 20
-      m_TileSpriteIndex: 20
+      m_TileIndex: 19
+      m_TileSpriteIndex: 19
       m_TileMatrixIndex: 0
       m_TileColorIndex: 4
       m_TileObjectToInstantiateIndex: 65535
@@ -39386,8 +39386,8 @@ Tilemap:
   - first: {x: -2, y: 0, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 19
-      m_TileSpriteIndex: 19
+      m_TileIndex: 20
+      m_TileSpriteIndex: 20
       m_TileMatrixIndex: 0
       m_TileColorIndex: 4
       m_TileObjectToInstantiateIndex: 65535
@@ -64888,11 +64888,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 860660042454564613, guid: 9c207efa0aa76a94a821dd21ac09904f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 20.32
+      value: 30.16
       objectReference: {fileID: 0}
     - target: {fileID: 860660042454564613, guid: 9c207efa0aa76a94a821dd21ac09904f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 18.09
+      value: 26.24
       objectReference: {fileID: 0}
     - target: {fileID: 860660042454564613, guid: 9c207efa0aa76a94a821dd21ac09904f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -64941,10 +64941,6 @@ PrefabInstance:
     - target: {fileID: 1803092184713674056, guid: 9c207efa0aa76a94a821dd21ac09904f, type: 3}
       propertyPath: keys
       value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3131486699520587967, guid: 9c207efa0aa76a94a821dd21ac09904f, type: 3}
-      propertyPath: m_SortingOrder
-      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -73679,6 +73675,10 @@ PrefabInstance:
     - target: {fileID: 3429146856776902726, guid: 6cc52f6bc41512b42a56f854f0ad48af, type: 3}
       propertyPath: m_Name
       value: PushableRock
+      objectReference: {fileID: 0}
+    - target: {fileID: 3429146856776902726, guid: 6cc52f6bc41512b42a56f854f0ad48af, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4360089794180616212, guid: 6cc52f6bc41512b42a56f854f0ad48af, type: 3}
       propertyPath: m_LocalPosition.x
