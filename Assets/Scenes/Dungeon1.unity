@@ -25428,7 +25428,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9172690809162628329, guid: 28610dc2563a5194687f1e665a054e87, type: 3}
       propertyPath: knockBackPower
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -40721,7 +40721,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9172690809162628329, guid: 28610dc2563a5194687f1e665a054e87, type: 3}
       propertyPath: knockBackPower
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -56791,7 +56791,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9172690809162628329, guid: 28610dc2563a5194687f1e665a054e87, type: 3}
       propertyPath: knockBackPower
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -60858,7 +60858,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9172690809162628329, guid: 28610dc2563a5194687f1e665a054e87, type: 3}
       propertyPath: knockBackPower
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -65368,11 +65368,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 860660042454564613, guid: 9c207efa0aa76a94a821dd21ac09904f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 31.74
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 860660042454564613, guid: 9c207efa0aa76a94a821dd21ac09904f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 25.79
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 860660042454564613, guid: 9c207efa0aa76a94a821dd21ac09904f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -66901,7 +66901,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9172690809162628329, guid: 28610dc2563a5194687f1e665a054e87, type: 3}
       propertyPath: knockBackPower
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -295,6 +295,9 @@ MonoBehaviour:
   effect: {fileID: 3352404865613277864, guid: e62c7fe820b98684cbf8c066037438bd, type: 3}
   knockBackPower: 3
   speed: 5
+  headCollider: {fileID: 0}
+  distanceThresholdForWiggling: 0.3
+  maxTimeToWiggleAway: 0.2
 --- !u!95 &8610951955095385638
 Animator:
   serializedVersion: 5

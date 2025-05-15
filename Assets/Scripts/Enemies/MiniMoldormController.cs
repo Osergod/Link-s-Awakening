@@ -10,6 +10,11 @@ public class MiniMoldormController : Enemy
     SpriteRenderer spriteRenderer;
     Vector2 movementDirection;
 
+    [SerializeField] Collider2D headCollider;
+    [SerializeField] private float distanceThresholdForWiggling = 0.3f;
+    [SerializeField] private float maxTimeToWiggleAway = 1.0f;
+    float timeTryingToMoveInADir = 0.0f;
+    Vector3 lastPosition;
     enum EnemyStates { WAITING, MOVING, STUNNED };
     EnemyStates state = EnemyStates.MOVING;
 
@@ -53,8 +58,29 @@ public class MiniMoldormController : Enemy
 
     public void isMoving()
     {
+        if (Vector3.Distance(lastPosition, transform.position) < distanceThresholdForWiggling)
+        {
+
+            timeTryingToMoveInADir += Time.deltaTime;
+            if (timeTryingToMoveInADir > maxTimeToWiggleAway)
+            {
+                DoWiggle();
+                timeTryingToMoveInADir = 0;
+            }
+        }
+        else
+        {
+            lastPosition = transform.position;
+            timeTryingToMoveInADir = 0;
+        }
+
         EnableLayer();
         rb.velocity = movementDirection * speed;
+    }
+
+    void DoWiggle()
+    {
+        movementDirection *= -1;
     }
 
     public void isStunned()
