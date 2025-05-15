@@ -84,7 +84,7 @@ public class HardHatBeetleController : Enemy
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (state == EnemyStates.ATTACKING && collision.tag == "Player")
+        if (state == EnemyStates.ATTACKING && (collision.tag == "Attack" || collision.tag == "Shield"))
         {
             ator.speed = 0;
             Vector3 awayFromMe = transform.position - player.transform.position;

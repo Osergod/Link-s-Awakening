@@ -22,10 +22,10 @@ public class KeyDoorController : ActionableMapObject
     {
         if (collision.tag == "Player")
         {
-            if (collision.GetComponent<LinkController>().GetKeys() > 0)
+            if (LinkController.instance.GetKeys() > 0)
             {
                 StartCoroutine(OpenDoor());
-                collision.GetComponent<LinkController>().DecrementKeys();
+                LinkController.instance.DecrementKeys();
             }
         }
     }

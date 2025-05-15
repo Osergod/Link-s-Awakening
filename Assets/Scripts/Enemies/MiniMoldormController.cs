@@ -143,14 +143,23 @@ public class MiniMoldormController : Enemy
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+        if (collision.tag == "Attack")
         {
-            ator.speed = 0;
-            Vector3 awayFromMe = transform.position - collision.transform.position;
-            awayFromMe.Normalize();
-            rb.AddForce(new Vector2(awayFromMe.x, awayFromMe.y) * knockBackPower, ForceMode2D.Impulse);
-            state = EnemyStates.STUNNED;
+            GetKnockBack(collision);
             GetHurt();
         }
+        if (collision.tag == "Shield")
+        {
+            GetKnockBack(collision);
+        }
+    }
+
+    public void GetKnockBack(Collider2D collision)
+    {
+        state = EnemyStates.STUNNED;
+        ator.speed = 0;
+        Vector3 awayFromMe = transform.position - collision.transform.position;
+        awayFromMe.Normalize();
+        rb.AddForce(new Vector2(awayFromMe.x, awayFromMe.y) * knockBackPower, ForceMode2D.Impulse);
     }
 }

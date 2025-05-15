@@ -6,11 +6,12 @@ public class RoomStairsController : MonoBehaviour
 {
     [SerializeField] bool canPass;
     [SerializeField] GameObject targetStairs;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player" && canPass)
         {
-            collision.transform.position = targetStairs.transform.position;
+            LinkController.instance.transform.position = targetStairs.transform.position;
         }
     }
 

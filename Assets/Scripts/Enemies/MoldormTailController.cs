@@ -62,7 +62,7 @@ public class MoldormTailController : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player" && !head.GetGotHurt())
+        if (collision.tag == "Attack" && !head.GetGotHurt())
         {
             head.SetGotHurt(true);
         }

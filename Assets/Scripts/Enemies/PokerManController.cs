@@ -212,7 +212,7 @@ public class PokerManController : Enemy
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+        if (collision.tag == "Attack")
         {
             moveDirection = Vector2.zero;
             rb.velocity = Vector2.zero;

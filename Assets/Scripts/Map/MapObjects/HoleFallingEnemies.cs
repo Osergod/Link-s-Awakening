@@ -15,6 +15,12 @@ public class HoleFallingEnemies : MonoBehaviour
             collision.GetComponent<Enemy>().enabled = false;
             StartCoroutine(DestroyEnemy(collision));
         }
+
+        if (collision.tag == "Player")
+        {
+            LinkController.instance.transform.position = Vector2.MoveTowards(LinkController.instance.transform.position, transform.position, 5);
+            LinkController.instance.ChangeState(new FallState());
+        }
     }
 
     private IEnumerator DestroyEnemy(Collider2D collision)
