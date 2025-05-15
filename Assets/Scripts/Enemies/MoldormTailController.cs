@@ -65,8 +65,6 @@ public class MoldormTailController : MonoBehaviour
         if (collision.tag == "Player" && !head.GetGotHurt())
         {
             head.SetGotHurt(true);
-            //head.StopMovement();
-            head.GetHurt();
         }
     }
 

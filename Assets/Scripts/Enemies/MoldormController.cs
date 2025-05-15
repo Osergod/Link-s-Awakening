@@ -1,9 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UIElements;
-using static UnityEngine.EventSystems.EventTrigger;
 
 public class MoldormController : Enemy
 {
@@ -11,7 +7,6 @@ public class MoldormController : Enemy
     [SerializeField] float bodyDestructionDelay;
     [SerializeField] float secondsToRecover;
     [SerializeField] float secondsToCalmDown;
-    [SerializeField] float angleVariationScale;
     Rigidbody2D rb;
     Animator ator;
     SpriteRenderer spriteRenderer;
@@ -21,8 +16,19 @@ public class MoldormController : Enemy
     private bool gotHurt = false;
     private bool isRecovering = false;
     private bool isDead = false;
+    private bool canTakeDamage = true;
+
+    [SerializeField] Collider2D headCollider;
+    [SerializeField] private float distanceThresholdForWiggling = 0.3f;
+    [SerializeField] private float maxTimeToWiggleAway = 1.0f;
+    float timeTryingToMoveInADir = 0.0f;
+    Vector3 lastPosition;
+
+
+
     enum EnemyStates { WAITING, MOVING, STUNNED, ANGRY };
     EnemyStates state = EnemyStates.MOVING;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -52,7 +58,6 @@ public class MoldormController : Enemy
         }
         ator.SetFloat("X", movementDirection.x);
         ator.SetFloat("Y", movementDirection.y);
-        
     }
 
     public void isWaiting()
@@ -71,8 +76,35 @@ public class MoldormController : Enemy
         {
             state = EnemyStates.STUNNED;
         }
+        else if (canTakeDamage)
+        {
+            
+        }
+
+        if (Vector3.Distance(lastPosition, transform.position) < distanceThresholdForWiggling)
+        {
+
+            timeTryingToMoveInADir += Time.deltaTime;
+            if (timeTryingToMoveInADir > maxTimeToWiggleAway)
+            {
+                DoWiggle();
+                timeTryingToMoveInADir = 0;
+            }
+        }
+        else
+        {
+            lastPosition = transform.position;
+            timeTryingToMoveInADir = 0;
+        }
+
+        canTakeDamage = true;
         RotateHead();
         rb.velocity = movementDirection * speed;
+    }
+
+    void DoWiggle()
+    {
+        movementDirection *= -1;
     }
 
     public void isStunned()
@@ -102,11 +134,12 @@ public class MoldormController : Enemy
 
         ResumeBodyMovement();
         movementDirection = lastMovementDirection;
-        state = EnemyStates.ANGRY;
         gotHurt = false;
         isRecovering = false;
         ator.SetBool("isHurt", false);
+        state = EnemyStates.ANGRY;
     }
+
     public void isAngry()
     {
         RotateHead();
@@ -131,16 +164,15 @@ public class MoldormController : Enemy
             ContactPoint2D contact = collision.contacts[0];
             Vector2 newDirection = Vector2.Reflect(movementDirection.normalized, contact.normal);
             movementDirection = newDirection.normalized;
-            Debug.Log("Collided");
-            //StartCoroutine(ChangeDirection());
+            StartCoroutine(ChangeDirection());
         }
     }
     public IEnumerator ChangeDirection()
     {
-        Quaternion rotation = Quaternion.Euler(0, 0, Random.Range(0f, 360f)).normalized;
+        Quaternion rotation = Quaternion.Euler(0, 0, Random.Range(40f, 45f)).normalized;
 
-        yield return new WaitForSeconds(0.1f);
-        if (Random.Range(0,50) > 25 && !gotHurt)
+        yield return new WaitForSeconds(0.3f);
+        if (Random.Range(0, 50) > 25 && !gotHurt)
         {
             movementDirection = rotation * movementDirection;
         }
@@ -173,11 +205,13 @@ public class MoldormController : Enemy
 
     public void SetGotHurt(bool gotHurt)
     {
-        if (state != EnemyStates.STUNNED)
+        if (state == EnemyStates.MOVING && canTakeDamage && !isRecovering)
         {
+            canTakeDamage = false;
+            GetHurt();
             this.gotHurt = gotHurt;
+            state = EnemyStates.STUNNED;
         }
-        
     }
 
     public bool GetGotHurt()
@@ -229,7 +263,7 @@ public class MoldormController : Enemy
 
         yield return new WaitForSeconds(bodyDestructionDelay);
         tail.Eliminate();
-        
+
         for (int i = bodyParts.Length; i > 0; i--)
         {
             yield return new WaitForSeconds(bodyDestructionDelay);
