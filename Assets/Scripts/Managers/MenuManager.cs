@@ -11,17 +11,45 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private TMP_InputField PlayerName;
     [SerializeField] private LinkDatabase db;
     [SerializeField] private TMP_Text nombreMostrado;
+    private bool DBSave;
 
     void Start()
     {
         stats = FindObjectOfType<StatsManager>();
+
+        DBSave = false;
     }
 
-    public void OnPlayerName()
+    public void OnEnterPlayerName()
     {
-        stats.namePlayer = PlayerName.text;
-        Debug.Log("Nombre guardado: " + stats.namePlayer);
-        db.UpdateDatabase();
+        if (DBSave == false)
+        {
+            stats.namePlayer = PlayerName.text;
+            Debug.Log("Nombre guardado: " + stats.namePlayer);
+            db.UpdateDatabase();
+
+            DBSave = true;
+        }
+        else
+        {
+            OnChangedPlayerName();
+        }
+    }
+
+    public void OnChangedPlayerName()
+    {
+        if (DBSave == true)
+        {
+            nombreMostrado.text = "No puedes guardar tus datos más de una vez";
+            Debug.Log("No puedes guardar tus datos más de una vez");
+
+
+        }
+    }
+
+    private void RemoveText()
+    {
+        
     }
 
     public async void MostrarNombreDesdeBaseDeDatos()
