@@ -15,14 +15,12 @@ public class InputGrabber : MonoBehaviour
     private void OnEnable()
     {
         inputField.ActivateInputField();
-        Debug.Log("Activated");
     }
 
     private void OnDisable()
     {
         inputField.DeactivateInputField();
         inputText = "";
-        Debug.Log("Deactivated");
     }
 
     public void GrabInputFromField (string input)

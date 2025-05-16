@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    private string playerName;
+    private string playerName = "";
 
     private static GameManager gameManager;
 
