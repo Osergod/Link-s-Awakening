@@ -18,7 +18,7 @@ public class InfoReference : MonoBehaviour
 
     private void Start()
     {
-        ScoreManager.instance.Player
+       // ScoreManager.instance.Player
     }
 
     public void saveData() 
