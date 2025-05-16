@@ -10,8 +10,11 @@ public class MenuManager : MonoBehaviour
     private StatsManager stats;
     [SerializeField] private TMP_InputField PlayerName;
     [SerializeField] private LinkDatabase db;
-    [SerializeField] private TMP_Text nombreMostrado;
+
     private bool DBSave;
+
+    [SerializeField] private TMP_Text nombreMostrado;
+    [SerializeField] private TMP_Text killsMostradas;
 
     void Start()
     {
@@ -42,14 +45,7 @@ public class MenuManager : MonoBehaviour
         {
             nombreMostrado.text = "No puedes guardar tus datos más de una vez";
             Debug.Log("No puedes guardar tus datos más de una vez");
-
-
         }
-    }
-
-    private void RemoveText()
-    {
-        
     }
 
     public async void MostrarNombreDesdeBaseDeDatos()
@@ -69,7 +65,11 @@ public class MenuManager : MonoBehaviour
         if (resultado != null)
         {
             string nombre = resultado["PlayerName"].AsString;
+            string kills = resultado["KillsNumber"].AsString;
+
             nombreMostrado.text = "Nombre Jugador: " + nombre;
+            killsMostradas.text = "Numero de kills: " + kills;
+
             Debug.Log("Nombre leído: " + nombre);
         }
         else
@@ -78,7 +78,4 @@ public class MenuManager : MonoBehaviour
             Debug.LogWarning("No se encontró el nombre en la base de datos.");
         }
     }
-
-
-
 }

@@ -6,6 +6,7 @@ using UnityEngine;
 public class StatsManager : MonoBehaviour
 {
     public string namePlayer;
+    public int numberKills;
 
     public static StatsManager Instance;
 
@@ -31,6 +32,15 @@ public class StatsManager : MonoBehaviour
     {
         namePlayer = newNamePlayer;
     }
+    /*
+    public int GetNumberKills()
+    {
+        return numberKills;
+    }
 
-
+    public int SetNumberKills(int newKills)
+    {
+        numberKills = newKills;
+    }
+    */
 }
