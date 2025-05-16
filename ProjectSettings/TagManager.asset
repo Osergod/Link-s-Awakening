@@ -3,7 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+
+  tags:
+  - Explosion
+  - Stairs
+  - Enemy
+  - Attack
+  - Shield
   layers:
   - Default
   - TransparentFX
@@ -16,6 +22,11 @@ TagManager:
   - 
   - 
   - 
+  - Enemy
+  - EnemyCollider
+  - Player
+  - IgnorePlayer
+  - OnlyPlayer
   - 
   - 
   - 

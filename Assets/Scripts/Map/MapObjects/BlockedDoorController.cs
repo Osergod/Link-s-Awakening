@@ -4,18 +4,27 @@ using UnityEngine;
 
 public class BlockedDoorController : ActionableMapObject
 {
-    [SerializeField] Sprite openedSprite;
+    [SerializeField] bool isActive = false;
 
     private Animator ator;
 
-    private bool isActive = false;
+    private static bool playerEntered = false;
 
     enum DoorState { CLOSED, OPEN };
-    DoorState doorState = DoorState.CLOSED;
+    DoorState doorState;
 
     private void Awake()
     {
         ator = GetComponent<Animator>();
+
+        if (!isActive)
+        {
+            doorState = DoorState.CLOSED;
+        }
+        else
+        {
+            doorState = DoorState.OPEN;
+        }
     }
 
     private void Update()
@@ -33,32 +42,59 @@ public class BlockedDoorController : ActionableMapObject
 
     public void IsClosed()
     {
-        if (!isActive)
-        {
-            gameObject.GetComponent<BoxCollider2D>().enabled = true;
-        }
-        else
+        if (isActive)
         {
             doorState = DoorState.OPEN;
         }
+
+        gameObject.GetComponent<BoxCollider2D>().isTrigger = false;
+        ator.SetBool("isActive", false);
     }
 
     public void IsOpen()
     {
-        if (isActive)
-        {
-            gameObject.GetComponent<BoxCollider2D>().enabled = false;
-            gameObject.GetComponent<SpriteRenderer>().sprite = openedSprite;
-            ator.SetBool("isActive", true);
-        }
-        else
+        if (!isActive)
         {
             doorState = DoorState.CLOSED;
         }
+
+        gameObject.GetComponent<BoxCollider2D>().isTrigger = true;
+        ator.SetBool("isActive", true);
     }
 
     public override void Activate()
     {
         isActive = true;
+    }
+
+    public void Deactivate()
+    {
+        isActive = false;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Player")
+        {
+            playerEntered = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.tag == "Player")
+        {
+            playerEntered = false;
+        }
+    }
+
+    public void SetPlayerEntered(bool state)
+    {
+        playerEntered = state;
+    }
+
+    public bool GetPlayerEntered()
+    {
+        return playerEntered;
     }
 }

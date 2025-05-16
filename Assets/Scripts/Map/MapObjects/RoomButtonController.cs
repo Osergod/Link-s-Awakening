@@ -6,13 +6,13 @@ using UnityEngine;
 public class RoomButtonController : MonoBehaviour
 {
     [SerializeField] Sprite pressedSprite;
-    [SerializeField] BlockedDoorController targetObject;
+    [SerializeField] ActionableMapObject targetObject;
 
     private bool isPressed = false;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "Player")
+        if(collision.tag == "Player" && !isPressed)
         {
             isPressed = true;
             gameObject.GetComponent<SpriteRenderer>().sprite = pressedSprite;

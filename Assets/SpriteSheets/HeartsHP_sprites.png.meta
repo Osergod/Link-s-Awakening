@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0f889b8958202134a996943a8b367bc8
+guid: 3541dbf570f10ac4ba37b02d1f2b80ce
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -163,8 +163,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8f6f6ef79b1911f45b51f92d9441dc0a
-      internalID: 364365553
+      spriteID: baddcb7790498cf4687ec1fb4585949f
+      internalID: 1401211932
       vertices: []
       indices: 
       edges: []
@@ -184,8 +184,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 573f82c5d303f244b92910bee7cd50c3
-      internalID: 1680259429
+      spriteID: eaf368d108bb4ac49863552e5c2767b5
+      internalID: -123312722
       vertices: []
       indices: 
       edges: []
@@ -205,8 +205,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 489bd7359dac13342bf052f3485ca1a4
-      internalID: 1160190331
+      spriteID: 2a542dc0855831e4393185f1083590c5
+      internalID: 1484445269
       vertices: []
       indices: 
       edges: []
@@ -222,9 +222,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      HeartsHP_sprites_0: 364365553
-      HeartsHP_sprites_1: 1680259429
-      HeartsHP_sprites_2: 1160190331
+      HeartsHP_sprites_0: 1401211932
+      HeartsHP_sprites_1: -123312722
+      HeartsHP_sprites_2: 1484445269
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

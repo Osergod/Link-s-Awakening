@@ -7,8 +7,8 @@ public class RoomConnectionController : MonoBehaviour
 {
     [SerializeField]
     GameObject destination;
-    /*[SerializeField]
-    Animator anim;*/
+    //[SerializeField]
+    //Animator anim;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
