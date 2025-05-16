@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Windows;
 
 public class InputGrabber : MonoBehaviour
 {
@@ -20,20 +21,20 @@ public class InputGrabber : MonoBehaviour
     private void OnDisable()
     {
         inputField.DeactivateInputField();
+        inputText = "";
         Debug.Log("Deactivated");
     }
 
     public void GrabInputFromField (string input)
     {
-        if (input != null)
-        {
-            inputText = input;
-            DisplayReactionToInput();
-        }
+        inputText = input;
     }
 
-    private void DisplayReactionToInput()
+    public void RegisterInputName()
     {
-        Debug.Log(inputText);
+        if (inputText.Length > 0)
+        {
+            GameManager.instance.SetPlayerName(inputText);
+        }
     }
 }
