@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8790679375110942278}
   - component: {fileID: 2686595762966661387}
   - component: {fileID: 3846371224849654708}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Spark
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -186,6 +186,6 @@ MonoBehaviour:
   maxHealth: 1
   damage: 0
   effect: {fileID: 0}
-  knockBackPower: 0
+  knockBackPower: 1
   speed: 0
   targetPoints: []
