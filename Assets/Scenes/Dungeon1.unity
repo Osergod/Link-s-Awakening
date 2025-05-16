@@ -25149,13 +25149,21 @@ PrefabInstance:
       propertyPath: playerHealth
       value: 
       objectReference: {fileID: 2135453342}
+    - target: {fileID: 3753011958527856314, guid: a6190bce0fdc0af4dae24accec4bd558, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 3753011958527856314, guid: a6190bce0fdc0af4dae24accec4bd558, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 200
+      objectReference: {fileID: 0}
     - target: {fileID: 5674638238759929803, guid: a6190bce0fdc0af4dae24accec4bd558, type: 3}
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
     - target: {fileID: 5674638238759929803, guid: a6190bce0fdc0af4dae24accec4bd558, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6285034624711327554, guid: a6190bce0fdc0af4dae24accec4bd558, type: 3}
       propertyPath: m_Pivot.x

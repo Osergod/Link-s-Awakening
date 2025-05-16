@@ -163,9 +163,9 @@ public class MiniMoldormController : Enemy
         rb.AddForce(new Vector2(awayFromMe.x, awayFromMe.y) * knockBackPower, ForceMode2D.Impulse);
     }
 
-    private void OnDestroy()
+    /*private void OnDestroy()
     {
         GameManager.instance.IncrementKills();
         GameManager.instance.IncrementScore(100);
-    }
+    }*/
 }

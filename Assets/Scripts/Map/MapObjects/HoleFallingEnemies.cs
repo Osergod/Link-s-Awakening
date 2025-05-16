@@ -32,6 +32,7 @@ public class HoleFallingEnemies : MonoBehaviour
         {
             Instantiate(effect, collisionPosition, Quaternion.identity);
             Destroy(collision.gameObject);
+            GameManager.instance.IncrementKills();
         }
         
     }

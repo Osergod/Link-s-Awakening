@@ -48,6 +48,8 @@ public abstract class Enemy : MonoBehaviour
     {
         Destroy(gameObject);
         Instantiate(effect, transform.position, Quaternion.identity);
+        GameManager.instance.IncrementKills();
+        //GameManager.instance.IncrementScore();
     }
 
     public void DisableLayer()

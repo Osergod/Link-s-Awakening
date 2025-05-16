@@ -95,9 +95,12 @@ public class HardHatBeetleController : Enemy
         }
     }
 
-    private void OnDestroy()
+    /*private void OnDestroy()
     {
-        GameManager.instance.IncrementKills();
-        GameManager.instance.IncrementScore(100);
-    }
+        if (gameObject != null)
+        {
+            GameManager.instance.IncrementKills();
+            GameManager.instance.IncrementScore(100);
+        }
+    }*/
 }

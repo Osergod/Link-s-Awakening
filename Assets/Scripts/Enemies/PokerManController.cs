@@ -240,9 +240,9 @@ public class PokerManController : Enemy
         }
     }
 
-    private void OnDestroy()
+    /*private void OnDestroy()
     {
         GameManager.instance.IncrementKills();
         GameManager.instance.IncrementScore(200);
-    }
+    }*/
 }
