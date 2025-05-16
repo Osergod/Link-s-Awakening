@@ -533,11 +533,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 860660042454564613, guid: 3f947c4d3fad9b34ca1175caf163b4fb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.29
+      value: 4.79
       objectReference: {fileID: 0}
     - target: {fileID: 860660042454564613, guid: 3f947c4d3fad9b34ca1175caf163b4fb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.21
+      value: 18.2
       objectReference: {fileID: 0}
     - target: {fileID: 860660042454564613, guid: 3f947c4d3fad9b34ca1175caf163b4fb, type: 3}
       propertyPath: m_LocalPosition.z
@@ -590,6 +590,14 @@ PrefabInstance:
     - target: {fileID: 3996817331795052440, guid: 3f947c4d3fad9b34ca1175caf163b4fb, type: 3}
       propertyPath: m_IsTrigger
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6974986911211139961, guid: 3f947c4d3fad9b34ca1175caf163b4fb, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6974986911211139961, guid: 3f947c4d3fad9b34ca1175caf163b4fb, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -874,7 +882,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8641048457499449528, guid: 9d8c43617a0a18c44b5ee6d6336d58ec, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.3
+      value: 1.8
       objectReference: {fileID: 0}
     - target: {fileID: 8641048457499449528, guid: 9d8c43617a0a18c44b5ee6d6336d58ec, type: 3}
       propertyPath: m_LocalPosition.z
@@ -886,15 +894,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8641048457499449528, guid: 9d8c43617a0a18c44b5ee6d6336d58ec, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8641048457499449528, guid: 9d8c43617a0a18c44b5ee6d6336d58ec, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8641048457499449528, guid: 9d8c43617a0a18c44b5ee6d6336d58ec, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8641048457499449528, guid: 9d8c43617a0a18c44b5ee6d6336d58ec, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

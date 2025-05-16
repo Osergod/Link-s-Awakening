@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8641048457499449528}
   - component: {fileID: 1943516721352396100}
   - component: {fileID: 118789117737577030}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: DungeonConnection
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90,3 +90,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60410341533de2b4e92fecf7e698ab77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scene: 
