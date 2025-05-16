@@ -327,6 +327,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1336925119 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5272888403944923518, guid: ddd34838260202c49b40946b862e2f0f, type: 3}
+  m_PrefabInstance: {fileID: 5492331567296899222}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1481339883 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7713025014549687316, guid: ddd34838260202c49b40946b862e2f0f, type: 3}
@@ -522,6 +533,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7150136310965800416, guid: ddd34838260202c49b40946b862e2f0f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 300
+      objectReference: {fileID: 0}
     - target: {fileID: 7208068287459222067, guid: ddd34838260202c49b40946b862e2f0f, type: 3}
       propertyPath: m_Name
       value: CanvasMenu
@@ -530,6 +545,10 @@ PrefabInstance:
       propertyPath: db
       value: 
       objectReference: {fileID: 2033263836}
+    - target: {fileID: 7713025014549687316, guid: ddd34838260202c49b40946b862e2f0f, type: 3}
+      propertyPath: nombreMostrado
+      value: 
+      objectReference: {fileID: 1336925119}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
