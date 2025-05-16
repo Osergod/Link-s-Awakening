@@ -286,4 +286,10 @@ public class MoldormController : Enemy
 
         Destroy(gameObject);
     }
+
+    private void OnDestroy()
+    {
+        GameManager.instance.IncrementKills();
+        GameManager.instance.IncrementScore(1000);
+    }
 }

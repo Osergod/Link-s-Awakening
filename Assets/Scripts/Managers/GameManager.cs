@@ -5,6 +5,8 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private string playerName = "";
+    [SerializeField] private int playerKills;
+    [SerializeField] private int score;
 
     private static GameManager gameManager;
 
@@ -38,5 +40,25 @@ public class GameManager : MonoBehaviour
     public string GetPlayerName()
     {
         return playerName;
+    }
+
+    public void IncrementKills()
+    {
+        playerKills++;
+    }
+
+    public int GetPlayerKills()
+    {
+        return playerKills;
+    }
+
+    public int GetScore()
+    {
+        return score;
+    }
+
+    public void IncrementScore(int newScore)
+    {
+        score += newScore;
     }
 }

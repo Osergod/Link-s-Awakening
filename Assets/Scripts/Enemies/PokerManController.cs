@@ -239,4 +239,10 @@ public class PokerManController : Enemy
             pokerManControllers[i].Die();
         }
     }
+
+    private void OnDestroy()
+    {
+        GameManager.instance.IncrementKills();
+        GameManager.instance.IncrementScore(200);
+    }
 }

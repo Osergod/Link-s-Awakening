@@ -94,4 +94,10 @@ public class HardHatBeetleController : Enemy
             state = EnemyStates.GET_HURT;
         }
     }
+
+    private void OnDestroy()
+    {
+        GameManager.instance.IncrementKills();
+        GameManager.instance.IncrementScore(100);
+    }
 }
