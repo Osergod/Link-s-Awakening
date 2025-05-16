@@ -175,7 +175,7 @@ public class LinkController : MonoBehaviour
 
     public IEnumerator Fall_GoToCheckPointAfterFall()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.6f);
         transform.position = currentCheckpoint;
         ChangeState(new OnDamagedState());
     }

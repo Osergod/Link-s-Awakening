@@ -34237,6 +34237,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1393747372}
     m_Modifications:
+    - target: {fileID: 1686944081850387561, guid: 8cd87c207ab0b914280912d5b197c617, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2392047559157761773, guid: 8cd87c207ab0b914280912d5b197c617, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2750727793542247186, guid: 8cd87c207ab0b914280912d5b197c617, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7051252895466260124, guid: 8cd87c207ab0b914280912d5b197c617, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.44
@@ -34280,6 +34292,10 @@ PrefabInstance:
     - target: {fileID: 7056742759573827228, guid: 8cd87c207ab0b914280912d5b197c617, type: 3}
       propertyPath: m_Name
       value: Moldorm
+      objectReference: {fileID: 0}
+    - target: {fileID: 7554210661722581667, guid: 8cd87c207ab0b914280912d5b197c617, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9011893550817068727, guid: 8cd87c207ab0b914280912d5b197c617, type: 3}
       propertyPath: m_Enabled
