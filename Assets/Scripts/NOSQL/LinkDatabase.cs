@@ -32,6 +32,8 @@ public class LinkDatabase : MonoBehaviour
             { "PlayerName",StatsManager.Instance.GetNamePlayer() },
             // { "KillsNumber",StatsManager.Instance.GetNumberKills() },
             { "KillsNumber","3" },
+            //{ "TimePlay",StatsManager.Instance.GetPlayTime() },
+            { "TimePlay","3600" },
         };
 
         usersCollection.InsertOne(document);

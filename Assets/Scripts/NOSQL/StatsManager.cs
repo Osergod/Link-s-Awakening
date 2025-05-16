@@ -7,6 +7,7 @@ public class StatsManager : MonoBehaviour
 {
     public string namePlayer;
     public int numberKills;
+    public float playTime;
 
     public static StatsManager Instance;
 
@@ -38,9 +39,18 @@ public class StatsManager : MonoBehaviour
         return numberKills;
     }
 
-    public int SetNumberKills(int newKills)
+    public void SetNumberKills(int newKills)
     {
         numberKills = newKills;
     }
     */
+   /* public float GetPlayTime()
+    {
+        return playTime;
+    }
+
+    public void SetPlayTime(float newTime)
+    {
+        playTime = newTime;
+    } */
 }

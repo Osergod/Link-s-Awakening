@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using MongoDB.Bson;
 using MongoDB.Driver;
 using TMPro;
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 
 public class MenuManager : MonoBehaviour
@@ -12,15 +13,19 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private LinkDatabase db;
 
     private bool DBSave;
+    int total;
 
     [SerializeField] private TMP_Text nombreMostrado;
     [SerializeField] private TMP_Text killsMostradas;
+    [SerializeField] private TMP_Text tiempoMostrado;
 
     void Start()
     {
         stats = FindObjectOfType<StatsManager>();
 
         DBSave = false;
+
+        //TimeTransform();
     }
 
     public void OnEnterPlayerName()
@@ -30,6 +35,8 @@ public class MenuManager : MonoBehaviour
             stats.namePlayer = PlayerName.text;
             Debug.Log("Nombre guardado: " + stats.namePlayer);
             db.UpdateDatabase();
+
+            //stats.playTime = 3600;
 
             DBSave = true;
         }
@@ -66,9 +73,11 @@ public class MenuManager : MonoBehaviour
         {
             string nombre = resultado["PlayerName"].AsString;
             string kills = resultado["KillsNumber"].AsString;
+            string time = resultado["TimePlay"].AsString;
 
             nombreMostrado.text = "Nombre Jugador: " + nombre;
             killsMostradas.text = "Numero de kills: " + kills;
+            tiempoMostrado.text = "Tiempo: " + time + " segundos";
 
             Debug.Log("Nombre leído: " + nombre);
         }
@@ -78,4 +87,23 @@ public class MenuManager : MonoBehaviour
             Debug.LogWarning("No se encontró el nombre en la base de datos.");
         }
     }
+
+    /*public void TimeTransform()
+    {
+        float hores;
+        float minuts;
+        float segons;
+
+        float total = stats.playTime;
+
+        segons = total % 60;
+        total = total / 60;
+
+        minuts = total % 60;
+        total = total / 60;
+
+        hores = total;
+
+        stats.playTime = total;
+    }*/
 }
