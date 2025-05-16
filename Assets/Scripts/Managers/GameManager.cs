@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    private string playerName = "";
+    [SerializeField] private string playerName = "";
 
     private static GameManager gameManager;
+
+    private void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
 
     public static GameManager instance
     {
