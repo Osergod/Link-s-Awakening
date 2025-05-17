@@ -1,9 +1,5 @@
 using MongoDB.Bson;
 using MongoDB.Driver;
-using MongoDB.Driver.Core.Configuration;
-using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class LinkDatabase : MonoBehaviour
@@ -25,29 +21,17 @@ public class LinkDatabase : MonoBehaviour
         catch (System.Exception e)
         {
             Debug.Log("MongoDB Connection Error: " + e.Message);
+            return;
         }
 
         var document = new BsonDocument
         {
-            { "PlayerName",StatsManager.Instance.GetNamePlayer() },
-            // { "KillsNumber",StatsManager.Instance.GetNumberKills() },
-            { "KillsNumber","3" },
-            //{ "TimePlay",StatsManager.Instance.GetPlayTime() },
-            { "TimePlay","3600" },
+            { "PlayerName", StatsManager.Instance.GetNamePlayer() },
+            { "KillsNumber", StatsManager.Instance.numberKills },   // int
+            { "TimePlay",   StatsManager.Instance.playTime }        // int
         };
 
         usersCollection.InsertOne(document);
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Debug.Log("Documento insertado correctamente en MongoDB.");
     }
 }

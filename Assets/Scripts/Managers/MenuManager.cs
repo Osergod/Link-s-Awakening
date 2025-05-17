@@ -1,44 +1,37 @@
-using System.Collections;
-using System.Collections.Generic;
+ï»¿using System.Collections;
 using MongoDB.Bson;
 using MongoDB.Driver;
 using TMPro;
-using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 
 public class MenuManager : MonoBehaviour
 {
     private StatsManager stats;
-    [SerializeField] private TMP_InputField PlayerName;
+    [SerializeField] private TMP_InputField playerNameInput;
     [SerializeField] private LinkDatabase db;
 
-    private bool DBSave;
+    private bool dbSaved;
     int total;
 
-    [SerializeField] private TMP_Text nombreMostrado;
-    [SerializeField] private TMP_Text killsMostradas;
-    [SerializeField] private TMP_Text tiempoMostrado;
+    [SerializeField] private TMP_Text playerNameText;
+    [SerializeField] private TMP_Text killsText;
+    [SerializeField] private TMP_Text playTimeText;
 
     void Start()
     {
         stats = FindObjectOfType<StatsManager>();
-
-        DBSave = false;
-
-        //TimeTransform();
+        dbSaved = false;
     }
 
     public void OnEnterPlayerName()
     {
-        if (DBSave == false)
+        if (!dbSaved)
         {
-            stats.namePlayer = PlayerName.text;
-            Debug.Log("Nombre guardado: " + stats.namePlayer);
+            stats.namePlayer = playerNameInput.text;
+            Debug.Log("Saved player name: " + stats.namePlayer);
+            stats.playTime = Mathf.FloorToInt(Time.time);
             db.UpdateDatabase();
-
-            //stats.playTime = 3600;
-
-            DBSave = true;
+            dbSaved = true;
         }
         else
         {
@@ -48,14 +41,14 @@ public class MenuManager : MonoBehaviour
 
     public void OnChangedPlayerName()
     {
-        if (DBSave == true)
+        if (dbSaved)
         {
-            nombreMostrado.text = "No puedes guardar tus datos más de una vez";
-            Debug.Log("No puedes guardar tus datos más de una vez");
+            playerNameText.text = "You can only save your data once";
+            Debug.Log("You can only save your data once");
         }
     }
 
-    public async void MostrarNombreDesdeBaseDeDatos()
+    public async void LoadPlayerDataFromDatabase()
     {
         if (stats == null)
             stats = FindObjectOfType<StatsManager>();
@@ -66,44 +59,33 @@ public class MenuManager : MonoBehaviour
         var database = client.GetDatabase("Zelda");
         var usersCollection = database.GetCollection<BsonDocument>("Stats_Game");
 
-        var filtro = Builders<BsonDocument>.Filter.Eq("PlayerName", stats.GetNamePlayer());
-        var resultado = await usersCollection.Find(filtro).FirstOrDefaultAsync();
+        var filter = Builders<BsonDocument>.Filter.Eq("PlayerName", stats.GetNamePlayer());
+        var result = await usersCollection.Find(filter).FirstOrDefaultAsync();
 
-        if (resultado != null)
+        if (result != null)
         {
-            string nombre = resultado["PlayerName"].AsString;
-            string kills = resultado["KillsNumber"].AsString;
-            string time = resultado["TimePlay"].AsString;
+            string name = result["PlayerName"].AsString;
+            string kills = result["KillsNumber"].ToString();
+            string time = result["TimePlay"].ToString();
 
-            nombreMostrado.text = "Nombre Jugador: " + nombre;
-            killsMostradas.text = "Numero de kills: " + kills;
-            tiempoMostrado.text = "Tiempo: " + time + " segundos";
-
-            Debug.Log("Nombre leído: " + nombre);
+            playerNameText.text = "Player Name: " + name;
+            killsText.text = "Number of Kills: " + kills;
+            int totalSeconds = int.Parse(time);
+            playTimeText.text = "Time: " + FormatTime(totalSeconds);
         }
         else
         {
-            nombreMostrado.text = "Nombre no encontrado";
-            Debug.LogWarning("No se encontró el nombre en la base de datos.");
+            playerNameText.text = "Player not found";
+            Debug.LogWarning("Player name not found in the database.");
         }
     }
 
-    /*public void TimeTransform()
+    private string FormatTime(float totalSeconds)
     {
-        float hores;
-        float minuts;
-        float segons;
+        int hours = Mathf.FloorToInt(totalSeconds / 3600);
+        int minutes = Mathf.FloorToInt((totalSeconds % 3600) / 60);
+        int seconds = Mathf.FloorToInt(totalSeconds % 60);
 
-        float total = stats.playTime;
-
-        segons = total % 60;
-        total = total / 60;
-
-        minuts = total % 60;
-        total = total / 60;
-
-        hores = total;
-
-        stats.playTime = total;
-    }*/
+        return $"{hours:D2}:{minutes:D2}:{seconds:D2}";
+    }
 }

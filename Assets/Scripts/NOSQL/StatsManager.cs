@@ -1,13 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq.Expressions;
 using UnityEngine;
 
 public class StatsManager : MonoBehaviour
 {
-    public string namePlayer;
-    public int numberKills;
-    public float playTime;
+    public string playerName;
+    public int killCount;
+    public int playTime;
 
     public static StatsManager Instance;
 
@@ -16,7 +13,7 @@ public class StatsManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(this.gameObject);
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -24,33 +21,17 @@ public class StatsManager : MonoBehaviour
         }
     }
 
-    public string GetNamePlayer()
+    private void Update()
     {
-        return namePlayer;
+        playTime = Mathf.FloorToInt(Time.timeSinceLevelLoad);
     }
 
-    public void SetNamePlayer(string newNamePlayer)
-    {
-        namePlayer = newNamePlayer;
-    }
-    /*
-    public int GetNumberKills()
-    {
-        return numberKills;
-    }
+    public string GetPlayerName() => playerName;
+    public void SetPlayerName(string newName) => playerName = newName;
 
-    public void SetNumberKills(int newKills)
-    {
-        numberKills = newKills;
-    }
-    */
-   /* public float GetPlayTime()
-    {
-        return playTime;
-    }
+    public int GetKillCount() => killCount;
+    public void SetKillCount(int newKills) => killCount = newKills;
 
-    public void SetPlayTime(float newTime)
-    {
-        playTime = newTime;
-    } */
+    public int GetPlayTime() => playTime;
+    public void SetPlayTime(int newTime) => playTime = newTime;
 }
