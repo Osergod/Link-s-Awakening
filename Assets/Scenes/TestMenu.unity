@@ -246,6 +246,7 @@ MonoBehaviour:
   playerName: 
   killCount: 0
   playTime: 0
+  victory: 0
 --- !u!4 &517302884
 Transform:
   m_ObjectHideFlags: 0
@@ -371,6 +372,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1447410948 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4646945765674278945, guid: ddd34838260202c49b40946b862e2f0f, type: 3}
+  m_PrefabInstance: {fileID: 5492331567296899222}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1977616938 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3314603967193537851, guid: ddd34838260202c49b40946b862e2f0f, type: 3}
@@ -458,6 +470,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 448621268843213058, guid: ddd34838260202c49b40946b862e2f0f, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 448621268843213058, guid: ddd34838260202c49b40946b862e2f0f, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 448621268843213058, guid: ddd34838260202c49b40946b862e2f0f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 448621268843213058, guid: ddd34838260202c49b40946b862e2f0f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 537095250501293161, guid: ddd34838260202c49b40946b862e2f0f, type: 3}
       propertyPath: m_fontSize
       value: 18
@@ -710,6 +738,10 @@ PrefabInstance:
       propertyPath: killsText
       value: 
       objectReference: {fileID: 5492331567296899223}
+    - target: {fileID: 7713025014549687316, guid: ddd34838260202c49b40946b862e2f0f, type: 3}
+      propertyPath: victoryText
+      value: 
+      objectReference: {fileID: 1447410948}
     - target: {fileID: 7713025014549687316, guid: ddd34838260202c49b40946b862e2f0f, type: 3}
       propertyPath: playTimeText
       value: 

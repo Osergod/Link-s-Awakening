@@ -5,6 +5,7 @@ public class StatsManager : MonoBehaviour
     public string playerName;
     public int killCount;
     public int playTime;
+    public bool victory;
 
     public static StatsManager Instance;
 
@@ -19,6 +20,8 @@ public class StatsManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        victory = false;
     }
 
     private void Update()
@@ -26,33 +29,15 @@ public class StatsManager : MonoBehaviour
         playTime = Mathf.FloorToInt(Time.timeSinceLevelLoad);
     }
 
-    public string GetPlayerName()
-    {
-        return playerName;
-    }
+    public string GetPlayerName() => playerName;
+    public void SetPlayerName(string newName) => playerName = newName;
 
-    public void SetPlayerName(string newName)
-    {
-        playerName = newName;
-    }
+    public int GetKillCount() => killCount;
+    public void SetKillCount(int newKills) => killCount = newKills;
 
-    public int GetKillCount()
-    {
-        return killCount;
-    }
+    public int GetPlayTime() => playTime;
+    public void SetPlayTime(int newTime) => playTime = newTime;
 
-    public void SetKillCount(int newKills)
-    {
-        killCount = newKills;
-    }
-
-    public int GetPlayTime()
-    {
-        return playTime;
-    }
-
-    public void SetPlayTime(int newTime)
-    {
-        playTime = newTime;
-    }
+    public bool GetVictory() => victory;
+    public void SetVictory(bool v) => victory = v;
 }

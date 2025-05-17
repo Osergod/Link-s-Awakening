@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using MongoDB.Bson;
+﻿using MongoDB.Bson;
 using MongoDB.Driver;
 using TMPro;
 using UnityEngine;
@@ -16,6 +15,7 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private TMP_Text playerNameText;
     [SerializeField] private TMP_Text killsText;
     [SerializeField] private TMP_Text playTimeText;
+    [SerializeField] private TMP_Text victoryText;
 
     void Start()
     {
@@ -43,7 +43,6 @@ public class MenuManager : MonoBehaviour
     {
         if (dbSaved)
         {
-            playerNameText.text = "You can only save your data once";
             Debug.Log("You can only save your data once");
         }
     }
@@ -59,7 +58,7 @@ public class MenuManager : MonoBehaviour
         var database = client.GetDatabase("Zelda");
         var usersCollection = database.GetCollection<BsonDocument>("Stats_Game");
 
-        var filter = Builders<BsonDocument>.Filter.Eq("PlayerName", stats.playerName);
+        var filter = Builders<BsonDocument>.Filter.Eq("PlayerName", stats.GetPlayerName());
         var result = await usersCollection.Find(filter).FirstOrDefaultAsync();
 
         if (result != null)
@@ -68,10 +67,14 @@ public class MenuManager : MonoBehaviour
             string kills = result["KillsNumber"].ToString();
             string time = result["TimePlay"].ToString();
 
-            playerNameText.text = "Player Name: " + name;
-            killsText.text = "Number of Kills: " + kills;
+            bool victory = result.Contains("Victory") && result["Victory"].IsBoolean ? result["Victory"].AsBoolean : false;
+
+            playerNameText.text = "Nombre: " + name;
+            killsText.text = "Kills: " + kills;
             int totalSeconds = int.Parse(time);
-            playTimeText.text = "Time: " + FormatTime(totalSeconds);
+            playTimeText.text = "Tiempo: " + FormatTime(totalSeconds);
+            if (victoryText != null)
+                victoryText.text = "Has ganado: " + (victory ? "sí" : "no");
         }
         else
         {
@@ -85,7 +88,14 @@ public class MenuManager : MonoBehaviour
         int hours = Mathf.FloorToInt(totalSeconds / 3600);
         int minutes = Mathf.FloorToInt((totalSeconds % 3600) / 60);
         int seconds = Mathf.FloorToInt(totalSeconds % 60);
-
         return $"{hours:D2}:{minutes:D2}:{seconds:D2}";
+    }
+
+    public void OnVictoryAchieved()
+    {
+        stats.SetVictory(true);
+        Debug.Log("Victory achieved!");
+        if (victoryText != null)
+            victoryText.text = "Has ganado: sí";
     }
 }
