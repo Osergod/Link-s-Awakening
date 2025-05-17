@@ -145,6 +145,7 @@ public class MiniMoldormController : Enemy
     {
         if (collision.tag == "Attack")
         {
+            AudioManager.instance.PlaySFX(AudioManager.instance.enemyHit);
             GetKnockBack(collision);
             GetHurt();
         }

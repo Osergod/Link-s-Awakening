@@ -37,6 +37,7 @@ public class HoleFallingController : MonoBehaviour
 
         if (collision != null)
         {
+            AudioManager.instance.PlaySFX(AudioManager.instance.enemyFall);
             Instantiate(effect, collisionPosition, Quaternion.identity);
             collision.GetComponent<Enemy>().DisableEffect();
             collision.GetComponent<Enemy>().Die();

@@ -66109,7 +66109,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicSource: {fileID: 1507457019}
   SFXSource: {fileID: 498480090}
+  linkHurt: {fileID: 8300000, guid: 82157760b5e89c9468980deeaa0673f0, type: 3}
+  linkDie: {fileID: 8300000, guid: 2b8dd6a1b8db3f84f9e7502696e2569c, type: 3}
+  linkFall: {fileID: 8300000, guid: ece2413b65cf29d4da4d6f6a473336ba, type: 3}
+  linkJump: {fileID: 8300000, guid: bae83eada656e4e429af7cb7181811b9, type: 3}
+  linkLand: {fileID: 8300000, guid: 5c9c8ad0c5a22864d9cae6674b7e0e0c, type: 3}
+  enemyHit: {fileID: 8300000, guid: a1cb12ff859d45f4ab6d858eb64ffd55, type: 3}
+  enemyDie: {fileID: 8300000, guid: 6fa7b53b7c116d64dbe221c2afe38098, type: 3}
+  enemyFall: {fileID: 8300000, guid: b8ec246c341df6e43af085d3d8a3e0fb, type: 3}
+  bossHit: {fileID: 8300000, guid: 55c0a36724c20fe4c8bbb0617c942324, type: 3}
+  bossDie: {fileID: 8300000, guid: 9e246c38dd9f72e4598a1f932771b5e8, type: 3}
   doorSlam: {fileID: 8300000, guid: 6ab6b25fd47eab14aaeda917e6e1cf78, type: 3}
+  swordSwing: {fileID: 8300000, guid: c3f3c6191e1f7d8418582d0f5023c911, type: 3}
 --- !u!4 &1864266922
 Transform:
   m_ObjectHideFlags: 0

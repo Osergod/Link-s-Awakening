@@ -55,6 +55,7 @@ public abstract class Enemy : MonoBehaviour
             Destroy(gameObject);
             if (effect != null)
             {
+                AudioManager.instance.PlaySFX(AudioManager.instance.enemyDie);
                 Instantiate(effect, transform.position, Quaternion.identity);
             }
             GameManager.instance.IncrementKills();

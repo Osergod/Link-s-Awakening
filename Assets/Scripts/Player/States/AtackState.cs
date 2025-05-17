@@ -9,6 +9,7 @@ public class AtackState : IPlayerState
     public void Enter(LinkController link)
     {
         // Inicia el ataque: congela el movimiento y activa la animación.
+        AudioManager.instance.PlaySFX(AudioManager.instance.swordSwing);
         this.link = link;
         float mx = link.horizontal_ia.ReadValue<float>();
         attackTimer = attackDuration;

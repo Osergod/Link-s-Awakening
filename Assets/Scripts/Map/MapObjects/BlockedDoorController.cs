@@ -64,12 +64,19 @@ public class BlockedDoorController : ActionableMapObject
 
     public override void Activate()
     {
-        isActive = true;
+        if (!isActive)
+        {
+            isActive = true;
+        }
     }
 
     public void Deactivate()
     {
-        isActive = false;
+        if (isActive)
+        {
+            AudioManager.instance.PlaySFX(AudioManager.instance.doorSlam);
+            isActive = false;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
