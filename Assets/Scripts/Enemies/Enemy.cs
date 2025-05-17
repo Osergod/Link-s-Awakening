@@ -12,6 +12,7 @@ public abstract class Enemy : MonoBehaviour
     protected LayerMask originalLayer;
     protected LinkController player;
     Vector2 initialPos;
+    private bool isDying;
 
     private void Awake()
     {
@@ -46,10 +47,17 @@ public abstract class Enemy : MonoBehaviour
 
     public virtual void Die()
     {
-        Destroy(gameObject);
-        Instantiate(effect, transform.position, Quaternion.identity);
-        GameManager.instance.IncrementKills();
-        //GameManager.instance.IncrementScore();
+        if (!isDying)
+        {
+            isDying = true;
+            Destroy(gameObject);
+            if (effect != null)
+            {
+                Instantiate(effect, transform.position, Quaternion.identity);
+            }
+            GameManager.instance.IncrementKills();
+            //GameManager.instance.IncrementScore();
+        }
     }
 
     public void DisableLayer()
