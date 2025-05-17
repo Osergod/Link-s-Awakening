@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HoleFallingEnemies : MonoBehaviour
+public class HoleFallingController : MonoBehaviour
 {
     [SerializeField] GameObject effect;
     [SerializeField] float fallDelay;
