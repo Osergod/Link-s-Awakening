@@ -52,7 +52,6 @@ public class InventoryManager : MonoBehaviour
     }
     void OnEnable()
     {
-        ClearSlots();
         CreateSlots();
         Debug.Log("Inventory");
         SetTextAButton("", false);
