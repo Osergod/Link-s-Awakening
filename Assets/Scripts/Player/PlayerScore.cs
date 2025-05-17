@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PlayerScore : MonoBehaviour
 {
-    public int score = 2346;
+    public int score;
 
     public static implicit operator PlayerScore(ScoreBoard v)
     {
