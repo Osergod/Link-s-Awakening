@@ -66120,6 +66120,14 @@ MonoBehaviour:
   bossHit: {fileID: 8300000, guid: 55c0a36724c20fe4c8bbb0617c942324, type: 3}
   bossDie: {fileID: 8300000, guid: 9e246c38dd9f72e4598a1f932771b5e8, type: 3}
   doorSlam: {fileID: 8300000, guid: 6ab6b25fd47eab14aaeda917e6e1cf78, type: 3}
+  roomSolved: {fileID: 8300000, guid: c3d8a63d998b4f7469900d66e555cadf, type: 3}
+  oneWayDoor: {fileID: 8300000, guid: e6315992ac6fa304281da5284dd08f76, type: 3}
+  chestOpen: {fileID: 8300000, guid: ec6674f01d931ac43ac19ba17c00bcfd, type: 3}
+  groundCrumble: {fileID: 8300000, guid: c4341cfc8e5fd8e4f94f8041f4db88d1, type: 3}
+  rockShatter: {fileID: 8300000, guid: 858c5ee619683a94a9992835135dfd2c, type: 3}
+  rockPush: {fileID: 8300000, guid: 9dcef5dd2827bcb47a6c4a714c2eb8c5, type: 3}
+  stairs: {fileID: 8300000, guid: b151ce54fd69c7246a5211950032acd5, type: 3}
+  error: {fileID: 8300000, guid: d6f52bc798cce144faabca36acf8e353, type: 3}
   swordSwing: {fileID: 8300000, guid: c3f3c6191e1f7d8418582d0f5023c911, type: 3}
 --- !u!4 &1864266922
 Transform:

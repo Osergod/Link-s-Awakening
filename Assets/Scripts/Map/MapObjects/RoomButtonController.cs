@@ -14,6 +14,7 @@ public class RoomButtonController : MonoBehaviour
     {
         if(collision.tag == "Player" && !isPressed)
         {
+            AudioManager.instance.PlaySFX(AudioManager.instance.chestOpen);
             isPressed = true;
             gameObject.GetComponent<SpriteRenderer>().sprite = pressedSprite;
             targetObject.Activate();

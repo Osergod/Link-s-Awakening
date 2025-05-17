@@ -12,6 +12,7 @@ public class OnDamagedState : IPlayerState
     public void Enter(LinkController link)
     {
         // Inicia el estado de daño: aplica retroceso físico y activa la animación de herido
+        AudioManager.instance.PlaySFX(AudioManager.instance.linkHurt);
         this.link = link;
 
         float mx = link.horizontal_ia.ReadValue<float>();

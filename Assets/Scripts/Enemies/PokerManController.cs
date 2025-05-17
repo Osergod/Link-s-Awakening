@@ -214,6 +214,7 @@ public class PokerManController : Enemy
     {
         if (collision.tag == "Attack")
         {
+            AudioManager.instance.PlaySFX(AudioManager.instance.enemyHit);
             moveDirection = Vector2.zero;
             rb.velocity = Vector2.zero;
             stunned = true;
@@ -225,6 +226,8 @@ public class PokerManController : Enemy
     public IEnumerator Reactivate()
     {
         yield return new WaitForSeconds(waitTime);
+            
+        AudioManager.instance.PlaySFX(AudioManager.instance.error);
         for (int i = 0; i < pokerManControllers.Length; i++)
         {
             pokerManControllers[i].stunned = false;

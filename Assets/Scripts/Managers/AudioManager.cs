@@ -26,6 +26,14 @@ public class AudioManager : MonoBehaviour
 
     [Header("- Map Objects:")]
     public AudioClip doorSlam;
+    public AudioClip roomSolved;
+    public AudioClip oneWayDoor;
+    public AudioClip chestOpen;
+    public AudioClip groundCrumble;
+    public AudioClip rockShatter;
+    public AudioClip rockPush;
+    public AudioClip stairs;
+    public AudioClip error;
 
     [Header("- Items:")]
     public AudioClip swordSwing;

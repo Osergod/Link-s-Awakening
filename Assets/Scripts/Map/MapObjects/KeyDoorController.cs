@@ -13,6 +13,7 @@ public class KeyDoorController : ActionableMapObject
 
     public override void Activate()
     {
+        AudioManager.instance.PlaySFX(AudioManager.instance.chestOpen);
         ator.SetTrigger("Activated");
         GetComponent<BoxCollider2D>().enabled = false;
         GetComponent<PolygonCollider2D>().enabled = false;

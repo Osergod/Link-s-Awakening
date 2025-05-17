@@ -35,6 +35,7 @@ public class DestroyableFloorController : ActionableMapObject
         yield return new WaitForSeconds(destructionDelay);
         if (isAbove)
         {
+            AudioManager.instance.PlaySFX(AudioManager.instance.groundCrumble);
             Destroy(gameObject);
             Instantiate(hole, transform.position, Quaternion.identity);
         }

@@ -14,6 +14,7 @@ public class HoleFallingController : MonoBehaviour
         {
             LinkController.instance.SetIsBeingPulled(true);
             LinkController.instance.transform.position = Vector2.MoveTowards(LinkController.instance.transform.position, transform.position, 5);
+            AudioManager.instance.PlaySFX(AudioManager.instance.linkFall);
             LinkController.instance.ChangeState(new FallState());
         }
     }

@@ -8,6 +8,7 @@ public class ChestHiddenIfEnemies : PuzzleRoom
 
     public override void SolveRoom()
     {
+        AudioManager.instance.PlaySFX(AudioManager.instance.roomSolved);
         SetIsSolved(true);
         ActivateChests();
     }

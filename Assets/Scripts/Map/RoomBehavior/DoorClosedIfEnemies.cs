@@ -38,6 +38,7 @@ public class DoorClosedIfEnemies : PuzzleRoom
 
     public override void SolveRoom()
     {
+        AudioManager.instance.PlaySFX(AudioManager.instance.roomSolved);
         SetIsSolved(true);
         ActivateDoors();
     }

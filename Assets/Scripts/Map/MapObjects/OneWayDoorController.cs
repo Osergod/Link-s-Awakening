@@ -23,6 +23,7 @@ public class OneWayDoorController : MonoBehaviour
 
     public IEnumerator MovePlayer(Collider2D collision)
     {
+        AudioManager.instance.PlaySFX(AudioManager.instance.oneWayDoor);
         LinkController.instance.GetComponent<SpriteRenderer>().enabled = false;
         yield return new WaitForSeconds(1f);
         LinkController.instance.GetComponent<Rigidbody2D>().transform.Translate(new Vector3(0, 2, 0));
