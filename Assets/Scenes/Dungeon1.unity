@@ -66129,6 +66129,7 @@ MonoBehaviour:
   stairs: {fileID: 8300000, guid: b151ce54fd69c7246a5211950032acd5, type: 3}
   error: {fileID: 8300000, guid: d6f52bc798cce144faabca36acf8e353, type: 3}
   swordSwing: {fileID: 8300000, guid: c3f3c6191e1f7d8418582d0f5023c911, type: 3}
+  dungeonTheme: {fileID: 8300000, guid: a801119bc50130843b1b10cf5d744afa, type: 3}
 --- !u!4 &1864266922
 Transform:
   m_ObjectHideFlags: 0

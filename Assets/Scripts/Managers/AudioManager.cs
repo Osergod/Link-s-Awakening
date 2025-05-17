@@ -8,7 +8,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] AudioSource musicSource;
     [SerializeField] AudioSource SFXSource;
 
-    [Header("Audio Source")]
+    [Header("Audio Clips")]
 
     [Header("- Player:")]
     public AudioClip linkHurt;
@@ -38,6 +38,9 @@ public class AudioManager : MonoBehaviour
     [Header("- Items:")]
     public AudioClip swordSwing;
 
+    [Header("- Music:")]
+    public AudioClip dungeonTheme;
+
     private static AudioManager audioManager;
 
     public static AudioManager instance
@@ -58,8 +61,8 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        //musicSource.clip = doorSlam;
-        //musicSource.Play();
+        musicSource.clip = dungeonTheme;
+        musicSource.Play();
     }
 
     public void PlaySFX(AudioClip clip)
