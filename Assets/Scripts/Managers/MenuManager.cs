@@ -16,6 +16,7 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private TMP_Text killsText;
     [SerializeField] private TMP_Text playTimeText;
     [SerializeField] private TMP_Text victoryText;
+    [SerializeField] private TMP_Text rupiasText;
 
     void Start()
     {
@@ -75,6 +76,9 @@ public class MenuManager : MonoBehaviour
             playTimeText.text = "Tiempo: " + FormatTime(totalSeconds);
             if (victoryText != null)
                 victoryText.text = "Has ganado: " + (victory ? "sí" : "no");
+            string rupias = result.Contains("Rupias") ? result["Rupias"].ToString() : "0";
+            if (rupiasText != null)
+                rupiasText.text = "Rupias: " + rupias;
         }
         else
         {

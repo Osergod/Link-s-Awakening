@@ -24,21 +24,16 @@ public class LinkDatabase : MonoBehaviour
             return;
         }
 
-        if (StatsManager.Instance == null)
-        {
-            Debug.LogError("StatsManager.Instance is null!");
-            return;
-        }
-
         var document = new BsonDocument
         {
-            { "PlayerName",StatsManager.Instance.GetPlayerName() },
-            { "KillsNumber",StatsManager.Instance.killCount },
-            { "TimePlay",StatsManager.Instance.playTime },
-            { "Victory",StatsManager.Instance.victory }
+            { "PlayerName", StatsManager.Instance.GetPlayerName() },
+            { "KillsNumber", StatsManager.Instance.GetKillCount() },
+            { "TimePlay", StatsManager.Instance.GetPlayTime() },
+            { "Victory", StatsManager.Instance.GetVictory() },
+            { "Rupias", StatsManager.Instance.GetRupias() }
         };
 
         usersCollection.InsertOne(document);
-        Debug.Log("Document inserted correctly into MongoDB.");
+        Debug.Log("Documento insertado correctamente en MongoDB.");
     }
 }

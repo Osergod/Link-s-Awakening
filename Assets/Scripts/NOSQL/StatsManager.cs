@@ -6,6 +6,7 @@ public class StatsManager : MonoBehaviour
     public int killCount;
     public int playTime;
     public bool victory;
+    public int rupias;
 
     public static StatsManager Instance;
 
@@ -40,4 +41,7 @@ public class StatsManager : MonoBehaviour
 
     public bool GetVictory() => victory;
     public void SetVictory(bool v) => victory = v;
+    public int GetRupias() => rupias;
+    public void SetRupias(int value) => rupias = value;
+
 }
