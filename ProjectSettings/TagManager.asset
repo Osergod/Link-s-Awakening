@@ -3,7 +3,6 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-
   tags:
   - Explosion
   - Stairs
@@ -17,11 +16,6 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
   - Enemy
   - EnemyCollider
   - Player

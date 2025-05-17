@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<<< HEAD:Assets/animations/Map/MapObjects/OneWayDoor/OneWayDoorAnimator.controller.meta
-guid: 05e002e87fc519d40ad93f71a3b255ba
-========
-guid: 2f1658c2b7f5bc848a9eae8871ec6c28
->>>>>>>> test:Assets/animations/Map/MapObjects/RightDoor/BossDoor/BossDoorAnimator.controller.meta
+guid: 76a3211e2dce09e4199ce09f707e8b90
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 9100000
