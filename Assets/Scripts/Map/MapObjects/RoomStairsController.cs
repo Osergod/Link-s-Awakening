@@ -21,9 +21,19 @@ public class RoomStairsController : MonoBehaviour
         {
             canPass = true;
         }
-        else
+        else if (collision.tag == "Player" && canPass)
         {
             canPass = false;
         }
+    }
+
+    public void Activate()
+    {
+        canPass = true;
+    }
+
+    public void Deactivate()
+    {
+        canPass = false;
     }
 }

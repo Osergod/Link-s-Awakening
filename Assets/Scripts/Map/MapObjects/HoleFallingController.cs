@@ -6,6 +6,7 @@ public class HoleFallingController : MonoBehaviour
 {
     [SerializeField] GameObject effect;
     [SerializeField] float fallDelay;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
 
