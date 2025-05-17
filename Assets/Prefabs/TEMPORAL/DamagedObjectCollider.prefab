@@ -13,8 +13,13 @@ GameObject:
   - component: {fileID: 7752527526589438215}
   - component: {fileID: 935440270589257254}
   m_Layer: 0
+<<<<<<< HEAD:Assets/Prefabs/Player/Link.prefab
+  m_Name: Link
+  m_TagString: Player
+=======
   m_Name: DamagedObjectCollider
   m_TagString: Untagged
+>>>>>>> test:Assets/Prefabs/TEMPORAL/DamagedObjectCollider.prefab
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -34,7 +39,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD:Assets/Prefabs/Player/Link.prefab
+--- !u!114 &1803092184713674056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1473571407825001124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 943317dcbaa700d488672a04a058d484, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  keys: 0
+  velocidad: 4
+  map: {fileID: -944628639613478452, guid: 0fdb0b3158e9a3a48bae9796b52a3c89, type: 3}
+  anim: {fileID: 8480014185033501938}
+--- !u!212 &3131486699520587967
+=======
 --- !u!212 &8106806809383482836
+>>>>>>> test:Assets/Prefabs/TEMPORAL/DamagedObjectCollider.prefab
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -74,8 +99,13 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
+<<<<<<< HEAD:Assets/Prefabs/Player/Link.prefab
+  m_SortingOrder: 5
+  m_Sprite: {fileID: -497677554, guid: 818c7281c299dec4c9e50686b3228fd2, type: 3}
+=======
   m_SortingOrder: 0
   m_Sprite: {fileID: -1205664222, guid: 61dd23c528aa3184a9f19b32344dc256, type: 3}
+>>>>>>> test:Assets/Prefabs/TEMPORAL/DamagedObjectCollider.prefab
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

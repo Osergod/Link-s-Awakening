@@ -36,6 +36,27 @@ public class LinkController : MonoBehaviour
     public Vector2 shieldDirection { get; private set; }
     public ShieldCollider shieldCollider;
 
+    private Vector2 currentCheckpoint;
+    private bool isBeingPulled = false;
+
+    private static LinkController linkController;
+
+    public static LinkController instance
+    {
+        get {
+            return RequestLinkController();
+        }
+    }
+
+    private static LinkController RequestLinkController()
+    {
+        if (!linkController)
+        {
+            linkController = FindObjectOfType<LinkController>();
+        }
+        return linkController;
+    }
+
     private void Awake()
     {
         // Configuración inicial del sistema de input
@@ -153,10 +174,12 @@ public class LinkController : MonoBehaviour
         ChangeState(new JumpState());
     }
 
-    public IEnumerator Fall_ReloadSceneAfterFall()
+    public IEnumerator Fall_GoToCheckPointAfterFall()
     {
         yield return new WaitForSeconds(0.6f);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        transform.position = currentCheckpoint;
+        SetIsBeingPulled(false);
+        ChangeState(new OnDamagedState());
     }
 
     public IEnumerator Dead_ReloadSceneAfterFall()
@@ -173,4 +196,20 @@ public class LinkController : MonoBehaviour
     public float GetHorizontalMovement() => horizontal_ia.ReadValue<float>();
     public void Death() => ChangeState(new DeadControl());
     public void SetShieldDirection(Vector2 dir) => shieldDirection = dir.normalized;
+
+    public void SetCurrentCheckPoint(Vector2 newCheckPoint)
+    {
+        currentCheckpoint = newCheckPoint;
+        Debug.Log("New CheckPoint: " + currentCheckpoint);
+    }
+
+    public void SetIsBeingPulled(bool isBeingPulled)
+    {
+        this.isBeingPulled = isBeingPulled;
+    }
+
+    public bool GetIsBeingPulled()
+    {
+        return isBeingPulled;
+    }
 }

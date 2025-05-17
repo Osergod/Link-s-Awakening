@@ -4,8 +4,11 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - Explosion
   - Stairs
   - Enemy
+  - Attack
+  - Shield
   layers:
   - Default
   - TransparentFX
@@ -13,11 +16,11 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Enemy
+  - EnemyCollider
+  - Player
+  - IgnorePlayer
+  - OnlyPlayer
   - 
   - 
   - 

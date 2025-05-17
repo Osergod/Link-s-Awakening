@@ -38,7 +38,7 @@ public class MovableRockController : ActionableMapObject
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.tag == "Player" && collision.GetComponent<LinkController>().GetHorizontalMovement() != 0)
+        if (collision.tag == "Player" && LinkController.instance.GetHorizontalMovement() != 0)
         {
             playerPushing = true;
             StartCoroutine(MoveRock(collision));
@@ -52,7 +52,7 @@ public class MovableRockController : ActionableMapObject
     public IEnumerator MoveRock(Collider2D collision)
     {
         yield return new WaitForSeconds(activationDelay);
-        if (playerPushing && collision.GetComponent<LinkController>().GetHorizontalMovement() != 0)
+        if (playerPushing && LinkController.instance.GetHorizontalMovement() != 0)
         {
             playerPushed = true;
         }

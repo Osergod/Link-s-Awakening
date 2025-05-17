@@ -1,10 +1,9 @@
-using UnityEditor.Timeline.Actions;
 using UnityEngine;
 
 public class AtackState : IPlayerState
 {
     float attackTimer;
-    float attackDuration = 0.5f;
+    float attackDuration = 0.1f;
     private LinkController link;
 
     public void Enter(LinkController link)

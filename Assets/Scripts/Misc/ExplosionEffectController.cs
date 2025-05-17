@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ExplosionEffectController : MonoBehaviour
+public class ExplosionEffectController : MiscEffect
 {
-    void Start()
+    public override void Start()
     {
-        Destroy(gameObject, 0.25f);
+        Destroy(gameObject, destructionDelay);
     }
 }

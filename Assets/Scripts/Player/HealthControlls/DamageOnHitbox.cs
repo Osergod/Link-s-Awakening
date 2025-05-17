@@ -11,6 +11,7 @@ public class DamageOnHitbox : MonoBehaviour
         if (collision.CompareTag("Enemy") && !isDamaging)
         {
             StartCoroutine(ApplyDamageOverTime(collision.gameObject));
+            
         }
     }
 
