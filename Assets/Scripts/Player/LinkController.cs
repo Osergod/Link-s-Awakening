@@ -37,6 +37,7 @@ public class LinkController : MonoBehaviour
     public ShieldCollider shieldCollider;
 
     private Vector2 currentCheckpoint;
+    private bool isBeingPulled = false;
 
     private static LinkController linkController;
 
@@ -177,6 +178,7 @@ public class LinkController : MonoBehaviour
     {
         yield return new WaitForSeconds(0.6f);
         transform.position = currentCheckpoint;
+        SetIsBeingPulled(false);
         ChangeState(new OnDamagedState());
     }
 
@@ -199,5 +201,15 @@ public class LinkController : MonoBehaviour
     {
         currentCheckpoint = newCheckPoint;
         Debug.Log("New CheckPoint: " + currentCheckpoint);
+    }
+
+    public void SetIsBeingPulled(bool isBeingPulled)
+    {
+        this.isBeingPulled = isBeingPulled;
+    }
+
+    public bool GetIsBeingPulled()
+    {
+        return isBeingPulled;
     }
 }

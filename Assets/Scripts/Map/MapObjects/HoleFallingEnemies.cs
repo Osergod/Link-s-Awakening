@@ -9,8 +9,9 @@ public class HoleFallingEnemies : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
 
-        if (collision.tag == "Player")
+        if (collision.tag == "Player" && !LinkController.instance.GetIsBeingPulled())
         {
+            LinkController.instance.SetIsBeingPulled(true);
             LinkController.instance.transform.position = Vector2.MoveTowards(LinkController.instance.transform.position, transform.position, 5);
             LinkController.instance.ChangeState(new FallState());
         }
