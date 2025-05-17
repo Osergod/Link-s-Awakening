@@ -690,6 +690,7 @@ MonoBehaviour:
   maxHealth: 5
   damage: 0
   effect: {fileID: 6852401828833977288, guid: 70a76a3b17b401449bcea41c2881768b, type: 3}
+  scoreValue: 1000
   knockBackPower: 1
   speed: 6
   bodyDestructionDelay: 1

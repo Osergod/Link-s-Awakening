@@ -7,12 +7,14 @@ public abstract class Enemy : MonoBehaviour
     [SerializeField] public int maxHealth = 1;
     [SerializeField] protected int damage;
     [SerializeField] protected GameObject effect;
+    [SerializeField] protected int scoreValue;
     [Range(1f, 5f)][SerializeField] protected float knockBackPower;
     int health;
     protected LayerMask originalLayer;
     protected LinkController player;
     Vector2 initialPos;
     private bool isDying;
+    
 
     private void Awake()
     {
@@ -56,7 +58,7 @@ public abstract class Enemy : MonoBehaviour
                 Instantiate(effect, transform.position, Quaternion.identity);
             }
             GameManager.instance.IncrementKills();
-            //GameManager.instance.IncrementScore();
+            GameManager.instance.IncrementScore(scoreValue);
         }
     }
 
@@ -80,5 +82,10 @@ public abstract class Enemy : MonoBehaviour
         health = maxHealth;
         gameObject.transform.position = initialPos;
         gameObject.SetActive(false);
+    }
+
+    public void DisableEffect()
+    {
+        effect = null;
     }
 }

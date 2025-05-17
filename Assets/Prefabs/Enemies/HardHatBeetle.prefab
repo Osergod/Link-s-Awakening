@@ -219,8 +219,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5014c8dcdebf5b04fb68f7f5d5084504, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 1
+  maxHealth: 1
   damage: 2
   effect: {fileID: 0}
+  scoreValue: 100
   knockBackPower: 3
   speed: 3

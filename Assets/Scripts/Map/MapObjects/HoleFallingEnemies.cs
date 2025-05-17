@@ -36,8 +36,7 @@ public class HoleFallingEnemies : MonoBehaviour
         if (collision != null)
         {
             Instantiate(effect, collisionPosition, Quaternion.identity);
-            //Destroy(collision.gameObject);
-            //GameManager.instance.IncrementKills();
+            collision.GetComponent<Enemy>().DisableEffect();
             collision.GetComponent<Enemy>().Die();
         }
         
