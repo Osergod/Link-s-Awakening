@@ -8,6 +8,8 @@ public class AudioManager : MonoBehaviour
     [SerializeField] AudioSource musicSource;
     [SerializeField] AudioSource SFXSource;
 
+    private AudioClip previousMusicSource;
+
     [Header("Audio Clips")]
 
     [Header("- Player:")]
@@ -21,8 +23,10 @@ public class AudioManager : MonoBehaviour
     public AudioClip enemyHit;
     public AudioClip enemyDie;
     public AudioClip enemyFall;
+    public AudioClip enemyNoHit;
     public AudioClip bossHit;
     public AudioClip bossDie;
+    public AudioClip bossExplode;
 
     [Header("- Map Objects:")]
     public AudioClip doorSlam;
@@ -34,12 +38,19 @@ public class AudioManager : MonoBehaviour
     public AudioClip rockPush;
     public AudioClip stairs;
     public AudioClip error;
+    public AudioClip burst;
 
     [Header("- Items:")]
     public AudioClip swordSwing;
 
     [Header("- Music:")]
     public AudioClip dungeonTheme;
+    public AudioClip houseTheme;
+    public AudioClip villageTheme;
+    public AudioClip bossTheme;
+    public AudioClip playerSelectTheme;
+    public AudioClip introTheme;
+    public AudioClip instrumentTheme;
 
     private static AudioManager audioManager;
 
@@ -61,13 +72,37 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        
         musicSource.clip = dungeonTheme;
         musicSource.Play();
+        previousMusicSource = musicSource.clip;
     }
 
     public void PlaySFX(AudioClip clip)
     {
         SFXSource.PlayOneShot(clip);
+    }
+
+    public void PlayMusic(AudioClip clip)
+    {
+        musicSource.clip = clip;
+        musicSource.Play();
+    }
+
+    public void StopMusic()
+    {
+        musicSource.Stop();
+    }
+
+    public void ReplaceMusicPlaying(AudioClip clip)
+    {
+        previousMusicSource = musicSource.clip;
+        musicSource.clip = clip;
+        musicSource.Play();
+    }
+
+    public void ResumePreviousMusic()
+    {
+        musicSource.clip = previousMusicSource;
+        musicSource.Play();
     }
 }

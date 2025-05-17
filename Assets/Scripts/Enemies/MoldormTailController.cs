@@ -64,6 +64,7 @@ public class MoldormTailController : MonoBehaviour
     {
         if (collision.tag == "Attack" && !head.GetGotHurt())
         {
+            AudioManager.instance.PlaySFX(AudioManager.instance.bossHit);
             head.SetGotHurt(true);
         }
     }

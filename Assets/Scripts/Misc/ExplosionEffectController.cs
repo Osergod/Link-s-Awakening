@@ -6,6 +6,7 @@ public class ExplosionEffectController : MiscEffect
 {
     public override void Start()
     {
+        AudioManager.instance.PlaySFX(AudioManager.instance.burst);
         Destroy(gameObject, destructionDelay);
     }
 }

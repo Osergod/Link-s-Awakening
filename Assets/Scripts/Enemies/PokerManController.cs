@@ -226,8 +226,10 @@ public class PokerManController : Enemy
     public IEnumerator Reactivate()
     {
         yield return new WaitForSeconds(waitTime);
-            
+
         AudioManager.instance.PlaySFX(AudioManager.instance.error);
+       
+
         for (int i = 0; i < pokerManControllers.Length; i++)
         {
             pokerManControllers[i].stunned = false;

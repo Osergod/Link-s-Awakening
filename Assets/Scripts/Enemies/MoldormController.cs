@@ -250,6 +250,7 @@ public class MoldormController : Enemy
 
         tail.StopMovement();
 
+        AudioManager.instance.PlaySFX(AudioManager.instance.bossDie);
         StartCoroutine(DestroyBody());
     }
 
@@ -260,6 +261,8 @@ public class MoldormController : Enemy
         float effectSeparation = 1.5f;
         float effectToCenter = 0.05f;
         int numEffects = 15;
+
+        AudioManager.instance.StopMusic();
 
         yield return new WaitForSeconds(bodyDestructionDelay);
         tail.Eliminate();
@@ -284,7 +287,13 @@ public class MoldormController : Enemy
             effectDistance -= effectToCenter;
         }
 
+        AudioManager.instance.PlaySFX(AudioManager.instance.bossExplode);
         Destroy(gameObject);
+    }
+
+    public bool GetIsDead()
+    {
+        return isDead;
     }
 
     /*private void OnDestroy()

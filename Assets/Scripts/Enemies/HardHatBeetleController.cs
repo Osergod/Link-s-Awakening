@@ -86,6 +86,7 @@ public class HardHatBeetleController : Enemy
     {
         if (state == EnemyStates.ATTACKING && (collision.tag == "Attack" || collision.tag == "Shield"))
         {
+            AudioManager.instance.PlaySFX(AudioManager.instance.enemyNoHit);
             ator.speed = 0;
             Vector3 awayFromMe = transform.position - player.transform.position;
             awayFromMe.Normalize();
