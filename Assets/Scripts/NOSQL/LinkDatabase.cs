@@ -26,9 +26,9 @@ public class LinkDatabase : MonoBehaviour
 
         var document = new BsonDocument
         {
-            { "PlayerName", StatsManager.Instance.GetNamePlayer() },
-            { "KillsNumber", StatsManager.Instance.numberKills },   // int
-            { "TimePlay",   StatsManager.Instance.playTime }        // int
+            { "PlayerName", StatsManager.Instance.GetPlayerName() },
+            { "KillsNumber", StatsManager.Instance.killCount },
+            { "TimePlay",   StatsManager.Instance.playTime }
         };
 
         usersCollection.InsertOne(document);

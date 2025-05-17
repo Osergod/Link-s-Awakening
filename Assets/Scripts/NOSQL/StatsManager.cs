@@ -26,12 +26,33 @@ public class StatsManager : MonoBehaviour
         playTime = Mathf.FloorToInt(Time.timeSinceLevelLoad);
     }
 
-    public string GetPlayerName() => playerName;
-    public void SetPlayerName(string newName) => playerName = newName;
+    public string GetPlayerName()
+    {
+        return playerName;
+    }
 
-    public int GetKillCount() => killCount;
-    public void SetKillCount(int newKills) => killCount = newKills;
+    public void SetPlayerName(string newName)
+    {
+        playerName = newName;
+    }
 
-    public int GetPlayTime() => playTime;
-    public void SetPlayTime(int newTime) => playTime = newTime;
+    public int GetKillCount()
+    {
+        return killCount;
+    }
+
+    public void SetKillCount(int newKills)
+    {
+        killCount = newKills;
+    }
+
+    public int GetPlayTime()
+    {
+        return playTime;
+    }
+
+    public void SetPlayTime(int newTime)
+    {
+        playTime = newTime;
+    }
 }

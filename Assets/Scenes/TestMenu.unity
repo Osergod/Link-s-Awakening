@@ -243,8 +243,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f5980e3f2dcba04ea144a59cdecc875, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  namePlayer: 
-  numberKills: 0
+  playerName: 
+  killCount: 0
   playTime: 0
 --- !u!4 &517302884
 Transform:
@@ -292,6 +292,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &985330134 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5272888403944923518, guid: ddd34838260202c49b40946b862e2f0f, type: 3}
+  m_PrefabInstance: {fileID: 5492331567296899222}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1050694638
 GameObject:
   m_ObjectHideFlags: 0
@@ -360,6 +371,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1977616938 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3314603967193537851, guid: ddd34838260202c49b40946b862e2f0f, type: 3}
+  m_PrefabInstance: {fileID: 5492331567296899222}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2da0c512f12947e489f739169773d7ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1995386365
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -487,6 +509,10 @@ PrefabInstance:
     - target: {fileID: 4012300257311514512, guid: ddd34838260202c49b40946b862e2f0f, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4739140292078214627, guid: ddd34838260202c49b40946b862e2f0f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadPlayerDataFromDatabase
       objectReference: {fileID: 0}
     - target: {fileID: 5272888403944923518, guid: ddd34838260202c49b40946b862e2f0f, type: 3}
       propertyPath: m_fontSize
@@ -681,13 +707,29 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2033263836}
     - target: {fileID: 7713025014549687316, guid: ddd34838260202c49b40946b862e2f0f, type: 3}
+      propertyPath: killsText
+      value: 
+      objectReference: {fileID: 5492331567296899223}
+    - target: {fileID: 7713025014549687316, guid: ddd34838260202c49b40946b862e2f0f, type: 3}
+      propertyPath: playTimeText
+      value: 
+      objectReference: {fileID: 5492331567296899226}
+    - target: {fileID: 7713025014549687316, guid: ddd34838260202c49b40946b862e2f0f, type: 3}
       propertyPath: killsMostradas
       value: 
       objectReference: {fileID: 5492331567296899223}
     - target: {fileID: 7713025014549687316, guid: ddd34838260202c49b40946b862e2f0f, type: 3}
+      propertyPath: playerNameText
+      value: 
+      objectReference: {fileID: 985330134}
+    - target: {fileID: 7713025014549687316, guid: ddd34838260202c49b40946b862e2f0f, type: 3}
       propertyPath: tiempoMostrado
       value: 
       objectReference: {fileID: 5492331567296899226}
+    - target: {fileID: 7713025014549687316, guid: ddd34838260202c49b40946b862e2f0f, type: 3}
+      propertyPath: playerNameInput
+      value: 
+      objectReference: {fileID: 1977616938}
     - target: {fileID: 8193437465465726808, guid: ddd34838260202c49b40946b862e2f0f, type: 3}
       propertyPath: m_fontSize
       value: 18

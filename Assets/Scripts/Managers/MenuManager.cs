@@ -27,8 +27,8 @@ public class MenuManager : MonoBehaviour
     {
         if (!dbSaved)
         {
-            stats.namePlayer = playerNameInput.text;
-            Debug.Log("Saved player name: " + stats.namePlayer);
+            stats.playerName = playerNameInput.text;
+            Debug.Log("Saved player name: " + stats.playerName);
             stats.playTime = Mathf.FloorToInt(Time.time);
             db.UpdateDatabase();
             dbSaved = true;
@@ -59,7 +59,7 @@ public class MenuManager : MonoBehaviour
         var database = client.GetDatabase("Zelda");
         var usersCollection = database.GetCollection<BsonDocument>("Stats_Game");
 
-        var filter = Builders<BsonDocument>.Filter.Eq("PlayerName", stats.GetNamePlayer());
+        var filter = Builders<BsonDocument>.Filter.Eq("PlayerName", stats.playerName);
         var result = await usersCollection.Find(filter).FirstOrDefaultAsync();
 
         if (result != null)
