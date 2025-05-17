@@ -11,6 +11,7 @@ public class RoomStairsController : MonoBehaviour
     {
         if (collision.tag == "Player" && canPass)
         {
+            AudioManager.instance.PlaySFX(AudioManager.instance.stairs);
             LinkController.instance.transform.position = targetStairs.transform.position;
         }
     }

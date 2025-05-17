@@ -11,6 +11,8 @@ public class MovableRockController : ActionableMapObject
 
     private bool playerPushing;
     private bool playerPushed;
+    private bool isActive = false;
+
     enum RockStates { STILL, MOVABLE, MOVING };
     RockStates states = RockStates.MOVABLE;
     private void Update()
@@ -46,6 +48,11 @@ public class MovableRockController : ActionableMapObject
     }
     public override void Activate()
     {
+        if (!isActive)
+        {
+            isActive = true;
+            AudioManager.instance.PlaySFX(AudioManager.instance.rockPush);
+        }
         transform.position = Vector3.MoveTowards(transform.position, targetSpot.transform.position, movingSpeed * Time.deltaTime);
     }
 
