@@ -23,6 +23,7 @@ public class LootChestController : ActionableMapObject
 
     public override void Activate()
     {
+        AudioManager.instance.PlaySFX(AudioManager.instance.roomSolved);
         Instantiate(effect, transform.position, Quaternion.identity);
         StartCoroutine(SpawnChest());
         isHidden = false;
