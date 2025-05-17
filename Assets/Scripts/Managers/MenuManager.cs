@@ -1,89 +1,49 @@
 ﻿using MongoDB.Bson;
-using MongoDB.Driver;
 using TMPro;
 using UnityEngine;
+using System.Threading.Tasks;
 
 public class MenuManager : MonoBehaviour
 {
     private StatsManager stats;
     [SerializeField] private TMP_InputField playerNameInput;
     [SerializeField] private LinkDatabase db;
-
-    private bool dbSaved;
-    int total;
+    private bool isDataSaved;
 
     [SerializeField] private TMP_Text playerNameText;
     [SerializeField] private TMP_Text killsText;
     [SerializeField] private TMP_Text playTimeText;
     [SerializeField] private TMP_Text victoryText;
     [SerializeField] private TMP_Text rupiasText;
+    [SerializeField] private TMP_Text scoreText;
 
     void Start()
     {
-        stats = FindObjectOfType<StatsManager>();
-        dbSaved = false;
+        stats = StatsManager.Instance;
     }
 
-    public void OnEnterPlayerName()
+    public async void OnEnterPlayerName()
     {
-        if (!dbSaved)
+        if (!isDataSaved)
         {
-            stats.playerName = playerNameInput.text;
-            Debug.Log("Saved player name: " + stats.playerName);
-            stats.playTime = Mathf.FloorToInt(Time.time);
-            db.UpdateDatabase();
-            dbSaved = true;
-        }
-        else
-        {
-            OnChangedPlayerName();
-        }
-    }
-
-    public void OnChangedPlayerName()
-    {
-        if (dbSaved)
-        {
-            Debug.Log("You can only save your data once");
+            stats.SetPlayerName(playerNameInput.text);
+            await db.UpdateOrInsertPlayerData();
+            isDataSaved = true;
         }
     }
 
     public async void LoadPlayerDataFromDatabase()
     {
-        if (stats == null)
-            stats = FindObjectOfType<StatsManager>();
-
-        string connectionString = "mongodb+srv://Zelda:zelda69*@cluster0.tvouedw.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
-
-        var client = new MongoClient(connectionString);
-        var database = client.GetDatabase("Zelda");
-        var usersCollection = database.GetCollection<BsonDocument>("Stats_Game");
-
-        var filter = Builders<BsonDocument>.Filter.Eq("PlayerName", stats.GetPlayerName());
-        var result = await usersCollection.Find(filter).FirstOrDefaultAsync();
+        var result = await db.LoadPlayerData(stats.GetPlayerName());
 
         if (result != null)
         {
-            string name = result["PlayerName"].AsString;
-            string kills = result["KillsNumber"].ToString();
-            string time = result["TimePlay"].ToString();
-
-            bool victory = result.Contains("Victory") && result["Victory"].IsBoolean ? result["Victory"].AsBoolean : false;
-
-            playerNameText.text = "Nombre: " + name;
-            killsText.text = "Kills: " + kills;
-            int totalSeconds = int.Parse(time);
-            playTimeText.text = "Tiempo: " + FormatTime(totalSeconds);
-            if (victoryText != null)
-                victoryText.text = "Has ganado: " + (victory ? "sí" : "no");
-            string rupias = result.Contains("Rupias") ? result["Rupias"].ToString() : "0";
-            if (rupiasText != null)
-                rupiasText.text = "Rupias: " + rupias;
-        }
-        else
-        {
-            playerNameText.text = "Player not found";
-            Debug.LogWarning("Player name not found in the database.");
+            playerNameText.text = "Nombre: " + result["PlayerName"].AsString;
+            killsText.text = "Kills: " + result["KillsNumber"].ToString();
+            playTimeText.text = "Tiempo: " + FormatTime(int.Parse(result["TimePlay"].ToString()));
+            victoryText.text = "Has ganado: " + (result["Victory"].AsBoolean ? "si" : "no");
+            rupiasText.text = "Rupias: " + (result.Contains("Rupias") ? result["Rupias"].ToString() : "0");
+            scoreText.text = "Puntuacion: " + (result.Contains("Score") ? result["Score"].ToString() : "0");
         }
     }
 
@@ -92,14 +52,13 @@ public class MenuManager : MonoBehaviour
         int hours = Mathf.FloorToInt(totalSeconds / 3600);
         int minutes = Mathf.FloorToInt((totalSeconds % 3600) / 60);
         int seconds = Mathf.FloorToInt(totalSeconds % 60);
-        return $"{hours:D2}:{minutes:D2}:{seconds:D2}";
+        return string.Format("{0:00}:{1:00}:{2:00}", hours, minutes, seconds);
     }
 
     public void OnVictoryAchieved()
     {
         stats.SetVictory(true);
-        Debug.Log("Victory achieved!");
         if (victoryText != null)
-            victoryText.text = "Has ganado: sí";
+            victoryText.text = "Has ganado: si";
     }
 }

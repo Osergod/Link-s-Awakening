@@ -10,8 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 3398504704494051265}
   - component: {fileID: 4109749045553847986}
+  - component: {fileID: 6996455650083204713}
+  - component: {fileID: 3669256458439709466}
   m_Layer: 0
-  m_Name: Create EmPPPPty
+  m_Name: DatabaseManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,3 +46,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cce4b98a2b08e04b9e45fc2dc0f9a56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6996455650083204713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2962197602859630182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdaeab240b5d7bd47ac80c239957329c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3669256458439709466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2962197602859630182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f5980e3f2dcba04ea144a59cdecc875, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerName: 
+  killCount: 0
+  playTime: 0
+  victory: 0
+  rupias: 0
+  score: 0

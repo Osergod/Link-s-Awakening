@@ -214,86 +214,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &517302882
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 517302884}
-  - component: {fileID: 517302883}
-  m_Layer: 0
-  m_Name: StatsManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &517302883
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 517302882}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f5980e3f2dcba04ea144a59cdecc875, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerName: 
-  killCount: 0
-  playTime: 0
-  victory: 0
-  rupias: 0
---- !u!4 &517302884
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 517302882}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 885.0379, y: 459.28488, z: -5.656224}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &628137179
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 628137180}
-  m_Layer: 0
-  m_Name: MongoSchemaCreator
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &628137180
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 628137179}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 207.01889, y: 175.28314, z: 1.2212054}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &985330134 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5272888403944923518, guid: ddd34838260202c49b40946b862e2f0f, type: 3}
@@ -405,7 +325,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2962197602859630182, guid: 8d496573d87123c4196a18fa56270792, type: 3}
       propertyPath: m_Name
-      value: LinkDatabase
+      value: DatabaseManager
       objectReference: {fileID: 0}
     - target: {fileID: 3398504704494051265, guid: 8d496573d87123c4196a18fa56270792, type: 3}
       propertyPath: m_LocalPosition.x
@@ -672,6 +592,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5492331567296899223}
     - target: {fileID: 7713025014549687316, guid: ddd34838260202c49b40946b862e2f0f, type: 3}
+      propertyPath: scoreText
+      value: 
+      objectReference: {fileID: 5492331567296899224}
+    - target: {fileID: 7713025014549687316, guid: ddd34838260202c49b40946b862e2f0f, type: 3}
       propertyPath: rupiasText
       value: 
       objectReference: {fileID: 5492331567296899227}
@@ -715,6 +639,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5492331567296899224 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8776789561215650392, guid: ddd34838260202c49b40946b862e2f0f, type: 3}
+  m_PrefabInstance: {fileID: 5492331567296899222}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &5492331567296899226 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8193437465465726808, guid: ddd34838260202c49b40946b862e2f0f, type: 3}
@@ -743,7 +678,5 @@ SceneRoots:
   m_Roots:
   - {fileID: 464716559}
   - {fileID: 1995386365}
-  - {fileID: 517302884}
   - {fileID: 5492331567296899222}
   - {fileID: 1050694641}
-  - {fileID: 628137180}
