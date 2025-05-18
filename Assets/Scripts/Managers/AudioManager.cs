@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -22,6 +19,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip linkFall;
     public AudioClip linkJump;
     public AudioClip linkLand;
+    public AudioClip lowHealth;
 
     [Header("- Enemies:")]
     public AudioClip enemyHit;
@@ -82,6 +80,8 @@ public class AudioManager : MonoBehaviour
 
     private void Awake()
     {
+        musicSource.loop = true;
+
         if (audioManager != null && audioManager != this)
         {
             Destroy(gameObject);
@@ -99,15 +99,12 @@ public class AudioManager : MonoBehaviour
             switch (SceneManager.GetActiveScene().name)
             {
                 case "MainMenu":
-                    musicSource.Stop();
                     musicSource.clip = introTheme;
                     break;
                 case "SampleScene":
-                    musicSource.Stop();
                     musicSource.clip = villageTheme;
                     break;
                 case "Dungeon1":
-                    musicSource.Stop();
                     musicSource.clip = dungeonTheme;
                     break;
             }

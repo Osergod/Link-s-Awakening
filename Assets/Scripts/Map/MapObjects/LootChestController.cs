@@ -18,7 +18,7 @@ public class LootChestController : ActionableMapObject
 
     public void OpenChest()
     {
-        
+        AudioManager.instance.PlaySFX(AudioManager.instance.chestOpen);
     }
 
     public override void Activate()

@@ -181,6 +181,7 @@ MonoBehaviour:
   linkFall: {fileID: 8300000, guid: ece2413b65cf29d4da4d6f6a473336ba, type: 3}
   linkJump: {fileID: 8300000, guid: bae83eada656e4e429af7cb7181811b9, type: 3}
   linkLand: {fileID: 8300000, guid: 5c9c8ad0c5a22864d9cae6674b7e0e0c, type: 3}
+  lowHealth: {fileID: 8300000, guid: 520cfe6a37ffda24d82befb244717fa2, type: 3}
   enemyHit: {fileID: 8300000, guid: a1cb12ff859d45f4ab6d858eb64ffd55, type: 3}
   enemyDie: {fileID: 8300000, guid: 6fa7b53b7c116d64dbe221c2afe38098, type: 3}
   enemyFall: {fileID: 8300000, guid: b8ec246c341df6e43af085d3d8a3e0fb, type: 3}

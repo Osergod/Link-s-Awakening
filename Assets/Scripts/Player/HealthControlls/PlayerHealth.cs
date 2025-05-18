@@ -36,9 +36,15 @@ public class PlayerHealth : MonoBehaviour
             link.ChangeState(new OnDamagedState());
         }
 
+        if (health == 2)
+        {
+            AudioManager.instance.PlaySFX(AudioManager.instance.lowHealth);
+        }
+
         if (health <= 0)
         {
             health = 0;
+            AudioManager.instance.PlaySFX(AudioManager.instance.linkDie);
             Debug.Log("You're dead");
             OnPlayerDeath?.Invoke();
             link?.Death();

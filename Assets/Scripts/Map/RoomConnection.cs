@@ -12,8 +12,12 @@ public class RoomConnectionController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-
-        collision.transform.position = destination.transform.position;
+        if (collision.tag == "Player")
+        {
+            AudioManager.instance.PlaySFX(AudioManager.instance.stairs);
+            LinkController.instance.transform.position = destination.transform.position;
+        }
+        
         //StartCoroutine(MoveToRoom(collision));
 
     }

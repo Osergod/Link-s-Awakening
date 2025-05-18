@@ -168,11 +168,6 @@ public class LinkController : MonoBehaviour
     }
 
     // Corrutinas para acciones especiales
-    public IEnumerator DelayJump()
-    {
-        yield return new WaitForSeconds(0.1f);
-        ChangeState(new JumpState());
-    }
 
     public IEnumerator Fall_GoToCheckPointAfterFall()
     {

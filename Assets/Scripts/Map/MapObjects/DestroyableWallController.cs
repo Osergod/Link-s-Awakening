@@ -16,6 +16,7 @@ public class DestroyableWallController : ActionableMapObject
 
     public override void Activate()
     {
+        AudioManager.instance.PlaySFX(AudioManager.instance.rockShatter);
         Instantiate(effect, transform.position, Quaternion.identity);
         GetComponent<SpriteRenderer>().enabled = false;
         GetComponent<BoxCollider2D>().enabled = false;

@@ -10,6 +10,7 @@ public class DungeonConnection : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
+            AudioManager.instance.PlaySFX(AudioManager.instance.stairs);
             SceneManager.LoadScene(scene); 
         }
     }

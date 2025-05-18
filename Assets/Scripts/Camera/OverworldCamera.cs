@@ -4,7 +4,13 @@ using UnityEngine;
 
 public class OverworldCamera : MonoBehaviour
 {
-    [SerializeField] GameObject player;
+    LinkController player;
+
+    private void Start()
+    {
+        player = FindObjectOfType<LinkController>();
+    }
+
     void Update()
     {
         transform.position = new Vector3(player.transform.position.x, player.transform.position.y, transform.position.z);

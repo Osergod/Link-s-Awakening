@@ -10,17 +10,8 @@ public class DamageOnHitbox : MonoBehaviour
     {
         if (collision.CompareTag("Enemy") && !isDamaging)
         {
+            PlayerHealth playerHealth = GetComponentInParent<PlayerHealth>();
             StartCoroutine(ApplyDamageOverTime(collision.gameObject));
-            
-        }
-    }
-
-    // Resetea el estado al salir el enemigo del área
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Enemy"))
-        {
-            isDamaging = false;
         }
     }
 
