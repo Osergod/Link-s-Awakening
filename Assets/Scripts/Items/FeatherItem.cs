@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AddFeather : MonoBehaviour
+public class FeatherItem : Item
 {
-    private void OnDestroy()
+    public override void Use()
     {
+        AudioManager.instance.PlaySFX(AudioManager.instance.getItem);
         LinkController.instance.SetHasFeather(true);
     }
 }

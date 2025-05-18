@@ -11,10 +11,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int bombs = 0;
     [SerializeField] private int rupees = 0;
 
-    [Header("Items For Inventory")]
-    [SerializeField] private InventoryItem keyItem;
-    [SerializeField] private InventoryItem bombItem;
-
     private bool playerJumping = false;
     private bool hasMap = false;
 
@@ -46,12 +42,6 @@ public class GameManager : MonoBehaviour
             gameManager = FindObjectOfType<GameManager>();
         }
         return gameManager;
-    }
-
-    private void Update()
-    {
-        keyItem.numberHeldItem = keys;
-        bombItem.numberHeldItem = bombs;
     }
 
     public void SetPlayerName(string newName)
