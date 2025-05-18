@@ -116,6 +116,9 @@ public class AudioManager : MonoBehaviour
                 case "LosingScreen":
                     musicSource.clip = losingScreen;
                     break;
+                case "WinningScreen":
+                    musicSource.clip = instrumentTheme;
+                    break;
             }
 
             previousScene = SceneManager.GetActiveScene().name;
