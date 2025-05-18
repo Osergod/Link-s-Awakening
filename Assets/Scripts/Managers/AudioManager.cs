@@ -59,6 +59,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip playerSelectTheme;
     public AudioClip introTheme;
     public AudioClip instrumentTheme;
+    public AudioClip losingScreen;
 
     [Header("- Menu:")]
     public AudioClip textLetter;
@@ -111,6 +112,9 @@ public class AudioManager : MonoBehaviour
                     break;
                 case "Dungeon1":
                     musicSource.clip = dungeonTheme;
+                    break;
+                case "LosingScreen":
+                    musicSource.clip = losingScreen;
                     break;
             }
 
