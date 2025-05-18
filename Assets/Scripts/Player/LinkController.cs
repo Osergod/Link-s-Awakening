@@ -17,7 +17,7 @@ public class LinkController : MonoBehaviour
 
     // Sistema de input
     public InputActionAsset map;
-    public InputAction horizontal_ia, vertical_ia, atack_ia, jump_ia, shield_ia;
+    public InputAction horizontal_ia, vertical_ia, atack_ia, jump_ia, shield_ia, bombing_ia;
 
     // Componentes y referencias
     public Rigidbody2D rig;
@@ -40,6 +40,7 @@ public class LinkController : MonoBehaviour
     private bool isBeingPulled = false;
 
     [SerializeField] GameObject placeHolder;
+    [SerializeField] GameObject bomb;
 
     private static LinkController linkController;
 
@@ -68,6 +69,7 @@ public class LinkController : MonoBehaviour
         atack_ia = map.FindActionMap("Atack").FindAction("Atack");
         jump_ia = map.FindActionMap("Movement").FindAction("Jump");
         shield_ia = map.FindActionMap("Defense").FindAction("Shield");
+        bombing_ia = map.FindActionMap("Atack").FindAction("PlaceBomb");
 
         // Obtención de componentes
         rig = GetComponent<Rigidbody2D>();
@@ -100,6 +102,12 @@ public class LinkController : MonoBehaviour
 
         // Lectura del input de salto
         float mj = jump_ia.ReadValue<float>();
+
+        if (bombing_ia.triggered && GameManager.instance.GetBombs() > 0)
+        {
+            Instantiate(bomb, transform.position, Quaternion.identity);
+            GameManager.instance.DecrementBombs();
+        }
     }
 
     // Cambia el estado del jugador

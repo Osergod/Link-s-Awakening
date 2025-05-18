@@ -344,6 +344,7 @@ MonoBehaviour:
   OnJumping: 0
   shieldCollider: {fileID: 0}
   placeHolder: {fileID: 365736564382972867}
+  bomb: {fileID: 2807391064945304354, guid: 539c945d38416704a84f96b41e871077, type: 3}
 --- !u!114 &1354956884579573860
 MonoBehaviour:
   m_ObjectHideFlags: 0
