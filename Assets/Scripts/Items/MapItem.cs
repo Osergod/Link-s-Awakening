@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AddMap : MonoBehaviour
+public class MapItem : Item
 {
-    private void OnDestroy()
+    public override void Use()
     {
+        AudioManager.instance.PlaySFX(AudioManager.instance.getItem);
         GameManager.instance.SetHasMap(true);
     }
 }

@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
 
     private bool playerJumping = false;
     private bool hasMap = false;
+    private bool hasBossKey = false;
 
     private static GameManager gameManager;
 
@@ -133,6 +134,16 @@ public class GameManager : MonoBehaviour
     public bool GetHasMap()
     {
         return hasMap;
+    }
+
+    public void SetHasBossKey(bool hasBossKey)
+    {
+        this.hasBossKey = hasBossKey;
+    }
+
+    public bool GetHasBossKey()
+    {
+        return hasBossKey;
     }
 
     public int GetItemForInventory(string item)
