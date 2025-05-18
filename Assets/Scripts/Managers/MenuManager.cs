@@ -19,9 +19,16 @@ public class MenuManager : MonoBehaviour
 
     void Start()
     {
-        stats = StatsManager.Instance;
+        stats = StatsManager.Instance; // Accedim al singleton de StatsManager
     }
 
+    // Mètode per establir el temps jugat
+    public void SetPlayTime(int timeInSeconds)
+    {
+        stats.SetPlayTime(timeInSeconds);
+    }
+
+    // Funció per entrar el nom del jugador
     public async void OnEnterPlayerName()
     {
         if (!isDataSaved)
@@ -32,6 +39,7 @@ public class MenuManager : MonoBehaviour
         }
     }
 
+    // Carregar dades del jugador des de la base de dades
     public async void LoadPlayerDataFromDatabase()
     {
         var result = await db.LoadPlayerData(stats.GetPlayerName());
@@ -47,6 +55,7 @@ public class MenuManager : MonoBehaviour
         }
     }
 
+    // Formateig del temps en hores:minuts
     private string FormatTime(float totalSeconds)
     {
         int hours = Mathf.FloorToInt(totalSeconds / 3600);
@@ -55,6 +64,7 @@ public class MenuManager : MonoBehaviour
         return string.Format("{0:00}:{1:00}:{2:00}", hours, minutes, seconds);
     }
 
+    // Funció que s'executa quan s'aconsegueix la victòria
     public void OnVictoryAchieved()
     {
         stats.SetVictory(true);

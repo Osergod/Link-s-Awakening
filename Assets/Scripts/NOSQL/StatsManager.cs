@@ -10,7 +10,6 @@ public class StatsManager : MonoBehaviour
     public int score;
 
     public static StatsManager Instance;
-    private float _sessionStartTime;
 
     private void Awake()
     {
@@ -18,7 +17,6 @@ public class StatsManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
-            _sessionStartTime = Time.time;
         }
         else
         {
@@ -28,12 +26,11 @@ public class StatsManager : MonoBehaviour
 
     private void Update()
     {
-        playTime = Mathf.FloorToInt(Time.time - _sessionStartTime);
-
         if (GameManager.instance != null)
         {
             killCount = GameManager.instance.GetPlayerKills();
             score = GameManager.instance.GetScore();
+            playTime = GameManager.instance.GetPlayTime();
         }
     }
 

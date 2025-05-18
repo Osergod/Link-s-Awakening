@@ -25,7 +25,7 @@ public class PlayerHUD : MonoBehaviour
         score.text = GameManager.instance.GetScore().ToString();
 
         timerTime += Time.deltaTime;
-        if(timerTime < 0)
+        if (timerTime < 0)
         {
             timerTime = 0;
         }

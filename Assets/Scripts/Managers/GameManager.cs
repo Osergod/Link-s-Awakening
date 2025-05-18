@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private string playerName = "";
     [SerializeField] private int playerKills;
     [SerializeField] private int score;
+    private float playTime;
 
     private static GameManager gameManager;
 
@@ -17,7 +18,8 @@ public class GameManager : MonoBehaviour
 
     public static GameManager instance
     {
-        get {
+        get
+        {
             return RequestGameManager();
         }
     }
@@ -60,5 +62,15 @@ public class GameManager : MonoBehaviour
     public void IncrementScore(int newScore)
     {
         score += newScore;
+    }
+
+    public int GetPlayTime()
+    {
+        return Mathf.FloorToInt(playTime);
+    }
+
+    private void Update()
+    {
+        playTime += Time.deltaTime;
     }
 }
