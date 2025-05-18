@@ -205,6 +205,7 @@ MonoBehaviour:
   getRupee: {fileID: 8300000, guid: c51f0b4f72a177949aa7b322ccb9394b, type: 3}
   getInstrument: {fileID: 8300000, guid: 9b07bdbe9423f5b44919b1bc2563baf8, type: 3}
   bombExplosion: {fileID: 8300000, guid: aaf6245af5e193a4ca1eec2539423886, type: 3}
+  itemAchieved: {fileID: 8300000, guid: a5e6f61d17cbd8b4cba91b78dbd2883d, type: 3}
   dungeonTheme: {fileID: 8300000, guid: a801119bc50130843b1b10cf5d744afa, type: 3}
   houseTheme: {fileID: 8300000, guid: 34f76aba0c4be454bb5361f636ffff0e, type: 3}
   villageTheme: {fileID: 8300000, guid: d9f73652752129543aa3d1511bab40e9, type: 3}

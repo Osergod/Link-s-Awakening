@@ -49,6 +49,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip getRupee;
     public AudioClip getInstrument;
     public AudioClip bombExplosion;
+    public AudioClip itemAchieved;
 
     [Header("- Music:")]
     public AudioClip dungeonTheme;

@@ -25,9 +25,21 @@ public class LootChestController : ActionableMapObject
         {
             canOpen = false;
             AudioManager.instance.PlaySFX(AudioManager.instance.chestOpen);
+            LinkController.instance.anim.SetTrigger("achievedSomething");
             gameObject.GetComponent<SpriteRenderer>().sprite = openedSprite;
+            AudioManager.instance.PlaySFX(AudioManager.instance.itemAchieved);
+
+            LinkController.instance.map.Disable();
+            LinkController.instance.ShowItem(item.GetComponent<SpriteRenderer>().sprite);
+            StartCoroutine(WaitToMove());
         }
-        
+    }
+
+    public IEnumerator WaitToMove()
+    {
+        yield return new WaitForSeconds(1.5f);
+        LinkController.instance.map.Enable();
+        LinkController.instance.HideItem();
     }
 
     public override void Activate()

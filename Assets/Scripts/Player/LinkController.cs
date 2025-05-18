@@ -39,6 +39,8 @@ public class LinkController : MonoBehaviour
     private Vector2 currentCheckpoint;
     private bool isBeingPulled = false;
 
+    [SerializeField] GameObject placeHolder;
+
     private static LinkController linkController;
 
     public static LinkController instance
@@ -207,5 +209,17 @@ public class LinkController : MonoBehaviour
     public void SetHasFeather(bool hasFeather)
     {
         this.HasFeather = hasFeather;
+    }
+
+    public void ShowItem(Sprite newSprite)
+    {
+        //placeHolder.GetComponent<SpriteRenderer>().enabled = true;
+        placeHolder.GetComponent<SpriteRenderer>().sprite = newSprite;
+    }
+
+    public void HideItem()
+    {
+        //placeHolder.GetComponent<SpriteRenderer>().enabled = false;
+        placeHolder.GetComponent<SpriteRenderer>().sprite = null;
     }
 }
