@@ -18,8 +18,6 @@ public class DestroyableWallController : ActionableMapObject
     {
         AudioManager.instance.PlaySFX(AudioManager.instance.rockShatter);
         Instantiate(effect, transform.position, Quaternion.identity);
-        GetComponent<SpriteRenderer>().enabled = false;
-        GetComponent<BoxCollider2D>().enabled = false;
-        GetComponent<PolygonCollider2D>().enabled = false;
+        Destroy(gameObject);
     }
 }

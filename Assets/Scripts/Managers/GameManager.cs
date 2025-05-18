@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int score;
     [SerializeField] private int keys = 0;
     private bool playerJumping = false;
+    private bool hasMap = false;
 
     private static GameManager gameManager;
 
@@ -94,5 +95,15 @@ public class GameManager : MonoBehaviour
     public void SetPlayerJumping(bool playerJumping)
     {
         this.playerJumping = playerJumping;
+    }
+
+    public void SetHasMap(bool hasMap)
+    {
+        this.hasMap = hasMap;
+    }
+
+    public bool GetHasMap()
+    {
+        return hasMap;
     }
 }
