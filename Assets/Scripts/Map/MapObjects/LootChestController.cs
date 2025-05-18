@@ -31,6 +31,7 @@ public class LootChestController : ActionableMapObject
 
             LinkController.instance.map.Disable();
             LinkController.instance.ShowItem(item.GetComponent<SpriteRenderer>().sprite);
+            item.GetComponent<InventoryItem>().Use();
             StartCoroutine(WaitToMove());
         }
     }

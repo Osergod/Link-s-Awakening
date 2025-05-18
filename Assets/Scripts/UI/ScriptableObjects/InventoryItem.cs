@@ -7,7 +7,6 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Item", menuName = "Inventory/Items")]
 public class InventoryItem : ScriptableObject
 {
-
     public UnityEngine.Events.UnityEvent thisEvent = new UnityEngine.Events.UnityEvent();
     public string nameItem;
     public string itemDesc;
@@ -20,17 +19,18 @@ public class InventoryItem : ScriptableObject
 
     public void Use() 
     {
-         thisEvent.Invoke();
+        //thisEvent.Invoke();
+        GameManager.instance.IncrementKeys();
     }
 
-    public void ConsumeItem() 
+    /*public void ConsumeItem() 
     {
-        /*numberHeldItem--;
+        numberHeldItem--;
         if(numberHeldItem <= 0) 
         { 
             numberHeldItem = 0;
-        }*/
-    }
+        }
+    }*/
 
     /*public void Show()
     {
