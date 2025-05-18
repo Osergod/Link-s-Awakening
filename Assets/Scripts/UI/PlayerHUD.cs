@@ -8,6 +8,9 @@ public class PlayerHUD : MonoBehaviour
     [SerializeField] TMP_Text kills;
     [SerializeField] TMP_Text time;
     [SerializeField] TMP_Text score;
+    [SerializeField] TMP_Text rupees;
+    [SerializeField] TMP_Text keys;
+    [SerializeField] TMP_Text bombs;
 
     private float initialTime;
     private float timerTime;
@@ -23,6 +26,8 @@ public class PlayerHUD : MonoBehaviour
     {
         kills.text = GameManager.instance.GetPlayerKills().ToString();
         score.text = GameManager.instance.GetScore().ToString();
+        keys.text = GameManager.instance.GetKeys().ToString();
+        bombs.text = GameManager.instance.GetBombs().ToString();
 
         timerTime += Time.deltaTime;
         if(timerTime < 0)

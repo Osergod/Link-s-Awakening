@@ -101,7 +101,7 @@ public class GameManager : MonoBehaviour
 
     public void IncrementBombs()
     {
-        bombs++;
+        bombs += 5;
     }
 
     public void DecrementBombs()
