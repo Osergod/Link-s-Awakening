@@ -17,7 +17,7 @@ public class LinkController : MonoBehaviour
 
     // Sistema de input
     public InputActionAsset map;
-    public InputAction horizontal_ia, vertical_ia, atack_ia, jump_ia, shield_ia, inventory_ia;
+    public InputAction horizontal_ia, vertical_ia, atack_ia, jump_ia, shield_ia;
 
     // Componentes y referencias
     public Rigidbody2D rig;
@@ -38,8 +38,6 @@ public class LinkController : MonoBehaviour
 
     private Vector2 currentCheckpoint;
     private bool isBeingPulled = false;
-
-    [SerializeField] private InventoryManager inventoryManager;
 
     private static LinkController linkController;
 
@@ -67,7 +65,6 @@ public class LinkController : MonoBehaviour
         vertical_ia = map.FindActionMap("Movement").FindAction("Vertical");
         atack_ia = map.FindActionMap("Atack").FindAction("Atack");
         jump_ia = map.FindActionMap("Movement").FindAction("Jump");
-        inventory_ia = map.FindActionMap("Inventory").FindAction("OpenInventory");
         shield_ia = map.FindActionMap("Defense").FindAction("Shield");
 
         // Obtención de componentes
@@ -101,18 +98,6 @@ public class LinkController : MonoBehaviour
 
         // Lectura del input de salto
         float mj = jump_ia.ReadValue<float>();
-
-        /*if (inventory_ia.triggered)
-        {
-            if (!inventoryManager.enabled)
-            {
-                inventoryManager.enabled = false;
-            }
-            else
-            {
-                inventoryManager.enabled = true;
-            }
-        }*/
     }
 
     // Cambia el estado del jugador

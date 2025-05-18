@@ -9,6 +9,8 @@ public class LootChestController : ActionableMapObject
     [SerializeField] GameObject effect;
     [SerializeField] GameObject item;
 
+    private bool canOpen;
+
     private void Update()
     {
         if (isHidden)
@@ -19,7 +21,13 @@ public class LootChestController : ActionableMapObject
 
     public void OpenChest()
     {
-        AudioManager.instance.PlaySFX(AudioManager.instance.chestOpen);
+        if (canOpen)
+        {
+            canOpen = false;
+            AudioManager.instance.PlaySFX(AudioManager.instance.chestOpen);
+            gameObject.GetComponent<SpriteRenderer>().sprite = openedSprite;
+        }
+        
     }
 
     public override void Activate()
@@ -40,5 +48,14 @@ public class LootChestController : ActionableMapObject
     {
         gameObject.GetComponent<SpriteRenderer>().enabled = state;
         gameObject.GetComponent<BoxCollider2D>().enabled = state;
+        canOpen = state;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Player")
+        {
+            OpenChest();
+        }
     }
 }
