@@ -10,6 +10,7 @@ public class StatsManager : MonoBehaviour
     public int score;
 
     public static StatsManager Instance;
+    private float _sessionStartTime;
 
     private void Awake()
     {
@@ -17,6 +18,7 @@ public class StatsManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
+            _sessionStartTime = Time.time;
         }
         else
         {
@@ -26,6 +28,8 @@ public class StatsManager : MonoBehaviour
 
     private void Update()
     {
+        playTime = Mathf.FloorToInt(Time.time - _sessionStartTime);
+
         if (GameManager.instance != null)
         {
             killCount = GameManager.instance.GetPlayerKills();
@@ -33,7 +37,6 @@ public class StatsManager : MonoBehaviour
         }
     }
 
-    // Getters y setters de las estadisticas a guardar en la base de datos
     public string GetPlayerName() => playerName;
     public void SetPlayerName(string newName) => playerName = newName;
     public int GetKillCount() => killCount;
