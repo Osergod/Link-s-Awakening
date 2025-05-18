@@ -57,6 +57,11 @@ public class AudioManager : MonoBehaviour
     public AudioClip introTheme;
     public AudioClip instrumentTheme;
 
+    [Header("- Menu:")]
+    public AudioClip textLetter;
+    public AudioClip menuCursor;
+    public AudioClip menuSelect;
+
     private static AudioManager audioManager;
 
     public static AudioManager instance

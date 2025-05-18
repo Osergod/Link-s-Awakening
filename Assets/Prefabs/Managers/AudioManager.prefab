@@ -207,6 +207,9 @@ MonoBehaviour:
   playerSelectTheme: {fileID: 8300000, guid: baf8873aa6d18a8459d19e607faf8708, type: 3}
   introTheme: {fileID: 8300000, guid: 4b60b8eb3a8f82f4794dc66ed40e409e, type: 3}
   instrumentTheme: {fileID: 8300000, guid: bffbfa64618b84040878eb1af877df53, type: 3}
+  textLetter: {fileID: 8300000, guid: c8dfcf79f85a62648a3f433f14c1839d, type: 3}
+  menuCursor: {fileID: 8300000, guid: d0fec9cf1ef361e4caa7585dac65267c, type: 3}
+  menuSelect: {fileID: 8300000, guid: 2cd855d25b7134843990febc9a588051, type: 3}
 --- !u!1 &8574887734781252133
 GameObject:
   m_ObjectHideFlags: 0
