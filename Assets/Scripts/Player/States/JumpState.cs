@@ -15,6 +15,7 @@ public class JumpState : IPlayerState
     public void Enter(LinkController link)
     {
         // Inicialización del salto
+        AudioManager.instance.PlaySFX(AudioManager.instance.linkJump);
         this.link = link;
         jumpTimer = jumpDuration;
         float mx = link.horizontal_ia.ReadValue<float>();
@@ -24,8 +25,8 @@ public class JumpState : IPlayerState
 
         // Aplicar transformaciones visuales del salto
         link.transform.position += Vector3.up * 1;
-        link.shadow.transform.localPosition = Vector3.down * 1;
-        link.transform.localScale += Vector3.up * 1 / 4;
+        link.shadow.transform.localPosition = Vector3.down * 1.5f;
+        //link.transform.localScale += Vector3.up * 1 / 4;
 
         link.OnJumping = true;
         SetStairsTrigger(false);
@@ -37,10 +38,11 @@ public class JumpState : IPlayerState
         ResetAnimation();
 
         link.transform.position += Vector3.down * 1;
-        link.shadow.transform.localPosition = Vector3.up * -0.5f;
-        link.transform.localScale += Vector3.down * 1 / 4;
+        link.shadow.transform.localPosition = new Vector2(0, -0.3f);
+       //link.transform.localScale += Vector3.down * 1 / 4;
 
-        link.OnJumping = false;
+       link.OnJumping = false;
+        AudioManager.instance.PlaySFX(AudioManager.instance.linkLand);
         SetStairsTrigger(true);
     }
 

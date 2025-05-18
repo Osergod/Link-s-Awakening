@@ -11,6 +11,7 @@ public class ShieldState : IPlayerState
     public void Enter(LinkController link)
     {
         // Activa el estado de defensa: congela movimiento, orienta el escudo y gestiona colisiones enemigas
+        AudioManager.instance.PlaySFX(AudioManager.instance.useShield);
         this.link = link;
         defenseTimer = defenseMinDuration;
 

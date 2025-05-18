@@ -4,16 +4,11 @@ using UnityEngine;
 
 public class PlayMusicOnEnter : MonoBehaviour
 {
-    private MoldormController boss;
-
-    private void Start()
-    {
-        boss = GetComponentInChildren<MoldormController>();
-    }
+    [SerializeField] MoldormController boss;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+        if (collision.tag == "Player" && !boss.GetIsDead())
         {
             AudioManager.instance.ReplaceMusicPlaying(AudioManager.instance.bossTheme);
         }
@@ -24,10 +19,6 @@ public class PlayMusicOnEnter : MonoBehaviour
         if (collision.tag == "Player" && !boss.GetIsDead())
         {
             AudioManager.instance.ResumePreviousMusic();
-        }
-        else if (collision.tag == "Player" && boss.GetIsDead())
-        {
-            AudioManager.instance.PlayMusic(AudioManager.instance.instrumentTheme);
         }
     }
 }

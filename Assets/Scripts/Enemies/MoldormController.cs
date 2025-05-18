@@ -289,6 +289,7 @@ public class MoldormController : Enemy
 
         AudioManager.instance.PlaySFX(AudioManager.instance.bossExplode);
         Destroy(gameObject);
+        AudioManager.instance.PlayMusic(AudioManager.instance.instrumentTheme);
     }
 
     public bool GetIsDead()

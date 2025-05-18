@@ -53,7 +53,13 @@ public class MovableRockController : ActionableMapObject
             isActive = true;
             AudioManager.instance.PlaySFX(AudioManager.instance.rockPush);
         }
+
         transform.position = Vector3.MoveTowards(transform.position, targetSpot.transform.position, movingSpeed * Time.deltaTime);
+
+        if (transform.position == targetSpot.transform.position)
+        {
+            AudioManager.instance.PlaySFX(AudioManager.instance.roomSolved);
+        }
     }
 
     public IEnumerator MoveRock(Collider2D collision)

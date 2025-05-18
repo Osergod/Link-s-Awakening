@@ -1,9 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
+    private string previousScene;
+
     [Header("Audio Source")]
     [SerializeField] AudioSource musicSource;
     [SerializeField] AudioSource SFXSource;
@@ -42,6 +46,7 @@ public class AudioManager : MonoBehaviour
 
     [Header("- Items:")]
     public AudioClip swordSwing;
+    public AudioClip useShield;
 
     [Header("- Music:")]
     public AudioClip dungeonTheme;
@@ -70,11 +75,42 @@ public class AudioManager : MonoBehaviour
         return audioManager;
     }
 
-    private void Start()
+    private void Awake()
     {
-        musicSource.clip = dungeonTheme;
-        musicSource.Play();
-        previousMusicSource = musicSource.clip;
+        if (audioManager != null && audioManager != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        audioManager = this;
+        DontDestroyOnLoad(gameObject);
+    }
+
+    private void Update()
+    {
+        if (SceneManager.GetActiveScene().name != previousScene)
+        {
+            switch (SceneManager.GetActiveScene().name)
+            {
+                case "MainMenu":
+                    musicSource.Stop();
+                    musicSource.clip = introTheme;
+                    break;
+                case "SampleScene":
+                    musicSource.Stop();
+                    musicSource.clip = villageTheme;
+                    break;
+                case "Dungeon1":
+                    musicSource.Stop();
+                    musicSource.clip = dungeonTheme;
+                    break;
+            }
+
+            previousScene = SceneManager.GetActiveScene().name;
+            musicSource.Play();
+            previousMusicSource = musicSource.clip;
+        }
     }
 
     public void PlaySFX(AudioClip clip)
