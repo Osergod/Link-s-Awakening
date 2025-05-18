@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LosingScreen.unity
     guid: 670d18e8e94a89149a5c3acb96e8166c
+  - enabled: 1
+    path: Assets/Scenes/WinningScreen.unity
+    guid: 348a4969e14ae1e4997342eb3307826a
   m_configObjects: {}

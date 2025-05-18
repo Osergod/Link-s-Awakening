@@ -192,7 +192,7 @@ public class LinkController : MonoBehaviour
     public IEnumerator Dead_ReloadSceneAfterFall()
     {
         yield return new WaitForSeconds(1.2f);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene(3);
     }
 
     // Movimiento y estado
