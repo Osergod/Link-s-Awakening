@@ -28,6 +28,7 @@ public class PlayerHUD : MonoBehaviour
         score.text = GameManager.instance.GetScore().ToString();
         keys.text = GameManager.instance.GetKeys().ToString();
         bombs.text = GameManager.instance.GetBombs().ToString();
+        rupees.text = GameManager.instance.GetRupees().ToString();
 
         timerTime += Time.deltaTime;
         if(timerTime < 0)

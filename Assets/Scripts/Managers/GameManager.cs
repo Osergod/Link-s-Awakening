@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int score;
     [SerializeField] private int keys = 0;
     [SerializeField] private int bombs = 0;
+    [SerializeField] private int rupees = 0;
 
     [Header("Items For Inventory")]
     [SerializeField] private InventoryItem keyItem;
@@ -112,6 +113,16 @@ public class GameManager : MonoBehaviour
     public int GetBombs()
     {
         return bombs;
+    }
+
+    public void IncrementRupees(int quantity)
+    {
+        rupees += quantity;
+    }
+
+    public int GetRupees()
+    {
+        return rupees;
     }
 
     public bool GetPlayerJumping()
