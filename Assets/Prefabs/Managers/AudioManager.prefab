@@ -201,6 +201,9 @@ MonoBehaviour:
   burst: {fileID: 8300000, guid: 9d4b46287ed3b4343b807d0d45bd9f95, type: 3}
   swordSwing: {fileID: 8300000, guid: c3f3c6191e1f7d8418582d0f5023c911, type: 3}
   useShield: {fileID: 8300000, guid: 06687f0328c99f8498754d503518edc4, type: 3}
+  getItem: {fileID: 8300000, guid: dc81077038b9fcc498839d4a1a9f18d7, type: 3}
+  getRupee: {fileID: 8300000, guid: c51f0b4f72a177949aa7b322ccb9394b, type: 3}
+  getInstrument: {fileID: 8300000, guid: 9b07bdbe9423f5b44919b1bc2563baf8, type: 3}
   dungeonTheme: {fileID: 8300000, guid: a801119bc50130843b1b10cf5d744afa, type: 3}
   houseTheme: {fileID: 8300000, guid: 34f76aba0c4be454bb5361f636ffff0e, type: 3}
   villageTheme: {fileID: 8300000, guid: d9f73652752129543aa3d1511bab40e9, type: 3}

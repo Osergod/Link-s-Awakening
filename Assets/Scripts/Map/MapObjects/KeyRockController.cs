@@ -16,10 +16,10 @@ public class KeyRockController : ActionableMapObject
     {
         if (collision.tag == "Player")
         {
-            if (LinkController.instance.GetKeys() > 0)
+            if (GameManager.instance.GetKeys() > 0)
             {
                 StartCoroutine(DestroyRock());
-                LinkController.instance.DecrementKeys();
+                GameManager.instance.DecrementKeys();
             }
         }
     }

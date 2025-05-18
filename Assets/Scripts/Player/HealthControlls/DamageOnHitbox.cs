@@ -8,7 +8,7 @@ public class DamageOnHitbox : MonoBehaviour
     // Detecta cuando un enemigo permanece en el área de daño
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.CompareTag("Enemy") && !isDamaging)
+        if (collision.CompareTag("Enemy") && !isDamaging && !GameManager.instance.GetPlayerJumping())
         {
             PlayerHealth playerHealth = GetComponentInParent<PlayerHealth>();
             StartCoroutine(ApplyDamageOverTime(collision.gameObject));

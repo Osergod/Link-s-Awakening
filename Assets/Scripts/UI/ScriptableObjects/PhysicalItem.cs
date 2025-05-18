@@ -14,6 +14,7 @@ public class PhysicalItem : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            AudioManager.instance.PlaySFX(AudioManager.instance.getItem);
             AddItemInventory();
             Destroy(this.gameObject);
         }

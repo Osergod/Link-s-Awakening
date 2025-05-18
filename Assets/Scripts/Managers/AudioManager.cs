@@ -45,6 +45,9 @@ public class AudioManager : MonoBehaviour
     [Header("- Items:")]
     public AudioClip swordSwing;
     public AudioClip useShield;
+    public AudioClip getItem;
+    public AudioClip getRupee;
+    public AudioClip getInstrument;
 
     [Header("- Music:")]
     public AudioClip dungeonTheme;

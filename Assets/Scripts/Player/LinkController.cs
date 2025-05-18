@@ -3,13 +3,13 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using Unity.VisualScripting;
 
 public class LinkController : MonoBehaviour
 {
     // Configuración de movimiento
     [SerializeField] public float velocidad = 5f;
     public bool IsOnStairs = false;
-    [SerializeField] int keys;  // Cantidad de llaves recolectadas
 
     // Modificadores de movimiento
     public float speedYModifier = 1;
@@ -183,10 +183,6 @@ public class LinkController : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
-    // Manejo de llaves
-    public int GetKeys() => keys;
-    public void DecrementKeys() => keys--;
-
     // Movimiento y estado
     public float GetHorizontalMovement() => horizontal_ia.ReadValue<float>();
     public void Death() => ChangeState(new DeadControl());
@@ -206,5 +202,10 @@ public class LinkController : MonoBehaviour
     public bool GetIsBeingPulled()
     {
         return isBeingPulled;
+    }
+
+    public void SetHasFeather(bool hasFeather)
+    {
+        this.HasFeather = hasFeather;
     }
 }

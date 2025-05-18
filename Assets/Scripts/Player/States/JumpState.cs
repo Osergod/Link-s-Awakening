@@ -31,7 +31,7 @@ public class JumpState : IPlayerState
         link.transform.position += Vector3.up * 1;
         link.shadow.transform.localPosition = Vector3.down * 1.5f;
         //link.transform.localScale += Vector3.up * 1 / 4;
-
+        GameManager.instance.SetPlayerJumping(true);
         link.OnJumping = true;
         SetStairsTrigger(false);
     }
@@ -43,6 +43,7 @@ public class JumpState : IPlayerState
 
         link.transform.position += Vector3.down * 1;
         link.shadow.transform.localPosition = new Vector2(0, -0.3f);
+        GameManager.instance.SetPlayerJumping(false);
         //link.transform.localScale += Vector3.down * 1 / 4;
 
         link.OnJumping = false;

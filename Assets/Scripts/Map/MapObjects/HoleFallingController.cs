@@ -7,17 +7,17 @@ public class HoleFallingController : MonoBehaviour
     [SerializeField] GameObject effect;
     [SerializeField] float fallDelay;
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    /*private void OnTriggerEnter2D(Collider2D collision)
     {
 
-        if (collision.tag == "Player" && !LinkController.instance.GetIsBeingPulled())
+        if (collision.tag == "Player" && !LinkController.instance.GetIsBeingPulled() && !GameManager.instance.GetPlayerJumping())
         {
             LinkController.instance.SetIsBeingPulled(true);
             LinkController.instance.transform.position = Vector2.MoveTowards(LinkController.instance.transform.position, transform.position, 5);
             AudioManager.instance.PlaySFX(AudioManager.instance.linkFall);
             LinkController.instance.ChangeState(new FallState());
         }
-    }
+    }*/
 
     private void OnTriggerStay2D(Collider2D collision)
     {
@@ -28,6 +28,14 @@ public class HoleFallingController : MonoBehaviour
             collision.GetComponent<Enemy>().enabled = false;
             collision.GetComponent<Collider2D>().enabled = false;
             StartCoroutine(DestroyEnemy(collision));
+        }
+
+        if (collision.tag == "Player" && !LinkController.instance.GetIsBeingPulled() && !GameManager.instance.GetPlayerJumping())
+        {
+            LinkController.instance.SetIsBeingPulled(true);
+            LinkController.instance.transform.position = Vector2.MoveTowards(LinkController.instance.transform.position, transform.position, 5);
+            AudioManager.instance.PlaySFX(AudioManager.instance.linkFall);
+            LinkController.instance.ChangeState(new FallState());
         }
     }
 
@@ -43,6 +51,5 @@ public class HoleFallingController : MonoBehaviour
             collision.GetComponent<Enemy>().DisableEffect();
             collision.GetComponent<Enemy>().Die();
         }
-        
     }
 }

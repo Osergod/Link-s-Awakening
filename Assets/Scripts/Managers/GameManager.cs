@@ -7,6 +7,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private string playerName = "";
     [SerializeField] private int playerKills;
     [SerializeField] private int score;
+    [SerializeField] private int keys = 0;
+    private bool playerJumping = false;
 
     private static GameManager gameManager;
 
@@ -67,5 +69,30 @@ public class GameManager : MonoBehaviour
     public void IncrementScore(int newScore)
     {
         score += newScore;
+    }
+
+    public void IncrementKeys()
+    {
+        keys ++;
+    }
+
+    public void DecrementKeys()
+    {
+        keys--;
+    }
+
+    public int GetKeys()
+    {
+        return keys;
+    }
+
+    public bool GetPlayerJumping()
+    {
+        return playerJumping;
+    }
+
+    public void SetPlayerJumping(bool playerJumping)
+    {
+        this.playerJumping = playerJumping;
     }
 }

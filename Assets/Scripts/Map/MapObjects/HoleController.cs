@@ -10,7 +10,7 @@ public class HoleController : MonoBehaviour
     {
         Vector3 towardsCenter;
 
-        if (collision.tag == "Player")
+        if (collision.tag == "Player" && !GameManager.instance.GetPlayerJumping())
         {
             towardsCenter = transform.position - LinkController.instance.transform.position;
             towardsCenter.Normalize();

@@ -203,7 +203,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   velocidad: 5
   IsOnStairs: 0
-  keys: 4
+  keys: 0
   speedYModifier: 1
   HasFeather: 0
   map: {fileID: -944628639613478452, guid: 27471e3c76bd1444d91821a1ee60a27e, type: 3}
