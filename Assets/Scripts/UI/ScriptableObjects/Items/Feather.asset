@@ -18,6 +18,7 @@ MonoBehaviour:
   nameItem: Feather
   itemDesc: 
   itemImage: {fileID: -1560310585, guid: 67d76df4f6a610449b67aeca55c4c2ba, type: 3}
-  numberHeldItem: 3
+  numberHeldItem: 0
   usableItem: 1
   uniqueItem: 0
+  typeOfItem: 

@@ -19,6 +19,11 @@ public class InventoryManager : MonoBehaviour
     public PlayerInventory playerInventory;
     public InventoryItem currentItem;
 
+    private void Start()
+    {
+        this.enabled = false;
+    }
+
     public void SetTextAButton(string desc, bool activeButton)
     {
         textDesc.text = desc;
@@ -50,6 +55,7 @@ public class InventoryManager : MonoBehaviour
             }
         }
     }
+
     void OnEnable()
     {
         ClearSlots();

@@ -7,6 +7,7 @@ public class LootChestController : ActionableMapObject
     [SerializeField] bool isHidden = true;
     [SerializeField] Sprite openedSprite;
     [SerializeField] GameObject effect;
+    [SerializeField] GameObject item;
 
     private void Update()
     {

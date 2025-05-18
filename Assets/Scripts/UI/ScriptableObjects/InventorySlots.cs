@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-//using Microsoft.Unity.VisualStudio.Editor;
 
 
 public class InventorySlots : MonoBehaviour
@@ -19,6 +18,15 @@ public class InventorySlots : MonoBehaviour
     public string itemDesc;*/
     public InventoryItem thisItem;
     public InventoryManager thisManager;
+
+    private void Update()
+    {
+        if (thisItem)
+        {
+            itemImage.sprite = thisItem.itemImage;
+            itemNumberText.text = "" + thisItem.numberHeldItem;
+        }
+    }
 
     public void SetUp(InventoryItem newItem, InventoryManager newManager)
     {

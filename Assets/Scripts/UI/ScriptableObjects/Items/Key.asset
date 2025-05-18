@@ -18,6 +18,7 @@ MonoBehaviour:
   nameItem: Keys
   itemDesc: 
   itemImage: {fileID: 935912945, guid: 67d76df4f6a610449b67aeca55c4c2ba, type: 3}
-  numberHeldItem: 0
+  numberHeldItem: 1
   usableItem: 0
   uniqueItem: 1
+  typeOfItem: keys

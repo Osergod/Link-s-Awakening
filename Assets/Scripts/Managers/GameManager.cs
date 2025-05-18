@@ -8,6 +8,12 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int playerKills;
     [SerializeField] private int score;
     [SerializeField] private int keys = 0;
+    [SerializeField] private int bombs = 0;
+
+    [Header("Items For Inventory")]
+    [SerializeField] private InventoryItem keyItem;
+    [SerializeField] private InventoryItem bombItem;
+
     private bool playerJumping = false;
     private bool hasMap = false;
 
@@ -39,6 +45,12 @@ public class GameManager : MonoBehaviour
             gameManager = FindObjectOfType<GameManager>();
         }
         return gameManager;
+    }
+
+    private void Update()
+    {
+        keyItem.numberHeldItem = keys;
+        bombItem.numberHeldItem = bombs;
     }
 
     public void SetPlayerName(string newName)
@@ -87,6 +99,21 @@ public class GameManager : MonoBehaviour
         return keys;
     }
 
+    public void IncrementBombs()
+    {
+        bombs++;
+    }
+
+    public void DecrementBombs()
+    {
+        bombs--;
+    }
+
+    public int GetBombs()
+    {
+        return bombs;
+    }
+
     public bool GetPlayerJumping()
     {
         return playerJumping;
@@ -105,5 +132,19 @@ public class GameManager : MonoBehaviour
     public bool GetHasMap()
     {
         return hasMap;
+    }
+
+    public int GetItemForInventory(string item)
+    {
+        switch (item)
+        {
+            case "keys":
+                return keys;
+                break;
+            case "bombs":
+                return bombs;
+        }
+
+        return 0;
     }
 }

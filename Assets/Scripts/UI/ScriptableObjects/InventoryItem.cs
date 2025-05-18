@@ -25,11 +25,11 @@ public class InventoryItem : ScriptableObject
 
     public void ConsumeItem() 
     {
-        numberHeldItem--;
+        /*numberHeldItem--;
         if(numberHeldItem <= 0) 
         { 
             numberHeldItem = 0;
-        }
+        }*/
     }
 
     /*public void Show()

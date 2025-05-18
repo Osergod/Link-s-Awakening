@@ -26,12 +26,12 @@ public class PhysicalItem : MonoBehaviour
         {
             if (inventory.inventoryItems.Contains(item))
             {
-                item.numberHeldItem++;
+                //item.numberHeldItem++;
             }
             else 
             {
                 inventory.inventoryItems.Add(item);
-                item.numberHeldItem++;
+                //item.numberHeldItem++;
             }
         }
     }
