@@ -11,6 +11,14 @@ public class LootChestController : ActionableMapObject
 
     private bool canOpen;
 
+    private void Start()
+    {
+        if (!isHidden)
+        {
+            canOpen = true;
+        }
+    }
+
     private void Update()
     {
         if (isHidden)
@@ -41,6 +49,7 @@ public class LootChestController : ActionableMapObject
         yield return new WaitForSeconds(1.5f);
         LinkController.instance.map.Enable();
         LinkController.instance.HideItem();
+        LinkController.instance.anim.SetTrigger("stopAchievement");
     }
 
     public override void Activate()

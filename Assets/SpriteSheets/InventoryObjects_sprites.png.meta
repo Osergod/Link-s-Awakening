@@ -153,7 +153,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1
-        y: 19
+        y: 37
         width: 8
         height: 14
       alignment: 0
@@ -174,7 +174,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 11
-        y: 19
+        y: 37
         width: 8
         height: 14
       alignment: 0
@@ -195,7 +195,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 21
-        y: 19
+        y: 37
         width: 8
         height: 14
       alignment: 0
@@ -216,7 +216,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 31
-        y: 19
+        y: 37
         width: 7
         height: 13
       alignment: 0
@@ -237,7 +237,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 40
-        y: 20
+        y: 38
         width: 8
         height: 10
       alignment: 0
@@ -258,7 +258,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1
-        y: 1
+        y: 19
         width: 8
         height: 16
       alignment: 0
@@ -279,7 +279,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 11
-        y: 1
+        y: 19
         width: 7
         height: 16
       alignment: 0
@@ -300,7 +300,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 22
-        y: 3
+        y: 21
         width: 8
         height: 13
       alignment: 0
@@ -321,6 +321,48 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 34
+        y: 19
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05848df5c6afe2244a5036b0ae8ab4d2
+      internalID: -135158238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InventoryObjects_sprites_9
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 19
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68e89cb4cf0aaff42bc2f76588b1aded
+      internalID: -1617663152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InventoryObjects_sprites_10
+      rect:
+        serializedVersion: 2
+        x: 1
         y: 1
         width: 16
         height: 16
@@ -331,8 +373,92 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 05848df5c6afe2244a5036b0ae8ab4d2
-      internalID: -135158238
+      spriteID: 3b4be3f96346f904eb03ac1aedb717cf
+      internalID: 1360415913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InventoryObjects_sprites_11
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 1
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca9ab53a7fb5db1408261921195252f3
+      internalID: 133785234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InventoryObjects_sprites_12
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 1
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba79166423203b54aa46aded0aeea7b2
+      internalID: -1150396393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InventoryObjects_sprites_13
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 1
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9cb4098264d38b24194c10c02f087738
+      internalID: 1863877500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InventoryObjects_sprites_14
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 37
+        width: 7
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78fdf993f00e81b479524aec08244e7e
+      internalID: 130694327
       vertices: []
       indices: 
       edges: []
@@ -350,6 +476,11 @@ TextureImporter:
     nameFileIdTable:
       InventoryObjects_sprites_0: -1134749533
       InventoryObjects_sprites_1: -1103587818
+      InventoryObjects_sprites_10: 1360415913
+      InventoryObjects_sprites_11: 133785234
+      InventoryObjects_sprites_12: -1150396393
+      InventoryObjects_sprites_13: 1863877500
+      InventoryObjects_sprites_14: 130694327
       InventoryObjects_sprites_2: -186522879
       InventoryObjects_sprites_3: 935912945
       InventoryObjects_sprites_4: 351511094
@@ -357,6 +488,7 @@ TextureImporter:
       InventoryObjects_sprites_6: -1560310585
       InventoryObjects_sprites_7: 512786165
       InventoryObjects_sprites_8: -135158238
+      InventoryObjects_sprites_9: -1617663152
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

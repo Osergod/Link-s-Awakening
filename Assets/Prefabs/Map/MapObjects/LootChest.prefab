@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8060588387919620254}
   - component: {fileID: 3485153853015916556}
   - component: {fileID: 7653881429535678791}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LootChest
   m_TagString: Untagged
   m_Icon: {fileID: 0}

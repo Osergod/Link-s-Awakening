@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerHUD : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class PlayerHUD : MonoBehaviour
     [SerializeField] TMP_Text rupees;
     [SerializeField] TMP_Text keys;
     [SerializeField] TMP_Text bombs;
+    [SerializeField] Image map;
 
     private float initialTime;
     private float timerTime;
@@ -41,5 +43,14 @@ public class PlayerHUD : MonoBehaviour
         cents = (int)((timerTime - (int)timerTime) * 100f);
 
         time.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+
+        if (GameManager.instance.GetHasMap())
+        {
+            map.enabled = true;
+        }
+        else
+        {
+            map.enabled = false;
+        }
     }
 }

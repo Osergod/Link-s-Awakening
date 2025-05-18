@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 using System.Collections;
 using UnityEngine.SceneManagement;
 using Unity.VisualScripting;
+using UnityEditor.Animations;
 
 public class LinkController : MonoBehaviour
 {
@@ -41,6 +42,7 @@ public class LinkController : MonoBehaviour
 
     [SerializeField] GameObject placeHolder;
     [SerializeField] GameObject bomb;
+    [SerializeField] GameObject hitbox;
 
     private static LinkController linkController;
 
@@ -223,11 +225,18 @@ public class LinkController : MonoBehaviour
     {
         //placeHolder.GetComponent<SpriteRenderer>().enabled = true;
         placeHolder.GetComponent<SpriteRenderer>().sprite = newSprite;
+        hitbox.SetActive(false);
     }
 
     public void HideItem()
     {
         //placeHolder.GetComponent<SpriteRenderer>().enabled = false;
         placeHolder.GetComponent<SpriteRenderer>().sprite = null;
+        hitbox.SetActive(true);
+    }
+
+    public Vector2 GetPlaceHolderPos()
+    {
+        return placeHolder.transform.position;
     }
 }

@@ -227,7 +227,7 @@ public class PokerManController : Enemy
     {
         yield return new WaitForSeconds(waitTime);
 
-        AudioManager.instance.PlaySFX(AudioManager.instance.error);
+        //AudioManager.instance.PlaySFX(AudioManager.instance.error);
        
 
         for (int i = 0; i < pokerManControllers.Length; i++)

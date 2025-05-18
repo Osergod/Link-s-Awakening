@@ -159,6 +159,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7158029888314318369}
   - component: {fileID: 3408578021874999471}
+  - component: {fileID: 7422809508444113765}
   m_Layer: 8
   m_Name: ItemPlaceHolder
   m_TagString: Untagged
@@ -233,6 +234,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &7422809508444113765
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 365736564382972867}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1473571407825001124
 GameObject:
   m_ObjectHideFlags: 0
@@ -336,6 +358,15 @@ MonoBehaviour:
     m_Interactions: 
     m_SingletonActionBindings: []
     m_Flags: 0
+  bombing_ia:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: bf21ff83-28d2-4d4c-9f34-7346dac8fd9c
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
   rig: {fileID: 2701549219623962518}
   trans: {fileID: 860660042454564613}
   shadow: {fileID: 480319427271345925}
@@ -345,6 +376,7 @@ MonoBehaviour:
   shieldCollider: {fileID: 0}
   placeHolder: {fileID: 365736564382972867}
   bomb: {fileID: 2807391064945304354, guid: 539c945d38416704a84f96b41e871077, type: 3}
+  hitbox: {fileID: 5931211578833292413}
 --- !u!114 &1354956884579573860
 MonoBehaviour:
   m_ObjectHideFlags: 0
