@@ -24,7 +24,7 @@ public class InstrumentItem : Item
     public IEnumerator ChangeScene()
     {
         yield return new WaitForSeconds(6);
-        SceneManager.LoadScene(4);
+        SceneManager.LoadScene("TestMenu");
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
