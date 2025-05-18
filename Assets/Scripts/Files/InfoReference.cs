@@ -22,7 +22,5 @@ public class InfoReference : MonoBehaviour
         player.PlayerName = this.namePlayer.name;
         player.PlayerScore = this.scorePlayer.score;
         player.PlayerRunTime = this.runtimePlayer.runtime;
-        
-        //llamada a info
     }
 }

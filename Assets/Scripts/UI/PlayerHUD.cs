@@ -33,7 +33,7 @@ public class PlayerHUD : MonoBehaviour
         rupees.text = GameManager.instance.GetRupees().ToString();
 
         timerTime += Time.deltaTime;
-        if(timerTime < 0)
+        if (timerTime < 0)
         {
             timerTime = 0;
         }
